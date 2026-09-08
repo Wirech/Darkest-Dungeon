@@ -1,0 +1,65 @@
+using DarkestDungeon.Api.Contracts.Catalogo;
+using DarkestDungeon.Application.Abstractions;
+using Microsoft.AspNetCore.Mvc;
+
+namespace DarkestDungeon.Api.Controllers.Catalogo;
+
+[Route("itens")]
+public sealed class ItensController : EntidadeControllerBase
+{
+    private readonly IItemService service;
+
+    public ItensController(IItemService service)
+    {
+        this.service = service;
+    }
+
+    [HttpGet("{id:guid}")]
+    public async Task<ActionResult> Obter(Guid id, CancellationToken cancellationToken) =>
+        MapearResultado(await service.ObterAsync(id, cancellationToken), valor => valor);
+}
+
+[Route("armas")]
+public sealed class ArmasController : EntidadeControllerBase
+{
+    private readonly IItemService service;
+
+    public ArmasController(IItemService service)
+    {
+        this.service = service;
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Criar([FromBody] CriarArmaRequest request, CancellationToken cancellationToken) =>
+        MapearCriacao(await service.CriarArmaAsync(request.ParaCommand(), cancellationToken), v => v, v => $"/itens/{v.Id}");
+}
+
+[Route("armaduras")]
+public sealed class ArmadurasController : EntidadeControllerBase
+{
+    private readonly IItemService service;
+
+    public ArmadurasController(IItemService service)
+    {
+        this.service = service;
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Criar([FromBody] CriarArmaduraRequest request, CancellationToken cancellationToken) =>
+        MapearCriacao(await service.CriarArmaduraAsync(request.ParaCommand(), cancellationToken), v => v, v => $"/itens/{v.Id}");
+}
+
+[Route("acessorios")]
+public sealed class AcessoriosController : EntidadeControllerBase
+{
+    private readonly IItemService service;
+
+    public AcessoriosController(IItemService service)
+    {
+        this.service = service;
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Criar([FromBody] CriarAcessorioRequest request, CancellationToken cancellationToken) =>
+        MapearCriacao(await service.CriarAcessorioAsync(request.ParaCommand(), cancellationToken), v => v, v => $"/itens/{v.Id}");
+}

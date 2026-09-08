@@ -1,0 +1,8 @@
+﻿heroi.sprite.idle.png
+size: 1,1
+filter: Linear,Linear
+
+regiao_a
+  xy: 0,0
+regiao_b
+  xy: 0,0

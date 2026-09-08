@@ -1,0 +1,48 @@
+# .NET
+bin/
+obj/
+TestResults/
+*.user
+*.suo
+*.cache
+*.nupkg
+packages/
+
+# Build output
+dist/
+build/
+artifacts/
+
+# Logs
+*.log
+logs/
+
+# Secrets and environment
+.env
+.env.*
+*.secret.json
+secrets/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
+# SQL Server local artifacts
+*.mdf
+*.ldf
+*.bak
+*.trn
+
+# Coverage
+coverage/
+coverage.*
+
+# Acervo gerado pelo coletor de mídias
+assets/herois/

@@ -1,0 +1,307 @@
+openapi: 3.1.0
+info:
+  title: Darkest Dungeon API - Base e Ser
+  version: 0.1.0
+  description: Contrato inicial para recursos identificáveis por ID e recurso Ser.
+servers:
+  - url: http://localhost:5000
+    description: Ambiente local
+paths:
+  /seres/{id}:
+    get:
+      summary: Consultar Ser por ID
+      description: Retorna um Ser existente usando o contrato padronizado de recurso identificável.
+      operationId: obterSerPorId
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Identificador único do Ser.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Ser encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SerResponse'
+        '400':
+          description: ID inválido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErroResponse'
+              examples:
+                idInvalido:
+                  value:
+                    mensagem: Identificador inválido.
+        '404':
+          description: Ser não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErroResponse'
+              examples:
+                naoEncontrado:
+                  value:
+                    mensagem: Ser não encontrado.
+  /seres:
+    post:
+      summary: Cadastrar Ser
+      description: Cria um Ser com atributos de identificação, vida, combate, defesa, mobilidade, turno e resistências.
+      operationId: criarSer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarSerRequest'
+      responses:
+        '201':
+          description: Ser criado.
+          headers:
+            Location:
+              description: URL para consulta do Ser criado.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SerResponse'
+        '400':
+          description: Dados inválidos.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErroResponse'
+              examples:
+                hpInvalido:
+                  value:
+                    mensagem: HP Atual não pode ser maior que HP máximo.
+                    erros:
+                      - campo: hpAtual
+                        mensagem: HP Atual deve ser menor ou igual ao HP máximo.
+                danoInvalido:
+                  value:
+                    mensagem: Dano base mínimo não pode ser maior que Dano base máximo.
+                    erros:
+                      - campo: danoBaseMinimo
+                        mensagem: Dano base mínimo deve ser menor ou igual ao Dano base máximo.
+                resistenciaInvalida:
+                  value:
+                    mensagem: Resistência inválida.
+                    erros:
+                      - campo: resistencias.atordoamento
+                        mensagem: Resistência de Atordoamento deve estar entre 0 e 100.
+components:
+  schemas:
+    IdentificavelResponse:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          format: uuid
+    SerResponse:
+      allOf:
+        - $ref: '#/components/schemas/IdentificavelResponse'
+        - type: object
+          required:
+            - nome
+            - tipo
+            - hpMaximo
+            - hpAtual
+            - velocidade
+            - critico
+            - danoBaseMinimo
+            - danoBaseMaximo
+            - movimento
+            - bonusDeCritico
+            - tamanho
+            - acoesPorTurno
+            - esquiva
+            - precisao
+            - protecao
+            - nivel
+            - resistencias
+          properties:
+            nome:
+              type: string
+            tipo:
+              type: string
+            hpMaximo:
+              type: integer
+              minimum: 0
+            hpAtual:
+              type: integer
+              minimum: 0
+            velocidade:
+              type: integer
+              minimum: 0
+            critico:
+              type: number
+              minimum: 0
+              maximum: 100
+            danoBaseMinimo:
+              type: integer
+              minimum: 0
+            danoBaseMaximo:
+              type: integer
+              minimum: 0
+            movimento:
+              type: integer
+              minimum: 0
+            bonusDeCritico:
+              type: number
+              minimum: 0
+              maximum: 100
+            tamanho:
+              type: integer
+              minimum: 0
+              maximum: 4
+            acoesPorTurno:
+              type: integer
+              minimum: 0
+            esquiva:
+              type: number
+              minimum: 0
+            precisao:
+              type: number
+              minimum: 0
+            protecao:
+              type: number
+              minimum: 0
+              maximum: 100
+            nivel:
+              type: integer
+              minimum: 0
+              maximum: 6
+            resistencias:
+              $ref: '#/components/schemas/Resistencias'
+    CriarSerRequest:
+      type: object
+      required:
+        - nome
+        - tipo
+        - hpMaximo
+        - hpAtual
+        - velocidade
+        - critico
+        - danoBaseMinimo
+        - danoBaseMaximo
+        - movimento
+        - bonusDeCritico
+        - tamanho
+        - acoesPorTurno
+        - esquiva
+        - precisao
+        - protecao
+        - nivel
+        - resistencias
+      properties:
+        nome:
+          type: string
+          minLength: 1
+        tipo:
+          type: string
+          minLength: 1
+        hpMaximo:
+          type: integer
+          minimum: 0
+        hpAtual:
+          type: integer
+          minimum: 0
+        velocidade:
+          type: integer
+          minimum: 0
+        critico:
+          type: number
+          minimum: 0
+          maximum: 100
+        danoBaseMinimo:
+          type: integer
+          minimum: 0
+        danoBaseMaximo:
+          type: integer
+          minimum: 0
+        movimento:
+          type: integer
+          minimum: 0
+        bonusDeCritico:
+          type: number
+          minimum: 0
+          maximum: 100
+        tamanho:
+          type: integer
+          minimum: 0
+          maximum: 4
+        acoesPorTurno:
+          type: integer
+          minimum: 0
+        esquiva:
+          type: number
+          minimum: 0
+        precisao:
+          type: number
+          minimum: 0
+        protecao:
+          type: number
+          minimum: 0
+          maximum: 100
+        nivel:
+          type: integer
+          minimum: 0
+          maximum: 6
+        resistencias:
+          $ref: '#/components/schemas/Resistencias'
+    Resistencias:
+      type: object
+      required:
+        - atordoamento
+        - sangramento
+        - envenenamento
+        - debuff
+        - movimento
+      properties:
+        atordoamento:
+          type: number
+          minimum: 0
+          maximum: 100
+        sangramento:
+          type: number
+          minimum: 0
+          maximum: 100
+        envenenamento:
+          type: number
+          minimum: 0
+          maximum: 100
+        debuff:
+          type: number
+          minimum: 0
+          maximum: 100
+        movimento:
+          type: number
+          minimum: 0
+          maximum: 100
+    ErroResponse:
+      type: object
+      required:
+        - mensagem
+      properties:
+        mensagem:
+          type: string
+        erros:
+          type: array
+          items:
+            type: object
+            required:
+              - campo
+              - mensagem
+            properties:
+              campo:
+                type: string
+              mensagem:
+                type: string

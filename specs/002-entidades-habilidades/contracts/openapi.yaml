@@ -1,0 +1,315 @@
+openapi: 3.1.0
+info:
+  title: Darkest Dungeon API - Personagens, Inimigos e Habilidades
+  version: 0.2.0
+  description: Contrato inicial para catálogo de habilidades e entidades derivadas de Ser.
+servers:
+  - url: http://localhost:5000
+    description: Ambiente local
+paths:
+  /habilidades:
+    get:
+      summary: Listar habilidades
+      parameters:
+        - name: categoria
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [Combate, Acampamento]
+        - name: disponibilidade
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [Personagem, Inimigo, Compartilhada]
+      responses:
+        '200':
+          description: Habilidades encontradas.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HabilidadeResponse'
+    post:
+      summary: Cadastrar habilidade
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarHabilidadeRequest'
+      responses:
+        '201':
+          description: Habilidade criada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HabilidadeResponse'
+        '400':
+          $ref: '#/components/responses/DadosInvalidos'
+  /habilidades/{id}:
+    get:
+      summary: Consultar habilidade
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Habilidade encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HabilidadeResponse'
+        '404':
+          $ref: '#/components/responses/NaoEncontrado'
+  /classes-personagens/{classe}/habilidades:
+    get:
+      summary: Consultar habilidades configuradas para uma classe
+      parameters:
+        - $ref: '#/components/parameters/Classe'
+      responses:
+        '200':
+          description: Configuração da classe.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfiguracaoClasseResponse'
+    put:
+      summary: Substituir habilidades configuradas para uma classe
+      parameters:
+        - $ref: '#/components/parameters/Classe'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfigurarHabilidadesClasseRequest'
+      responses:
+        '200':
+          description: Configuração atualizada.
+        '400':
+          $ref: '#/components/responses/DadosInvalidos'
+  /personagens:
+    post:
+      summary: Criar Personagem com habilidades da classe
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarPersonagemRequest'
+      responses:
+        '201':
+          description: Personagem criado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonagemResponse'
+        '400':
+          $ref: '#/components/responses/DadosInvalidos'
+  /personagens/{id}:
+    get:
+      summary: Consultar Personagem
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Personagem encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PersonagemResponse'
+        '404':
+          $ref: '#/components/responses/NaoEncontrado'
+  /inimigos:
+    post:
+      summary: Criar Inimigo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarInimigoRequest'
+      responses:
+        '201':
+          description: Inimigo criado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InimigoResponse'
+        '400':
+          $ref: '#/components/responses/DadosInvalidos'
+  /inimigos/{id}:
+    get:
+      summary: Consultar Inimigo
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Inimigo encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InimigoResponse'
+        '404':
+          $ref: '#/components/responses/NaoEncontrado'
+  /itens:
+    post:
+      summary: Criar Item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriarItemRequest'
+      responses:
+        '201':
+          description: Item criado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemResponse'
+        '400':
+          $ref: '#/components/responses/DadosInvalidos'
+  /itens/{id}:
+    get:
+      summary: Consultar Item
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Item encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemResponse'
+        '404':
+          $ref: '#/components/responses/NaoEncontrado'
+components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    Classe:
+      name: classe
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    DadosInvalidos:
+      description: Dados inválidos.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErroResponse'
+    NaoEncontrado:
+      description: Registro não encontrado.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErroResponse'
+  schemas:
+    HabilidadeResponse:
+      type: object
+      required: [id, nome, categoria, disponibilidade]
+      properties:
+        id: { type: string, format: uuid }
+        nome: { type: string }
+        descricao: { type: string }
+        categoria: { type: string, enum: [Combate, Acampamento] }
+        disponibilidade: { type: string, enum: [Personagem, Inimigo, Compartilhada] }
+    CriarHabilidadeRequest:
+      type: object
+      required: [nome, categoria, disponibilidade]
+      properties:
+        nome: { type: string, minLength: 1 }
+        descricao: { type: string }
+        categoria: { type: string, enum: [Combate, Acampamento] }
+        disponibilidade: { type: string, enum: [Personagem, Inimigo, Compartilhada] }
+    ConfigurarHabilidadesClasseRequest:
+      type: object
+      required: [combate, acampamento]
+      properties:
+        combate:
+          type: array
+          maxItems: 6
+          items: { type: string, format: uuid }
+        acampamento:
+          type: array
+          maxItems: 6
+          items: { type: string, format: uuid }
+    ConfiguracaoClasseResponse:
+      allOf:
+        - $ref: '#/components/schemas/ConfigurarHabilidadesClasseRequest'
+    CriarPersonagemRequest:
+      type: object
+      required: [nome, classe]
+      properties:
+        nome: { type: string, minLength: 1 }
+        classe: { type: string }
+        ser: { type: object, description: Atributos comuns de Ser conforme contrato base }
+    PersonagemResponse:
+      allOf:
+        - $ref: '#/components/schemas/IdentificavelResponse'
+        - type: object
+          required: [classe, stress, chanceDeVirtude, habilidadesDeCombate, habilidadesDeAcampamento]
+          properties:
+            classe: { type: string }
+            stress: { type: integer, minimum: 0, maximum: 200 }
+            chanceDeVirtude: { type: integer, minimum: 0, maximum: 100 }
+            habilidadesDeCombate: { type: array, items: { $ref: '#/components/schemas/HabilidadePersonagemResponse' } }
+            habilidadesDeAcampamento: { type: array, items: { $ref: '#/components/schemas/HabilidadePersonagemResponse' } }
+    HabilidadePersonagemResponse:
+      type: object
+      required: [habilidadeId, habilitada, treinada, equipada]
+      properties:
+        habilidadeId: { type: string, format: uuid }
+        habilitada: { type: boolean }
+        treinada: { type: boolean }
+        equipada: { type: boolean }
+    CriarInimigoRequest:
+      type: object
+      required: [nome, tipoInimigo, habilidades]
+      properties:
+        nome: { type: string, minLength: 1 }
+        tipoInimigo: { type: string, enum: [Humano, Besta, Profano, Sobrenatural, Vampírico, Casca, Rochoso] }
+        habilidades: { type: array, items: { type: string, format: uuid } }
+    InimigoResponse:
+      allOf:
+        - $ref: '#/components/schemas/IdentificavelResponse'
+        - type: object
+          properties:
+            tipoInimigo: { type: string }
+            habilidades: { type: array, items: { type: string, format: uuid } }
+            resistenciasEfetivas: { type: object }
+    CriarItemRequest:
+      type: object
+      required: [nome]
+      properties:
+        nome: { type: string, minLength: 1 }
+        descricao: { type: string }
+    ItemResponse:
+      allOf:
+        - $ref: '#/components/schemas/IdentificavelResponse'
+        - type: object
+          required: [nome]
+          properties:
+            nome: { type: string }
+            descricao: { type: string }
+    IdentificavelResponse:
+      type: object
+      required: [id]
+      properties:
+        id: { type: string, format: uuid }
+    ErroResponse:
+      type: object
+      required: [mensagem]
+      properties:
+        mensagem: { type: string }
+        erros: { type: array, items: { type: object } }
