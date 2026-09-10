@@ -326,7 +326,49 @@ Referência: [contracts/publicacao.md](./contracts/publicacao.md) + [research.md
 
 ```powershell
 dotnet test --nologo --verbosity minimal
-# Esperado: baseline 141 + ~30 novos = ~170 verdes.
+# Esperado no merge da Feature 005 (PR #1, squash a7ce662): 206 verdes.
+```
+
+---
+
+## Resultado da validação (2026-09-10) — T137
+
+Polish pós-merge da Feature 005. `mssql-dd` **Up** (Docker 29.7.2, porta 1433). `sqlcmd` e CLI de auditoria reexecutados em 2026-09-10 12:26 UTC. `Program.cs` ainda faz seed relacional **antes** do divert CLI — por isso o job precisa do SQL mesmo lendo snapshots locais.
+
+Contratos HTTP do rascunho original usavam `http://localhost:5000/api/personagens`. Contratos **implementados**:
+
+| Rascunho do cenário | Implementado |
+|---|---|
+| `POST /api/personagens` | `POST /personagens` (Kestrel default **5140**) |
+| `POST /api/personagens/{id}/xp` | **não existe** — domínio `Personagem.GanharExperiencia` |
+| `POST /api/personagens/{id}/acampamento/equipar` | **não existe** — domínio `Personagem.EquiparHabilidadeAcampamento` |
+| `POST /api/personagens/{id}/combate/usar` | **não existe** — `NumeroDoNivel=0` bloqueia treino/equipar no domínio |
+| `GET /api/auditoria/relatorio` | implementado |
+| `POST /api/publicacao` | implementado |
+| `PersonagemDetalheDto` com `aparencia`/`experiencia`/`nivel` | **não expostos** no DTO HTTP (existem no domínio) |
+
+| # | Cenário | Status | Evidência | Gap HTTP / live |
+|---|---|---|---|---|
+| C1 | 5 níveis (219 × 5 = 1095) | **Validado (SQL live 2026-09-10)** | `sqlcmd` em `mssql-dd`: Classes=**20**, Habilidades=**219**, ClassesHabilidades=**277**, NiveisDeHabilidade=**1095**, AssetsDeClasse=**80**. Também `AplicadorDeNiveisDoWikiSnapshotTests` | — |
+| C2 | Defaults A / 0 / Curioso | **Validado (domínio)** | `PersonagemFeature005Tests.Novo_Personagem_recebe_aparencia_A_por_padrao` e `…Experiencia_zero_e_Nivel_Curioso` | `POST /personagens` não devolve `aparencia`/`experiencia`/`nivel` |
+| C3 | XP +10% (2 XP → Aprendiz; 48 → Lenda) | **Validado (domínio)** | `GanharExperiencia_com_2_XP_sobe_para_Aprendiz_e_aplica_bonus_10pct`; `…ate_48_sobe_para_Lenda_com_bonus_60pct` | Sem `POST …/xp` |
+| C4 | 4ª habilidade de acampamento | **Validado (domínio, sem teste xUnit dedicado)** | `Personagem.EquiparHabilidadeAcampamento` lança *«Apenas 3 habilidades de acampamento podem estar equipadas simultaneamente. Desequipe uma antes.»* (`T091` ainda `[~]`) | Sem `POST …/acampamento/equipar` |
+| C5 | Nivel=0 bloqueada | **Validado (domínio, via treino/equipar)** | `HabilidadeDePersonagemFeature005Tests` (`NumeroDoNivel=0` → `TreinadaPorNivel=false`); equipar sem treino: *«ainda não foi treinada (Nível 0)»* | Sem `POST …/combate/usar`; mensagem de **uso** em combate não tem endpoint |
+| C6 | Relatório + SC-008 &lt; 5 min | **Validado (live)** | `Measure-Command { dotnet run --project src/DarkestDungeon.Api -- auditoria --classe=todas }` → **19,36 s** (0,323 min) **&lt; 5 min** (SC-008). `relatorio.md` regenerado **2026-09-10 12:26:13 UTC**: **277 OK / 0 Parcial / 0 Faltando**, assets **80/80** | — |
+| C7 | Rollback atômico SC-016 | **Validado (contrato com fake)** | `PublicacaoRollbackContractTests.Falha_simulada_retorna_500_com_rollback_e_log_error_SC016` → 500 + corpo com `rollback`/`publicacaoId` | Injeção live no seed + `sqlcmd` antes/depois não reexecutada |
+| C8 | Sessões ativas FR-009c | **Validado (código + teste skip se SQL down)** | Controller: 400 `{ titulo, mensagem, sessoesAtivas }`; `DetectorDeSessoesAtivasTests` skip silencioso sem SQL | Live com 2 conexões `DarkestDungeon.Api*` não reexecutado |
+| C9 | Continuidade SC-009 | **Validado (InMemory)** | `ContinuidadeDePersonagensTests` — cria via `POST /personagens`, publica, `GET /personagens/{id}` preserva `id`/`nome` | DTO HTTP não afirma `aparencia`/`nivel`; SQL real não reexecutado |
+
+**Suíte automatizada no merge**: 206/206 verdes (PR #1 squash `a7ce662`).
+
+Live 2026-09-10 (C1 + C6):
+
+```powershell
+docker exec mssql-dd /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "Devlocal!2024" -C -d DarkestDungeon -h -1 -Q "SET NOCOUNT ON; SELECT 'Classes', COUNT(*) FROM Classes UNION ALL SELECT 'Habilidades', COUNT(*) FROM Habilidades UNION ALL SELECT 'ClassesHabilidades', COUNT(*) FROM ClassesHabilidades UNION ALL SELECT 'NiveisDeHabilidade', COUNT(*) FROM NiveisDeHabilidade UNION ALL SELECT 'AssetsDeClasse', COUNT(*) FROM AssetsDeClasse;"
+# 20 / 219 / 277 / 1095 / 80
+
+Measure-Command { dotnet run --project src/DarkestDungeon.Api -- auditoria --classe=todas }
+# TotalSeconds=19.36  TotalMinutes=0.323  (SC-008)
 ```
 
 ---

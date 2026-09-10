@@ -269,9 +269,9 @@ em `Program.cs` após `HabilidadesSeed.Materializar()`. Testes:
 ## Phase 7: Polish & Cross-Cutting Concerns
 
 - [X] T136 [P] Executar `dotnet test --nologo` completo e registrar contagem final em `notas-implementacao.md` _(191 verdes registrado)_
-- [~] T137 [P] Rodar todos os 9 cenários do `quickstart.md` medindo tempo com `Measure-Command`; para o Cenário 6 assertar `(Measure-Command { dotnet run --project src/DarkestDungeon.Api -- auditoria --classe=todas }).TotalMinutes -lt 5` (SC-008); marcar cada um como validado no arquivo _(bloqueado por mineração wiki)_
-- [~] T138 [P] Atualizar `specs/003-hierarquia-catalogo-herois/dados-minerados.md` com seção "Auditoria da Feature 005" — resumo do relatório final (contagens OK/Pendente por classe) e menção às baselines re-auditadas (Q3) _(bloqueado por T137)_
-- [~] T139 [P] Documentar FR-013 (chance base > 100% capada) no `relatorio.md` listando habilidades afetadas _(bloqueado por T137)_
+- [X] T137 [P] Rodar todos os 9 cenários do `quickstart.md` medindo tempo com `Measure-Command`; para o Cenário 6 assertar `(Measure-Command { dotnet run --project src/DarkestDungeon.Api -- auditoria --classe=todas }).TotalMinutes -lt 5` (SC-008); marcar cada um como validado no arquivo _(live 2026-09-10: sqlcmd 20/219/277/1095/80; CLI **19,36 s** / 0,323 min; relatorio.md 12:26:13 UTC 277/277 OK)_
+- [X] T138 [P] Atualizar `specs/003-hierarquia-catalogo-herois/dados-minerados.md` com seção "Auditoria da Feature 005" — resumo do relatório final (contagens OK/Pendente por classe) e menção às baselines re-auditadas (Q3) _(§9 adicionada 2026-09-10)_
+- [X] T139 [P] Documentar FR-013 (chance base > 100% capada) no `relatorio.md` listando habilidades afetadas _(já no relatorio.md § FR-013; cross-link em dados-minerados.md §9)_
 - [X] T140 [P] Atualizar `.specify/features/005-auditoria-habilidades-mineradas.json` com `status=implemented`
 - [~] T141 Rodar NetArchTest completo — verificar regras de camada _(baseline 25 Architecture tests continuam verdes; regras existentes cobrem os novos artefatos)_
 - [X] T142 Revisar checklist final em `checklists/requirements.md` — todos 16/16 permanecem verdes _(sem regressão)_

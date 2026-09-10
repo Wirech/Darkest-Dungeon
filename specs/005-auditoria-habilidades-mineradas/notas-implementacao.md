@@ -131,6 +131,15 @@ Ver `tasks.md` para checklist detalhado.
 - T137–T139 polish (bloqueado por Docker Desktop offline neste checkpoint)
 - T030 `AuditoriaJobRunner` CLI
 
+### Checkpoint 4 — 2026-09-10 (polish T137–T139, pós-merge PR #1)
+
+**Concluído**:
+- T137: 9 cenários em `quickstart.md` → **Resultado da validação (2026-09-10)**. Live com `mssql-dd` Up: C1 `sqlcmd` 20/219/277/1095/80; C6 `Measure-Command` CLI **19,36 s** (SC-008). C2–C5 domínio; C7 rollback fake; C8 detector (skip se SQL down no teste); C9 InMemory. Merge: **206 testes**. Publicação anterior `53075ee6` ~470 ms.
+- T138: `dados-minerados.md` §9 **Auditoria da Feature 005** (277/277 OK, 20 classes, baselines Q3, 1095 níveis, 80/80 assets, PR #1).
+- T139: FR-013 já listado em `relatorio.md`; cross-link na §9.
+
+**Gaps HTTP (não bloqueiam 005)**: DTO sem aparencia/xp/nível; sem POST xp / acampamento/equipar / combate/usar.
+
 ## Convenções PT-BR das mensagens (fonte única de verdade)
 
 Strings padronizadas usadas nas rejeições 400 e mensagens de erro (referenciadas por FR-007c/d/m, SC-013, publicação):

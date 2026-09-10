@@ -416,4 +416,37 @@ dotnet ef database update --startup-project src/DarkestDungeon.Api --project src
 $env:ASPNETCORE_ENVIRONMENT="Development"; dotnet run --project src/DarkestDungeon.Api
 ```
 
+## 9. Auditoria da Feature 005 (T138, 2026-09-10)
+
+Índice curatorial da Feature 003 **re-auditado** contra os wiki-snapshots Level 1..5 (Q3 — baselines **não** isentas). Relatório canônico: [`specs/005-auditoria-habilidades-mineradas/relatorio.md`](../005-auditoria-habilidades-mineradas/relatorio.md) (regenerado 2026-09-10 12:26:13 UTC).
+
+### Resumo
+
+| Métrica | Valor |
+|---|---|
+| Classes canônicas | **20/20** — todas as seções do relatório **OK** |
+| Habilidades únicas | **219** (preservado vs §7) |
+| Associações Classe × Habilidade classificadas | **277 / 277 OK** (0 Parcial, 0 Faltando) |
+| Níveis persistidos (`NiveisDeHabilidade`) | **1095** (219 × 5) — `sqlcmd` live 2026-09-10 |
+| Assets Classe × Aparência | **80 / 80 Coletado** (inventário Feature 004) |
+| Níveis pendentes (Level 2..5) | **0** |
+| Testes no merge PR #1 | **206 / 206** (squash `a7ce662` em `main`) |
+| Publicação atômica live | `PublicacaoId=53075ee6`, ~470 ms, 219 hab / 1095 níveis; contagens 219/277/20 preservadas |
+
+Contagem **277** (não 219) no relatório: cada associação Classe × Habilidade é uma linha; skills compartilhadas (`Encourage`, `Wound Care`, `Pep Talk`, etc.) aparecem em várias classes.
+
+### Baselines re-auditadas (Q3)
+
+Cruzado, Vestal, Ocultista e Médico da Peste foram reminados da wiki (`?action=raw`) e **comparados de novo** — não herdaram isenção da Feature 003. No relatório final as quatro saem **100% OK**.
+
+### FR-013 (chance &gt; 100%)
+
+Tabela longa das habilidades cuja wiki declara chance base &gt; 100% (cap runtime em 100%; BD guarda o original) está em [relatorio.md — FR-013](../005-auditoria-habilidades-mineradas/relatorio.md#fr-013--chance-base--100-capada-em-100). Exemplos: `Barbaric Yawp` / `Blackjack` 110–150%, `Captivate` / `Adder's Kiss` 110–140%, `Bola`/`Buckshot` knockback 105%.
+
+### Validação T137
+
+Os 9 cenários de [`specs/005-auditoria-habilidades-mineradas/quickstart.md`](../005-auditoria-habilidades-mineradas/quickstart.md) estão em **Resultado da validação (2026-09-10)**. Live com `mssql-dd` Up: C1 `sqlcmd` 20/219/277/1095/80; C6 CLI **19,36 s** (SC-008). C7/C8/C9 continuam cobertos por testes (rollback fake / detector skip / InMemory).
+
+**Fora de escopo 005 (não bloqueia)**: `PersonagemDetalheDto` ainda não expõe `aparencia`/`experiencia`/`nivel`; não há `POST /personagens/{id}/xp`, `/acampamento/equipar` nem `/combate/usar`.
+
 
