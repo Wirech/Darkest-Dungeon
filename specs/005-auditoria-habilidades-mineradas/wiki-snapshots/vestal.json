@@ -1,0 +1,195 @@
+{
+  "classe": "Vestal",
+  "classeSlug": "vestal",
+  "classeDeHeroiEnum": "Vestal",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Vestal",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Golpe de Maça",
+      "nomeOriginal": "Mace Bash",
+      "tipo": "Combate",
+      "descricao": "Golpe frontal com dano extra contra Não-Mortos.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Não-Mortos", "valorPorNivel": ["+15%", "+20%", "+25%", "+30%", "+35%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Julgamento",
+      "nomeOriginal": "Judgement",
+      "tipo": "Combate",
+      "descricao": "Ataque à distância que cura a Vestal enquanto danifica o alvo.",
+      "range": "Ranged",
+      "rank": [3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-25%", "-25%", "-25%", "-25%", "-25%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (self)", "valorPorNivel": [3, 3, 4, 4, 5] }
+      ]
+    },
+    {
+      "nomeExibicao": "Luz Deslumbrante",
+      "nomeOriginal": "Dazzling Light",
+      "tipo": "Combate",
+      "descricao": "Emana luz que ilumina o corredor e atordoa o alvo.",
+      "range": "Ranged",
+      "rank": [2, 3, 4],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-75%", "-75%", "-75%", "-75%", "-75%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Tocha", "valorPorNivel": [6, 6, 6, 6, 6] },
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Graça Divina",
+      "nomeOriginal": "Divine Grace",
+      "tipo": "Combate",
+      "descricao": "Cura poderosa direcionada.",
+      "range": "Heal",
+      "rank": [3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura", "valorPorNivel": ["4-5", "5-6", "6-7", "7-8", "8-9"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Conforto Divino",
+      "nomeOriginal": "Divine Comfort",
+      "tipo": "Combate",
+      "descricao": "Cura leve para toda a party.",
+      "range": "Heal",
+      "rank": [2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (party)", "valorPorNivel": ["1-3", "2-3", "3-3", "3-4", "4-5"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Iluminação",
+      "nomeOriginal": "Illumination",
+      "tipo": "Combate",
+      "descricao": "Remove Furtividade e reduz Esquiva do alvo. Nunca crita.",
+      "range": "Ranged",
+      "rank": [1, 2, 3],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-75%", "-75%", "-75%", "-75%", "-75%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "RemoverFurtividade", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Tocha", "valorPorNivel": [5, 6, 7, 8, 10] },
+        { "tipoDoEfeito": "DebuffEsquiva (4 rds)", "valorPorNivel": [-20, -23, -25, -27, -30], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Mão da Luz",
+      "nomeOriginal": "Hand of Light",
+      "tipo": "Combate",
+      "descricao": "Golpe frontal com bônus contra Não-Mortos e buff próprio.",
+      "range": "Ranged",
+      "rank": [1, 2],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["1%", "2%", "3%", "4%", "5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Não-Mortos", "valorPorNivel": ["+15%", "+20%", "+25%", "+30%", "+35%"] },
+        { "tipoDoEfeito": "BuffPrecisao (self, 4 rds)", "valorPorNivel": [6, 7, 8, 9, 10] },
+        { "tipoDoEfeito": "BuffDano (self, 4 rds)", "valorPorNivel": ["+25%", "+27%", "+30%", "+33%", "+35%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Benção",
+      "nomeOriginal": "Bless",
+      "tipo": "Acampamento",
+      "descricao": "Melhora Precisão e Esquiva de um aliado.",
+      "custoDeDescanso": 3,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffEsquiva (4 Battles)", "valor": 10 }
+      ]
+    },
+    {
+      "nomeExibicao": "Canto Sacro",
+      "nomeOriginal": "Chant",
+      "tipo": "Acampamento",
+      "descricao": "Reduz estresse; efeito maior em aliados religiosos.",
+      "custoDeDescanso": 3,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStressPercentual (se religioso, 4 Battles)", "valor": "-20%" },
+        { "tipoDoEfeito": "ReduzirStressPercentual (se não religioso, 4 Battles)", "valor": "-10%" },
+        { "tipoDoEfeito": "ReduzirStress (se religioso)", "valor": -15 },
+        { "tipoDoEfeito": "ReduzirStress (se não religioso)", "valor": -5 }
+      ]
+    },
+    {
+      "nomeExibicao": "Oração",
+      "nomeOriginal": "Pray",
+      "tipo": "Acampamento",
+      "descricao": "Reduz estresse e aumenta proteção da party; efeito maior se religioso.",
+      "custoDeDescanso": 3,
+      "alvo": "Party",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (se religioso)", "valor": -15 },
+        { "tipoDoEfeito": "ReduzirStress (se não religioso)", "valor": -5 },
+        { "tipoDoEfeito": "BuffProtecao (se religioso, 4 Battles)", "valor": "+15%" },
+        { "tipoDoEfeito": "BuffProtecao (se não religioso, 4 Battles)", "valor": "+5%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Santuário",
+      "nomeOriginal": "Sanctuary",
+      "tipo": "Acampamento",
+      "descricao": "Impede emboscada noturna se religiosa; cura e alivia estresse de aliados com Mortality debuffs.",
+      "custoDeDescanso": 4,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "PrevenirNightAmbush (se religioso)", "valor": true },
+        { "tipoDoEfeito": "Cura (se Mortality debuffs)", "valor": "50%HP" },
+        { "tipoDoEfeito": "ReduzirStress (se Mortality debuffs)", "valor": -25 }
+      ]
+    }
+  ]
+}

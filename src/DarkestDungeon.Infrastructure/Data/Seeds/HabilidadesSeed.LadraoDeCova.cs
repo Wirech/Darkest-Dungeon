@@ -23,7 +23,7 @@ public static partial class HabilidadesSeed
             id: IdDeterministico("Pick to the Face"));
 
         yield return new HabilidadeDeCombate(
-            nomeExibicao: "Investida",
+            nomeExibicao: "Estocada",
             nomeOriginal: "Lunge",
             descricao: "Investida da retaguarda que avança 2 posições e concede +20% de dano contra envenenados.",
             posicoesValidas: new[] { 3, 4 },
@@ -139,7 +139,7 @@ public static partial class HabilidadesSeed
             nomeOriginal: "Snuff Box",
             descricao: "Remove doença da Ladra e de um aliado.",
             custoDeDescanso: 3,
-            alvo: AlvoDeAcampamento.UmAliado,
+            alvo: AlvoDeAcampamento.SelfEUmAliado,
             efeitos: new[]
             {
                 Efeito("Remove Doença", AlvoDeEfeito.Self, 1m, UnidadeDeEfeito.Pontos),

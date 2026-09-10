@@ -1,0 +1,207 @@
+{
+  "classe": "Fugitivo",
+  "classeSlug": "fugitivo",
+  "classeDeHeroiEnum": "Fugitivo",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Runaway",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "notas": ["Sistema de Burn + Stealth. Todas as skills interagem com Burn/Torch. Firefly aumenta Torch (+4→+6). Hearthlight remove todo Stealth e ilumina fortemente."],
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Golpe Escaldante",
+      "nomeOriginal": "Searing Strike",
+      "tipo": "Combate",
+      "descricao": "Aplica Burn e ganha dano vs alvos em chamas.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["3%", "4%", "5%", "6%", "7%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Burn", "valorPorNivel": [3, 3, 4, 4, 5] },
+        { "tipoDoEfeito": "BuffDano vs Burning", "valorPorNivel": ["+15%", "+20%", "+25%", "+30%", "+35%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Vaga-lume",
+      "nomeOriginal": "Firefly",
+      "tipo": "Combate",
+      "descricao": "Ranged; grande Burn, debuff Burn Decay e aumenta Tocha.",
+      "range": "Ranged",
+      "rank": [3, 4],
+      "target": [2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-75%", "-75%", "-75%", "-75%", "-75%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["6%", "7%", "8%", "9%", "10%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Burn", "valorPorNivel": [7, 7, 8, 8, 9] },
+        { "tipoDoEfeito": "DebuffBurnDecay (2 rds)", "valorPorNivel": ["-50%", "-50%", "-50%", "-50%", "-50%"], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "AumentarTocha", "valorPorNivel": [4, 4, 5, 5, 6] }
+      ]
+    },
+    {
+      "nomeExibicao": "Corra e Esconda",
+      "nomeOriginal": "Run and Hide",
+      "tipo": "Combate",
+      "descricao": "Recua 2 e entra em Furtividade; cura ao longo do tempo enquanto stealthed.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Recua 2 (self)", "valorPorNivel": [2, 2, 2, 2, 2] },
+        { "tipoDoEfeito": "Furtividade (4 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Cura ao longo enquanto Stealthed", "valorPorNivel": ["2/rd por 2rd", "3/rd por 2rd", "3/rd por 3rd", "4/rd por 3rd", "5/rd por 3rd"] },
+        { "tipoDoEfeito": "BuffBurnSkillAmount enquanto Stealthed (4 rds)", "valorPorNivel": ["+50%", "+50%", "+50%", "+50%", "+50%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Saquear",
+      "nomeOriginal": "Ransack",
+      "tipo": "Combate",
+      "descricao": "Puxa alvo 1 posição, limpa todos os Corpses e avança 1.",
+      "range": "Melee",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-10%", "-10%", "-10%", "-10%", "-10%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["3%", "4%", "5%", "6%", "7%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Puxar 1", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "BuffPrecisao enquanto Stealthed", "valorPorNivel": [10, 10, 10, 10, 10] },
+        { "tipoDoEfeito": "LimparTodosCorpses", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Luz da Fogueira",
+      "nomeOriginal": "Hearthlight",
+      "tipo": "Combate",
+      "descricao": "Ataque em área total. Remove toda a Furtividade inimiga e buffs a party.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [100, 105, 110, 115, 120],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "IgnorarERemoverFurtividade", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "AumentarTocha", "valorPorNivel": [6, 6, 7, 7, 8] },
+        { "tipoDoEfeito": "BuffPrecisao (All Heroes)", "valorPorNivel": [5, 6, 7, 8, 10] },
+        { "tipoDoEfeito": "BuffCritico vs Burning (All Heroes)", "valorPorNivel": ["+8%", "+9%", "+10%", "+11%", "+12%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Queima Controlada",
+      "nomeOriginal": "Controlled Burn",
+      "tipo": "Combate",
+      "descricao": "Aplica Burn e Controlled Burn Debuff no rank inimigo. 2 usos/batalha.",
+      "range": "Ranged",
+      "rank": [1, 2, 3],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 2, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Burn", "valorPorNivel": [4, 4, 4, 4, 4] },
+        { "tipoDoEfeito": "AumentarTocha", "valorPorNivel": [6, 6, 6, 6, 6] },
+        { "tipoDoEfeito": "ControlledBurnDebuff (rank, 3 rds)", "valorPorNivel": [3, 3, 4, 4, 5] }
+      ]
+    },
+    {
+      "nomeExibicao": "Refluxo",
+      "nomeOriginal": "Backdraft",
+      "tipo": "Combate",
+      "descricao": "Requer alvo Burning. Ignora Guard e atinge posição atrás. Copia Burn 1→2 e cura Burn do 1º alvo.",
+      "range": "Ranged",
+      "rank": [1, 2, 3],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["7%", "8%", "9%", "10%", "11%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "IgnorarGuard", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "RequerAlvoBurning", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "DanoEmPosicaoAtras", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffDano por stack de Burn", "valorPorNivel": ["+25%", "+25%", "+25%", "+25%", "+25%"] },
+        { "tipoDoEfeito": "CopiarBurn 1º→2º alvo", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "CurarBurn 1º alvo", "valorPorNivel": [true, true, true, true, true] }
+      ]
+    },
+    {
+      "nomeExibicao": "Atear Fogo",
+      "nomeOriginal": "Kindle",
+      "tipo": "Acampamento",
+      "descricao": "Produz 3 Piles of Ash e previne emboscadas noturnas.",
+      "custoDeDescanso": 4,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ProduzirPilesOfAsh", "valor": 3 },
+        { "tipoDoEfeito": "PreveniEmboscadaNoturna", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Cauterizar",
+      "nomeOriginal": "Cauterize",
+      "tipo": "Acampamento",
+      "descricao": "Remove Doença/Sangramento/Envenenamento; debuff Resistência a Debuff.",
+      "custoDeDescanso": 3,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "RemoverDoenca", "valor": true },
+        { "tipoDoEfeito": "RemoverSangramento", "valor": true },
+        { "tipoDoEfeito": "RemoverEnvenenamento", "valor": true },
+        { "tipoDoEfeito": "DebuffResistenciaDebuff (4 Battles)", "valor": "-20%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Brincar com Fogo",
+      "nomeOriginal": "Play with Fire",
+      "tipo": "Acampamento",
+      "descricao": "Ao atacar: aplica Burn 3 no alvo; recebe +10% DMG.",
+      "custoDeDescanso": 2,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "OnAttackHitBurn (4 Battles)", "valor": 3 },
+        { "tipoDoEfeito": "DebuffDanoRecebido (4 Battles)", "valor": "+10%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Bater Carteira",
+      "nomeOriginal": "Pick Pocket",
+      "tipo": "Acampamento",
+      "descricao": "Produz uma Chave-esqueleto (3 usos).",
+      "custoDeDescanso": 1,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ProduzirSkeletonKey", "valor": "3 usos" }
+      ]
+    }
+  ]
+}

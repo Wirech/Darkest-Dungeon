@@ -1,0 +1,2784 @@
+﻿{
+    "geradoEm":  "2026-09-09T18:09:38.6295427Z",
+    "resumo":  {
+                   "totalHabilidades":  277,
+                   "ok":  277,
+                   "parcial":  0,
+                   "faltando":  0,
+                   "niveisPendentes":  0,
+                   "assetsColetados":  80,
+                   "assetsPendentes":  0
+               },
+    "linhas":  [
+                   {
+                       "habilidadeId":  "6c5e0777-5ec8-a54b-b66f-037e2113bde3",
+                       "nomeExibicao":  "Controle da Raiva",
+                       "nomeOriginal":  "Anger Management",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "29b3faab-70f1-3447-b4cd-23a7d79a7a2a",
+                       "nomeExibicao":  "Rasgar",
+                       "nomeOriginal":  "Rake",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b447d3f1-c59a-ac4e-babf-2fecad9f1b67",
+                       "nomeExibicao":  "Transformar",
+                       "nomeOriginal":  "Transform",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "df1717aa-e622-6e4f-8a5c-4b5fc065e1f7",
+                       "nomeExibicao":  "Bile da Besta",
+                       "nomeOriginal":  "Beast\u0027s Bile",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b6b25afd-3a98-914d-8f3c-7a58b96b7006",
+                       "nomeExibicao":  "Preparação Psíquica",
+                       "nomeOriginal":  "Psych Up",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "168da7f3-6b5c-564a-9a11-7f85e5ce0b8d",
+                       "nomeExibicao":  "Bater",
+                       "nomeOriginal":  "Slam",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "f39d878e-0b3e-1e42-ae7b-a5e4e078b1e4",
+                       "nomeExibicao":  "Sangue Ancião",
+                       "nomeOriginal":  "Eldritch Blood",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b32c2d70-391c-dc48-92ac-a68fce0aa1d1",
+                       "nomeExibicao":  "Fúria",
+                       "nomeOriginal":  "Rage",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "6eb5d160-7f27-e243-814a-ead9f579e68a",
+                       "nomeExibicao":  "Absolvição",
+                       "nomeOriginal":  "Absolution",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e767bd01-e9a5-d046-8e71-ee785bd9f62e",
+                       "nomeExibicao":  "Algemas",
+                       "nomeOriginal":  "Manacles",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "93d65a66-36ec-6646-b226-f7790bfa0774",
+                       "nomeExibicao":  "Aceleração",
+                       "nomeOriginal":  "The Quickening",
+                       "classeDoDono":  0,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "70d12fc2-0740-8742-afa9-23cadab5b792",
+                       "nomeExibicao":  "Vapores Fortificantes",
+                       "nomeOriginal":  "Fortifying Vapours",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "dafa4d0e-3322-1040-9d71-3942d08a766b",
+                       "nomeExibicao":  "Pós Estranhos",
+                       "nomeOriginal":  "Strange Powders",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "8a5dec3e-bc8b-a442-b90b-5539068c4ae8",
+                       "nomeExibicao":  "Facada Nervosa",
+                       "nomeOriginal":  "Nervous Stab",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "55e03944-e3e7-574a-8413-5ac3f3d6d234",
+                       "nomeExibicao":  "Reabastecer",
+                       "nomeOriginal":  "Resupply",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "6f062437-85b7-1342-930d-78a86391aebb",
+                       "nomeExibicao":  "Abaixe-se!",
+                       "nomeOriginal":  "Get Down!",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d39f49b7-60c2-9240-90b0-9fadc4be4986",
+                       "nomeExibicao":  "Proteja-me!",
+                       "nomeOriginal":  "Protect Me",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "f5d7a059-a79c-d64d-b90c-aabbd18f6c92",
+                       "nomeExibicao":  "Vapores Revigorantes",
+                       "nomeOriginal":  "Invigorating Vapours",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "89a75464-413b-1b46-8a68-e529f5c14e8f",
+                       "nomeExibicao":  "Pó de Flash",
+                       "nomeOriginal":  "Flashpowder",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "86b1470e-a0ac-7d48-a564-e5b12961bedc",
+                       "nomeExibicao":  "Encantamento Curioso",
+                       "nomeOriginal":  "Curious Incantation",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a3b2de3b-77fc-d648-b97c-f24616566d64",
+                       "nomeExibicao":  "Vapores Purulentos",
+                       "nomeOriginal":  "Festering Vapours",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "fa65ec47-586a-af40-b876-f50da06a5eea",
+                       "nomeExibicao":  "Vasculhar Bugigangas",
+                       "nomeOriginal":  "Trinket Scrounge",
+                       "classeDoDono":  1,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "4a539789-1495-474a-a020-46efef6b4219",
+                       "nomeExibicao":  "Triagem",
+                       "nomeOriginal":  "Triage",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "5c7c6c82-5818-e64d-909e-59210108a199",
+                       "nomeExibicao":  "Plano de Marcha",
+                       "nomeOriginal":  "Marching Plan",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "6fb6eec3-b22f-1a4a-a43e-5f04d82ea465",
+                       "nomeExibicao":  "Curativo de Campo",
+                       "nomeOriginal":  "Battlefield Bandage",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "555a251e-74e2-fc43-94ae-63d3ca070b62",
+                       "nomeExibicao":  "Marca de Sniper",
+                       "nomeOriginal":  "Sniper\u0027s Mark",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c614bb88-250a-bf4b-8527-835c22848096",
+                       "nomeExibicao":  "Fogo de Supressão",
+                       "nomeOriginal":  "Suppressing Fire",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "0fc76c31-780f-9d41-81b5-85406894a532",
+                       "nomeExibicao":  "Sinalizador de Comando",
+                       "nomeOriginal":  "Rallying Flare",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "9028b4b0-8e27-2e4c-bd2c-a4b9c3bcc1ee",
+                       "nomeExibicao":  "Tiro de Sniper",
+                       "nomeOriginal":  "Sniper Shot",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "fdc53501-c120-ad4e-8dbd-c135470eae0c",
+                       "nomeExibicao":  "Bola",
+                       "nomeOriginal":  "Bola",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "6bcabacf-4643-db48-bb19-cafd5fe3eeec",
+                       "nomeExibicao":  "Recordoar Besta",
+                       "nomeOriginal":  "Restring Crossbow",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a449b641-728c-b74b-87ef-e45a004fdba7",
+                       "nomeExibicao":  "Fogo Cego",
+                       "nomeOriginal":  "Blindfire",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "275f7b7f-71a6-5a42-9b3f-ee20ac10a6d8",
+                       "nomeExibicao":  "Curativo de Emergência",
+                       "nomeOriginal":  "Field Dressing",
+                       "classeDoDono":  2,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "94ac3398-a323-6240-aa90-14df4f1a9305",
+                       "nomeExibicao":  "Acabe com Ele",
+                       "nomeOriginal":  "Finish Him",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "ac4e583a-cff2-eb41-8e3d-341d436e4305",
+                       "nomeExibicao":  "É Assim que a Gente Faz",
+                       "nomeOriginal":  "This Is How We Do It",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b075749a-ba23-5747-a9c6-5d22caa3239e",
+                       "nomeExibicao":  "Coletar Recompensa",
+                       "nomeOriginal":  "Collect Bounty",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e900579d-e3b9-2148-bb82-5e2d65e33b9a",
+                       "nomeExibicao":  "Bomba de Fumaça",
+                       "nomeOriginal":  "Flashbang",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e7fe3efd-7ef5-3048-9218-6e296beefc04",
+                       "nomeExibicao":  "Soco Cruzado",
+                       "nomeOriginal":  "Uppercut",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "665fb079-3c02-c14e-86b5-718e5f8f2f61",
+                       "nomeExibicao":  "Estrepes",
+                       "nomeOriginal":  "Caltrops",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "86cd2d39-eb0b-9644-a971-87655eaacf54",
+                       "nomeExibicao":  "Venha Cá",
+                       "nomeOriginal":  "Come Hither",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c1e28616-9a38-7f42-96b7-8c01f576e87a",
+                       "nomeExibicao":  "Marca de Morte",
+                       "nomeOriginal":  "Mark for Death",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "047595fd-b93c-9647-b35f-a356d973f98c",
+                       "nomeExibicao":  "Explorar à Frente",
+                       "nomeOriginal":  "Scout Ahead",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "ee537384-0584-204b-a989-d3208200b9ae",
+                       "nomeExibicao":  "Abate Planejado",
+                       "nomeOriginal":  "Planned Takedown",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a03adaaa-9331-b34d-8399-e00efd07d057",
+                       "nomeExibicao":  "Rastreamento",
+                       "nomeOriginal":  "Tracking",
+                       "classeDoDono":  3,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "9fd5e106-60ac-6648-906f-497f7b13a558",
+                       "nomeExibicao":  "Cura de Batalha",
+                       "nomeOriginal":  "Battle Heal",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "f81656bd-6539-1948-9de5-5437dc7af800",
+                       "nomeExibicao":  "Acusação Zelosa",
+                       "nomeOriginal":  "Zealous Accusation",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "f0b95a3c-1ab4-d64d-8171-555429d96ffb",
+                       "nomeExibicao":  "Golpe Atordoante",
+                       "nomeOriginal":  "Stunning Blow",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a7833867-3fa4-9545-8215-6d4791c8c2dc",
+                       "nomeExibicao":  "Líder Inabalável",
+                       "nomeOriginal":  "Unshakable Leader",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c8a18f68-1f6d-f644-9ec0-6d5b4364d31b",
+                       "nomeExibicao":  "Lança Sagrada",
+                       "nomeOriginal":  "Holy Lance",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a4baf0ab-dcfa-2f43-b987-8e0232505406",
+                       "nomeExibicao":  "Baluarte da Fé",
+                       "nomeOriginal":  "Bulwark of Faith",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "069fe1b0-eafd-764c-8815-c261f094e0f0",
+                       "nomeExibicao":  "Golpe Sagrado",
+                       "nomeOriginal":  "Smite",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d35d5b9f-20b7-8844-973e-c6d1944543fb",
+                       "nomeExibicao":  "Discurso Zeloso",
+                       "nomeOriginal":  "Zealous Speech",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "00aa5b0c-7795-c948-a782-f125ef616bb2",
+                       "nomeExibicao":  "Vigília Zelosa",
+                       "nomeOriginal":  "Zealous Vigil",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "98fbb986-2aa8-5247-a9c6-f624bbd51bad",
+                       "nomeExibicao":  "Grito Inspirador",
+                       "nomeOriginal":  "Inspiring Cry",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "98258898-63a8-3c4c-8ef6-fdb9f12d5549",
+                       "nomeExibicao":  "Manter-se Firme",
+                       "nomeOriginal":  "Stand Tall",
+                       "classeDoDono":  4,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "764c98f3-8cd3-a848-aa7b-16c128142ac5",
+                       "nomeExibicao":  "Estocada",
+                       "nomeOriginal":  "Lunge",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e4744f38-2611-be4e-b051-24968c2dac10",
+                       "nomeExibicao":  "Adagas Cintilantes",
+                       "nomeOriginal":  "Flashing Daggers",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a2eeaf2c-b1f0-8f4b-92f5-2d3bf95c3dbe",
+                       "nomeExibicao":  "Truque Tóxico",
+                       "nomeOriginal":  "Toxin Trickery",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b2e42e23-938a-6348-8c0e-36c4acd9a6fb",
+                       "nomeExibicao":  "Adaga Arremessada",
+                       "nomeOriginal":  "Thrown Dagger",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "24b89387-75b3-c742-8af4-491256f41cbe",
+                       "nomeExibicao":  "Furto",
+                       "nomeOriginal":  "Pilfer",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "dc39facc-3e93-6d4e-8d54-541b6b17b4ca",
+                       "nomeExibicao":  "Humor Negro",
+                       "nomeOriginal":  "Gallows Humor",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "036721bc-156b-3d44-a74d-9a2f744f88f7",
+                       "nomeExibicao":  "Andanças Noturnas",
+                       "nomeOriginal":  "Night Moves",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "5ac78cf1-e915-6543-ab29-c4b055e7ddda",
+                       "nomeExibicao":  "Caixa de Rapé",
+                       "nomeOriginal":  "Snuff Box",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "991e9cad-5b04-ac44-b842-c6b62a12581d",
+                       "nomeExibicao":  "Fusão nas Sombras",
+                       "nomeOriginal":  "Shadow Fade",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "204201c6-2049-5e49-98b9-cdbc4a6114f2",
+                       "nomeExibicao":  "Dardo Envenenado",
+                       "nomeOriginal":  "Poison Dart",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "f47e8019-6428-8a43-bcde-d4dfdf38a953",
+                       "nomeExibicao":  "Picareta na Cara",
+                       "nomeOriginal":  "Pick to the Face",
+                       "classeDoDono":  5,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "1edb4cb8-c94a-3d4e-8236-1021b6450b48",
+                       "nomeExibicao":  "Zombaria",
+                       "nomeOriginal":  "Mockery",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "f99c6060-17e3-c641-af84-179885430b9a",
+                       "nomeExibicao":  "Adaga de Punho",
+                       "nomeOriginal":  "Dirk Stab",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "1ee5e5bb-9aa1-f54b-b776-19c3fef68cf8",
+                       "nomeExibicao":  "Olho do Tigre",
+                       "nomeOriginal":  "Tiger\u0027s Eye",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "81d01eb1-a077-d844-9b45-1b67d6d837ae",
+                       "nomeExibicao":  "Toda Rosa Tem Seu Espinho",
+                       "nomeOriginal":  "Every Rose Has Its Thorn",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "7455e625-eb0a-1f4b-aaae-45c8e4bea1ab",
+                       "nomeExibicao":  "Balada de Guerra",
+                       "nomeOriginal":  "Battle Ballad",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "635c87a2-7a9c-fc44-a5b3-596e4bbaf8b9",
+                       "nomeExibicao":  "Solo",
+                       "nomeOriginal":  "Solo",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "1a33cd79-fd78-f54d-b066-746c4b45ac60",
+                       "nomeExibicao":  "Melodia Inspiradora",
+                       "nomeOriginal":  "Inspiring Tune",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b4a5c239-7bab-d546-a431-7a0f0dd2ce0b",
+                       "nomeExibicao":  "Voltar no Tempo",
+                       "nomeOriginal":  "Turn Back Time",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "21b89eeb-2cac-be4c-b7e1-8dc740b57e90",
+                       "nomeExibicao":  "Corte Fora",
+                       "nomeOriginal":  "Slice Off",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "1b6ea2a7-924c-4a4d-bbec-95037b168493",
+                       "nomeExibicao":  "Colheita",
+                       "nomeOriginal":  "Harvest",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "f97edde3-8d48-4346-9492-c0d9b6e620af",
+                       "nomeExibicao":  "Grande Final",
+                       "nomeOriginal":  "Finale",
+                       "classeDoDono":  6,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "975e6891-ed5e-a84c-b13a-1064fa1957ff",
+                       "nomeExibicao":  "Soltar o Cão",
+                       "nomeOriginal":  "Release the Hound",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b20247ca-f0c7-154e-ba2b-1605cef08f89",
+                       "nomeExibicao":  "Investida do Cão",
+                       "nomeOriginal":  "Hound\u0027s Rush",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "ec0fd5fe-b3dd-9049-9c57-293ff809a045",
+                       "nomeExibicao":  "Assobio de Alvo",
+                       "nomeOriginal":  "Target Whistle",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "5da423ad-be72-8a4d-8136-3522d8ae6b02",
+                       "nomeExibicao":  "Grito de Guerra",
+                       "nomeOriginal":  "Cry Havoc",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "7a40a941-3d72-0c44-a260-99af65ee1d2d",
+                       "nomeExibicao":  "Melhor Amigo do Homem",
+                       "nomeOriginal":  "Man\u0027s Best Friend",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "eaf552ab-225b-5e4a-8298-99ec762cc886",
+                       "nomeExibicao":  "Cão de Terapia",
+                       "nomeOriginal":  "Therapy Dog",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e3e3966b-f721-b447-93e8-9c922b92d20f",
+                       "nomeExibicao":  "Assédio do Cão",
+                       "nomeOriginal":  "Hound\u0027s Harry",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "ea6a1ace-5458-2346-9f6f-b68fd39961f3",
+                       "nomeExibicao":  "Lamber Feridas",
+                       "nomeOriginal":  "Lick Wounds",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c698e454-e491-b243-9c6e-cf03446d4337",
+                       "nomeExibicao":  "Vigília do Cão",
+                       "nomeOriginal":  "Hound\u0027s Watch",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "7b6e34ca-6f9d-094f-80a9-d232da0d4878",
+                       "nomeExibicao":  "Cassetete",
+                       "nomeOriginal":  "Blackjack",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e779bba3-dd2d-ea4c-bc91-f7c05dbc4df9",
+                       "nomeExibicao":  "Cão de Guarda",
+                       "nomeOriginal":  "Guard Dog",
+                       "classeDoDono":  7,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "db0bae56-cebb-6f4f-9bc8-4bfa32546244",
+                       "nomeExibicao":  "Vingança",
+                       "nomeOriginal":  "Revenge",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "49077147-10cc-504b-b252-664ec81debbd",
+                       "nomeExibicao":  "Mortalha Sangrenta",
+                       "nomeOriginal":  "Bloody Shroud",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "5c3eaf2e-c826-1a4c-9214-7bcd6fa6eada",
+                       "nomeExibicao":  "Talhar",
+                       "nomeOriginal":  "Chop",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c7a64f02-2aa1-7a41-b046-831744d0cfde",
+                       "nomeExibicao":  "Quarentena",
+                       "nomeOriginal":  "Quarantine",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "edde47b8-c23f-754b-a6f1-9c9adb7e458d",
+                       "nomeExibicao":  "Expurgar",
+                       "nomeOriginal":  "Purge",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "aa9f19ab-255d-0e46-b227-a1cf898b7240",
+                       "nomeExibicao":  "Intimidar",
+                       "nomeOriginal":  "Intimidate",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "6a83acf2-2425-5a4f-8ae2-a535308089f7",
+                       "nomeExibicao":  "Cortar",
+                       "nomeOriginal":  "Hew",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "f7f09d0b-0374-9c4f-aaa0-a63d771c3197",
+                       "nomeExibicao":  "Remover a Máscara",
+                       "nomeOriginal":  "Let the Mask Down",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "dfa5a7f0-69c1-d245-a4c5-a974e42ecdca",
+                       "nomeExibicao":  "Reflexão",
+                       "nomeOriginal":  "Reflection",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "08715da2-b272-6042-b4e7-db5c641ea5c2",
+                       "nomeExibicao":  "Solenidade",
+                       "nomeOriginal":  "Solemnity",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "6105b35f-cd3f-f64d-8460-dd12ca7ded1d",
+                       "nomeExibicao":  "Resistir",
+                       "nomeOriginal":  "Withstand",
+                       "classeDoDono":  8,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "3b38f948-baf7-ce42-a756-04dc61cd471e",
+                       "nomeExibicao":  "Descarga de Adrenalina",
+                       "nomeOriginal":  "Adrenaline Rush",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "db37424e-c036-4b47-bde7-129db00ff64f",
+                       "nomeExibicao":  "Farra",
+                       "nomeOriginal":  "Revel",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "2dead579-7cd9-064a-8c9f-16396c7d0031",
+                       "nomeExibicao":  "Afiar Lança",
+                       "nomeOriginal":  "Sharpen Spear",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "57c3d107-0880-cf45-9ff3-39613d449ff4",
+                       "nomeExibicao":  "Golpe Perverso",
+                       "nomeOriginal":  "Wicked Hack",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "49fba1ee-db65-ae48-b5f1-3f4c942ead19",
+                       "nomeExibicao":  "Grito Bárbaro",
+                       "nomeOriginal":  "Barbaric Yawp",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "f8f37f94-ec3b-bd43-87d8-45c78071b313",
+                       "nomeExibicao":  "Se Sangra",
+                       "nomeOriginal":  "If It Bleeds",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c6b49e34-a7a5-b24f-bad2-5a0b06e7cbc8",
+                       "nomeExibicao":  "Cisne de Ferro",
+                       "nomeOriginal":  "Iron Swan",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "cf5db1e6-4e88-d145-9652-7aefa28e5b08",
+                       "nomeExibicao":  "Transe de Batalha",
+                       "nomeOriginal":  "Battle Trance",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e93a4ba4-3961-9e48-955c-a0be00dca4fe",
+                       "nomeExibicao":  "Rejeitar os Deuses",
+                       "nomeOriginal":  "Reject the Gods",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "8afab171-81fc-024d-b460-ade40783aaad",
+                       "nomeExibicao":  "Investida",
+                       "nomeOriginal":  "Breakthrough",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "ef2cc6d1-edee-1e4c-bc04-e93e0807a95f",
+                       "nomeExibicao":  "Sangrar Até Morrer",
+                       "nomeOriginal":  "Bleed Out",
+                       "classeDoDono":  9,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "61374e09-4c8d-1d46-8a59-1ab1196a7315",
+                       "nomeExibicao":  "Limpar Armas",
+                       "nomeOriginal":  "Clean Guns",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "2b44886f-da68-0048-9e4a-3c9ecacd094a",
+                       "nomeExibicao":  "Tiro Rastreador",
+                       "nomeOriginal":  "Tracking Shot",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "dc39facc-3e93-6d4e-8d54-541b6b17b4ca",
+                       "nomeExibicao":  "Humor Negro",
+                       "nomeOriginal":  "Gallows Humor",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c8b19fd5-7a50-e347-bde2-56c776a52933",
+                       "nomeExibicao":  "Destreza Sem Igual",
+                       "nomeOriginal":  "Unparalleled Finesse",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "7140dcfe-c7e2-b044-a02d-5eee43fbeb0f",
+                       "nomeExibicao":  "Cortar Veia",
+                       "nomeOriginal":  "Open Vein",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b89081c3-a614-cb4a-8866-b1d2ee5ecf25",
+                       "nomeExibicao":  "Instinto de Bandido",
+                       "nomeOriginal":  "Bandit\u0027s Sense",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "fe419b1f-ff7e-f442-8f66-b348ddc30c4c",
+                       "nomeExibicao":  "Disparo de Chumbo",
+                       "nomeOriginal":  "Grapeshot Blast",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "91aad54f-34d2-1c45-9dd1-bbba7853c118",
+                       "nomeExibicao":  "Corte Perverso",
+                       "nomeOriginal":  "Wicked Slice",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "02196120-8803-af4f-8ea2-bdf588a72732",
+                       "nomeExibicao":  "Tiro de Pistola",
+                       "nomeOriginal":  "Pistol Shot",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "3d8099f7-95c5-734c-8e13-d2a32b16a4fd",
+                       "nomeExibicao":  "Tiro à Queima-Roupa",
+                       "nomeOriginal":  "Point Blank Shot",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "900a74f3-a8dc-aa4e-a190-ee6ad28fa71f",
+                       "nomeExibicao":  "Avanço do Duelista",
+                       "nomeOriginal":  "Duelist\u0027s Advance",
+                       "classeDoDono":  10,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "54d6fcf1-9a0f-1740-b627-1f4650cbfdb2",
+                       "nomeExibicao":  "Tiro Certeiro",
+                       "nomeOriginal":  "Aimed Shot",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "8479c0d4-121c-0a42-ba22-2de2fb548d45",
+                       "nomeExibicao":  "Chumbinho",
+                       "nomeOriginal":  "Buckshot",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "4a539789-1495-474a-a020-46efef6b4219",
+                       "nomeExibicao":  "Triagem",
+                       "nomeOriginal":  "Triage",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "42883d27-b9bb-7d45-96d9-541098ecc615",
+                       "nomeExibicao":  "Tiro de Skeet",
+                       "nomeOriginal":  "Skeet Shot",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "5c7c6c82-5818-e64d-909e-59210108a199",
+                       "nomeExibicao":  "Plano de Marcha",
+                       "nomeOriginal":  "Marching Plan",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "93b8647d-b68b-d649-be42-84580cf70bb4",
+                       "nomeExibicao":  "Anunciar o Alvo",
+                       "nomeOriginal":  "Call the Shot",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a8ea5b0b-23e7-a941-a113-daef446125ec",
+                       "nomeExibicao":  "Reparo Rápido",
+                       "nomeOriginal":  "Patch Up",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "9e69686a-fec6-c248-b8fe-e9955bf817ae",
+                       "nomeExibicao":  "Cortina de Fumaça",
+                       "nomeOriginal":  "Smokescreen",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b5daa539-0b92-d142-a602-ea2de8943a8f",
+                       "nomeExibicao":  "Limpar Mosquete",
+                       "nomeOriginal":  "Clean Musket",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "275f7b7f-71a6-5a42-9b3f-ee20ac10a6d8",
+                       "nomeExibicao":  "Curativo de Emergência",
+                       "nomeOriginal":  "Field Dressing",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "81a8286d-5b47-bc4a-b260-f785e3bd9239",
+                       "nomeExibicao":  "Pistola",
+                       "nomeOriginal":  "Sidearm",
+                       "classeDoDono":  11,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "2313da46-76f1-ce46-866d-017bfddb2672",
+                       "nomeExibicao":  "Muralha",
+                       "nomeOriginal":  "Rampart",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c325796d-4424-0149-b98b-097fe934776e",
+                       "nomeExibicao":  "Prática de Armas",
+                       "nomeOriginal":  "Weapons Practice",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "23689be3-0e5e-c243-ba5b-3258491fe1a6",
+                       "nomeExibicao":  "Reforçar",
+                       "nomeOriginal":  "Bolster",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a045f249-6932-0045-bb0d-3847c310302a",
+                       "nomeExibicao":  "Comando",
+                       "nomeOriginal":  "Command",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "5e923ba6-a9a4-8d45-a4c5-4b8b22818a4a",
+                       "nomeExibicao":  "Defensor",
+                       "nomeOriginal":  "Defender",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "4f098ce5-cc5f-df45-a1df-62276b4088a4",
+                       "nomeExibicao":  "Retribuição",
+                       "nomeOriginal":  "Retribution",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "70b53682-8e1b-b84b-a20b-629536c6df3a",
+                       "nomeExibicao":  "Esmagar",
+                       "nomeOriginal":  "Crush",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "ba89feac-d1fb-8a41-bf57-813e74c28715",
+                       "nomeExibicao":  "Rugido",
+                       "nomeOriginal":  "Bellow",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "71c97a96-5676-f048-a847-cf7266cbc247",
+                       "nomeExibicao":  "Instrução",
+                       "nomeOriginal":  "Instruction",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "2e4b41cc-f92a-1745-9bc4-e19022de17e5",
+                       "nomeExibicao":  "Táticas",
+                       "nomeOriginal":  "Tactics",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "5909acac-fd62-b74d-9421-e3c25b11576e",
+                       "nomeExibicao":  "Manter Equipamento",
+                       "nomeOriginal":  "Maintain Equipment",
+                       "classeDoDono":  12,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "0cc5bc13-cf55-6a42-aec8-0a2237db8df2",
+                       "nomeExibicao":  "Chamado do Daemon",
+                       "nomeOriginal":  "Daemon\u0027s Pull",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "ce59d022-0882-8d4f-8ffc-39358f452b20",
+                       "nomeExibicao":  "Força Sombria",
+                       "nomeOriginal":  "Dark Strength",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d9014905-9aae-9646-a199-3e775bed27b5",
+                       "nomeExibicao":  "Reconstrução Estranha",
+                       "nomeOriginal":  "Wyrd Reconstruction",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "921ab317-6f47-cc43-9c39-7041a78fe5b8",
+                       "nomeExibicao":  "Maldição Enfraquecedora",
+                       "nomeOriginal":  "Weakening Curse",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "65f83d46-6d48-fb4d-8516-b5d832ca2fb6",
+                       "nomeExibicao":  "Maldição de Vulnerabilidade",
+                       "nomeOriginal":  "Vulnerability Hex",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "05cdbae5-2f4f-ae41-a51a-d2e29deada1e",
+                       "nomeExibicao":  "Abandonai a Esperança",
+                       "nomeOriginal":  "Abandon Hope",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "9cbade41-10d1-3b44-95db-d99d649d0817",
+                       "nomeExibicao":  "Mãos do Abismo",
+                       "nomeOriginal":  "Hands from the Abyss",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "072748ce-dfef-1f46-a580-df4b453ea8be",
+                       "nomeExibicao":  "Punhalada Sacrificial",
+                       "nomeOriginal":  "Sacrificial Stab",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "4cc067f1-22e9-e947-9b95-e16c1c57620d",
+                       "nomeExibicao":  "Comunhão Indizível",
+                       "nomeOriginal":  "Unspeakable Commune",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "3d681ebe-6d9e-0142-bae1-e941ae3fb59c",
+                       "nomeExibicao":  "Artilharia do Abismo",
+                       "nomeOriginal":  "Abyssal Artillery",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "bb0724e9-1c27-3d47-a1df-ef5ad9737d42",
+                       "nomeExibicao":  "Ritual Sombrio",
+                       "nomeOriginal":  "Dark Ritual",
+                       "classeDoDono":  13,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "15ee8961-5797-cf46-a494-0c2de29ebe01",
+                       "nomeExibicao":  "Gás Cegante",
+                       "nomeOriginal":  "Blinding Gas",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "ef721638-6f66-2547-acd9-10b22bf9f7d4",
+                       "nomeExibicao":  "Medicina de Campo",
+                       "nomeOriginal":  "Battlefield Medicine",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e2807fb6-bb95-544b-9376-144c28a2aea7",
+                       "nomeExibicao":  "Explosão Desorientadora",
+                       "nomeOriginal":  "Disorienting Blast",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a9eda089-e79c-514e-87d7-1c8c50c66ef8",
+                       "nomeExibicao":  "A Cura",
+                       "nomeOriginal":  "The Cure",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c73aba98-5a82-f94b-a682-2cba6a49b784",
+                       "nomeExibicao":  "Auto-Medicação",
+                       "nomeOriginal":  "Self-Medicate",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "fc421a27-8829-b049-bc12-4e83c10b60ec",
+                       "nomeExibicao":  "Sanguessugas",
+                       "nomeOriginal":  "Leeches",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "85d19920-a8b3-5b4d-beed-513d4b8ff2fb",
+                       "nomeExibicao":  "Granada da Peste",
+                       "nomeOriginal":  "Plague Grenade",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d1d940c2-bac9-8e45-a279-998c95d3d63b",
+                       "nomeExibicao":  "Vapores Encorajadores",
+                       "nomeOriginal":  "Emboldening Vapours",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "5bd5c3b9-a2a3-8543-b209-c96f38922214",
+                       "nomeExibicao":  "Incisão",
+                       "nomeOriginal":  "Incision",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "216d1d83-273e-9c49-bf8f-d488abc85354",
+                       "nomeExibicao":  "Vapores Experimentais",
+                       "nomeOriginal":  "Experimental Vapours",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d82e0ebf-05fb-414e-8422-f8299e9af5d5",
+                       "nomeExibicao":  "Explosão Nociva",
+                       "nomeOriginal":  "Noxious Blast",
+                       "classeDoDono":  14,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "9d988c85-2508-8748-8dbd-0a7835cfc510",
+                       "nomeExibicao":  "Julgamento",
+                       "nomeOriginal":  "Judgement",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "98053db8-3497-944d-855a-2a9381debf56",
+                       "nomeExibicao":  "Conforto Divino",
+                       "nomeOriginal":  "Divine Comfort",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a3a7b66c-2527-8847-9982-2b2b5c657678",
+                       "nomeExibicao":  "Graça Divina",
+                       "nomeOriginal":  "Divine Grace",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "45adf6f2-ec91-5347-973f-74fb614d3423",
+                       "nomeExibicao":  "Luz Deslumbrante",
+                       "nomeOriginal":  "Dazzling Light",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "de796abc-9a03-374e-b0ea-78562f0d54e2",
+                       "nomeExibicao":  "Santuário",
+                       "nomeOriginal":  "Sanctuary",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "4382aa34-73aa-3646-bb0a-85b4053ed247",
+                       "nomeExibicao":  "Mão da Luz",
+                       "nomeOriginal":  "Hand of Light",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "269ab9e7-7836-2e4e-bf1e-9a1a9df47c43",
+                       "nomeExibicao":  "Canto Sacro",
+                       "nomeOriginal":  "Chant",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e5ccea1b-f219-a149-8387-ab000de185eb",
+                       "nomeExibicao":  "Iluminação",
+                       "nomeOriginal":  "Illumination",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "104026f6-3af7-7246-bab1-b7870527f199",
+                       "nomeExibicao":  "Golpe de Maça",
+                       "nomeOriginal":  "Mace Bash",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "ee4164ef-3932-1042-931c-bba95529d5da",
+                       "nomeExibicao":  "Benção",
+                       "nomeOriginal":  "Bless",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "3fe5717f-7b3e-4c48-a740-ca3b2da33dec",
+                       "nomeExibicao":  "Oração",
+                       "nomeOriginal":  "Pray",
+                       "classeDoDono":  15,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "59dc7687-37e2-e043-b8d4-16b931a04094",
+                       "nomeExibicao":  "Chuva de Sofrimento",
+                       "nomeOriginal":  "Rain of Sorrows",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "16315523-879b-e244-a4dc-638cc00cfaca",
+                       "nomeExibicao":  "Suportar",
+                       "nomeOriginal":  "Endure",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "2d88fb08-7c30-9e48-b310-8fe0f826b3c0",
+                       "nomeExibicao":  "Consolo do Açoite",
+                       "nomeOriginal":  "Lash\u0027s Solace",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "2d42e6ef-9ee1-2048-88d3-95abdd8c197e",
+                       "nomeExibicao":  "Beijo do Açoite",
+                       "nomeOriginal":  "Lash\u0027s Kiss",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "e07781ee-19d7-b543-bd7e-9fc4386fbf1c",
+                       "nomeExibicao":  "Exsanguinação",
+                       "nomeOriginal":  "Exsanguinate",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "1d414c69-2db0-d54b-bd5b-be2f69998f0d",
+                       "nomeExibicao":  "Redimir",
+                       "nomeOriginal":  "Redeem",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "4f8a6a1a-63f7-ec45-bd4e-c371d521ae7d",
+                       "nomeExibicao":  "Reclamar",
+                       "nomeOriginal":  "Reclaim",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a1bd05a0-c113-744c-83f5-c7780ecfe896",
+                       "nomeExibicao":  "Punir",
+                       "nomeOriginal":  "Punish",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "3ba5bf9f-7096-ff4d-aebc-d5de88339168",
+                       "nomeExibicao":  "Raiva do Açoite",
+                       "nomeOriginal":  "Lash\u0027s Anger",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "474334e1-76bf-fe4c-be15-ded9528a2e04",
+                       "nomeExibicao":  "Cura do Açoite",
+                       "nomeOriginal":  "Lash\u0027s Cure",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "379555a6-b2eb-8142-890a-dfdb40931c33",
+                       "nomeExibicao":  "Sofrer",
+                       "nomeOriginal":  "Suffer",
+                       "classeDoDono":  16,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "40c8c02d-3a04-8f46-bce2-187a0fa3b63b",
+                       "nomeExibicao":  "Pele de Serpente",
+                       "nomeOriginal":  "Snake Skin",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "2ecb53a8-c241-814e-841b-2131071fdee7",
+                       "nomeExibicao":  "Cativar",
+                       "nomeOriginal":  "Captivate",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "047054a5-fa25-3943-9e94-3819b97ef274",
+                       "nomeExibicao":  "Perfurar",
+                       "nomeOriginal":  "Pierce",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "02e7e2a7-2776-1e43-ab7d-4173670cae66",
+                       "nomeExibicao":  "Expor",
+                       "nomeOriginal":  "Expose",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a6438d09-ab33-e94e-921f-6a6f88b01e1f",
+                       "nomeExibicao":  "Tempestade de Areia",
+                       "nomeOriginal":  "Sandstorm",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "4eefacf3-a9be-a546-96e7-6ac80d6e75a0",
+                       "nomeExibicao":  "Balanço da Serpente",
+                       "nomeOriginal":  "Serpent Sway",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "091318d9-73fe-ba40-bdde-72a6cd27bffd",
+                       "nomeExibicao":  "Abraço da Víbora",
+                       "nomeOriginal":  "Adder\u0027s Embrace",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "fc31772f-e17f-5c4e-874c-9ee18d24f3e6",
+                       "nomeExibicao":  "Empalar",
+                       "nomeOriginal":  "Impale",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "aa63559b-615c-ad46-ad66-a4daf593b468",
+                       "nomeExibicao":  "Olhos da Serpente",
+                       "nomeOriginal":  "Snake Eyes",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "51e12cf2-aabe-ff45-a4d5-a74db58a242c",
+                       "nomeExibicao":  "Beijo da Víbora",
+                       "nomeOriginal":  "Adder\u0027s Kiss",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "4c77ce64-df3d-974c-8fdd-fc8b56d3613b",
+                       "nomeExibicao":  "Puncionar",
+                       "nomeOriginal":  "Puncture",
+                       "classeDoDono":  17,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "9e4de337-13c9-0e49-b1d9-070e17c14129",
+                       "nomeExibicao":  "Preparação",
+                       "nomeOriginal":  "Preparation",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a2de09f9-8834-2b47-83bc-1625534a920b",
+                       "nomeExibicao":  "Flèche",
+                       "nomeOriginal":  "Flèche",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "db6e41e4-2344-6341-8235-1ea96ad3c862",
+                       "nomeExibicao":  "Desengajar",
+                       "nomeOriginal":  "Disengage",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "6f6781fa-7b5f-9742-8418-29c905dc9ded",
+                       "nomeExibicao":  "Finta",
+                       "nomeOriginal":  "Feint",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "cc02c877-5501-cc49-9a63-404503054c20",
+                       "nomeExibicao":  "Meditação",
+                       "nomeOriginal":  "Meditation",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "29c30658-6ef8-da4a-bb01-48e479b5e845",
+                       "nomeExibicao":  "Chute",
+                       "nomeOriginal":  "The Boot",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c8c81330-ac92-5047-bd7e-52a3ac212ce6",
+                       "nomeExibicao":  "Golpe de Misericórdia",
+                       "nomeOriginal":  "Coup de Grâce",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "40994312-8436-be49-8a0f-647dd17458dd",
+                       "nomeExibicao":  "De Novo!",
+                       "nomeOriginal":  "Again!",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "8c44deba-eb38-0b49-abc9-67ae9a53c4cc",
+                       "nomeExibicao":  "Touché",
+                       "nomeOriginal":  "Touché",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "7280f5c4-187a-7443-b6b1-ba5f19049cc6",
+                       "nomeExibicao":  "Instrução Impiedosa",
+                       "nomeOriginal":  "Ruthless Instruction",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "9705127b-1b01-6a41-809d-c2aab9f0d33e",
+                       "nomeExibicao":  "Antecipação",
+                       "nomeOriginal":  "Anticipation",
+                       "classeDoDono":  18,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d56d4ffb-6779-4a4c-8c15-1d073bc77524",
+                       "nomeExibicao":  "Encorajar",
+                       "nomeOriginal":  "Encourage",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "27dffc5c-83d0-9640-98de-2d242c532931",
+                       "nomeExibicao":  "Conversa Motivadora",
+                       "nomeOriginal":  "Pep Talk",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c8d59eea-708f-0145-9c39-3bb30caba58f",
+                       "nomeExibicao":  "Corra e Esconda",
+                       "nomeOriginal":  "Run and Hide",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "685c68ef-2e4a-4e44-9103-4048bafed7a4",
+                       "nomeExibicao":  "Cuidados com Ferimentos",
+                       "nomeOriginal":  "Wound Care",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c6f8ca01-16cb-8d46-9b51-4636122959a3",
+                       "nomeExibicao":  "Vaga-lume",
+                       "nomeOriginal":  "Firefly",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b490a0af-24bd-8449-b088-6a55f8ab8cca",
+                       "nomeExibicao":  "Brincar com Fogo",
+                       "nomeOriginal":  "Play with Fire",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "55dc0d9e-2b93-9148-b315-6a708384c620",
+                       "nomeExibicao":  "Bater Carteira",
+                       "nomeOriginal":  "Pick Pocket",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "a488ab95-8db4-d944-991a-71885f93d637",
+                       "nomeExibicao":  "Queima Controlada",
+                       "nomeOriginal":  "Controlled Burn",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "92cae9bc-5156-e746-a1f2-969a51e513a8",
+                       "nomeExibicao":  "Refluxo",
+                       "nomeOriginal":  "Backdraft",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "d283ea1b-e43f-7b40-b8fa-994d04689d85",
+                       "nomeExibicao":  "Cauterizar",
+                       "nomeOriginal":  "Cauterize",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "c2b1cff1-9b6b-da49-9350-9fd41a9172ee",
+                       "nomeExibicao":  "Atear Fogo",
+                       "nomeOriginal":  "Kindle",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "b7473bbb-5f2d-f145-a3c1-b4b48bb3b1b3",
+                       "nomeExibicao":  "Golpe Escaldante",
+                       "nomeOriginal":  "Searing Strike",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "9332c215-3a79-ab48-b076-c1e21fd6778b",
+                       "nomeExibicao":  "Luz da Fogueira",
+                       "nomeOriginal":  "Hearthlight",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   },
+                   {
+                       "habilidadeId":  "8611ae8d-22f8-6849-bc67-fe5c11f07dd5",
+                       "nomeExibicao":  "Saquear",
+                       "nomeOriginal":  "Ransack",
+                       "classeDoDono":  19,
+                       "status":  0,
+                       "diffs":  [
+
+                                 ]
+                   }
+               ]
+}

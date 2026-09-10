@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DarkestDungeon.Infrastructure.Data.Migrations
+namespace DarkestDungeon.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCatalogoHeroisEEntidades : Migration
+    public partial class SchemaCompleto : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -307,7 +307,8 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TipoDeInimigo = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
+                    TipoDeInimigo = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    HabilidadesIds = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -339,7 +340,8 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
                     ArmaEquipadaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     ArmaduraEquipadaId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     AcessorioEquipado1Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    AcessorioEquipado2Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    AcessorioEquipado2Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    InventarioSlots = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -154,7 +154,7 @@ public static partial class HabilidadesSeed
             nomeOriginal: "Zealous Speech",
             descricao: "Reduz 15 pontos de estresse de toda a party e -15% de estresse recebido por 4 batalhas.",
             custoDeDescanso: 5,
-            alvo: AlvoDeAcampamento.PartyInteira,
+            alvo: AlvoDeAcampamento.Party,
             efeitos: new[]
             {
                 Efeito("Redução de Estresse", AlvoDeEfeito.Aliado, 15m, UnidadeDeEfeito.Pontos),

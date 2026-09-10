@@ -6,6 +6,8 @@ namespace DarkestDungeon.Domain.Classes;
 /// Fornece as resistências base copiadas ao Personagem na criação (FR-016).
 public sealed class Classe : EntidadeIdentificavel
 {
+    private readonly List<AssetsDeClasse> assets = new();
+
     private Classe()
     {
         NomeExibicao = string.Empty;
@@ -41,4 +43,22 @@ public sealed class Classe : EntidadeIdentificavel
     public string NomeExibicao { get; private set; }
     public string NomeOriginal { get; private set; }
     public ResistenciasDeClasse ResistenciasBase { get; private set; }
+
+    /// Feature 005 (FR-007i): 4 registros (A/B/C/D) vinculando cada aparência ao inventário Spine da Feature 004.
+    public IReadOnlyList<AssetsDeClasse> Assets => assets;
+
+    /// Define os 4 assets (A/B/C/D). Deve conter exatamente 4 entradas, uma por AparenciaDePersonagem.
+    public void DefinirAssets(IEnumerable<AssetsDeClasse> assetsNovos)
+    {
+        ArgumentNullException.ThrowIfNull(assetsNovos);
+        var arr = assetsNovos.ToArray();
+        var distintos = arr.Select(asset => asset.Aparencia).Distinct().ToArray();
+        if (arr.Length != 4 || distintos.Length != 4)
+        {
+            throw new ArgumentException("Assets de Classe devem conter exatamente 4 entradas distintas (A/B/C/D).", nameof(assetsNovos));
+        }
+
+        assets.Clear();
+        assets.AddRange(arr.OrderBy(asset => asset.Aparencia));
+    }
 }

@@ -30,4 +30,6 @@ public enum AlvoDeAcampamento
     UmAliado,
     TodosOsAliados,
     PartyInteira,
+    SelfEUmAliado,
+    Party,
 }

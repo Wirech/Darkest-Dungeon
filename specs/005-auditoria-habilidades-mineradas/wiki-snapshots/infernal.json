@@ -1,0 +1,193 @@
+{
+  "classe": "Infernal",
+  "classeSlug": "infernal",
+  "classeDeHeroiEnum": "Infernal",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Hellion",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Golpe Perverso",
+      "nomeOriginal": "Wicked Hack",
+      "tipo": "Combate",
+      "descricao": "Golpe melee padrão de alto dano.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["4%", "5%", "6%", "7%", "8%"]
+      },
+      "efeitos": []
+    },
+    {
+      "nomeExibicao": "Cisne de Ferro",
+      "nomeOriginal": "Iron Swan",
+      "tipo": "Combate",
+      "descricao": "Ataque único no jogo — atinge backline diretamente do frontline.",
+      "range": "Melee",
+      "rank": [1],
+      "target": [4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": []
+    },
+    {
+      "nomeExibicao": "Grito Bárbaro",
+      "nomeOriginal": "Barbaric Yawp",
+      "tipo": "Combate",
+      "descricao": "Atordoa dois alvos frontais. Aplica debuff em si. 3 usos por batalha.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": true,
+      "limitePorUso": { "quantidade": 3, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [110, 120, 130, 140, 150] },
+        { "tipoDoEfeito": "DebuffDano (self, 3 rds)", "valorPorNivel": ["-20%", "-20%", "-20%", "-20%", "-20%"] },
+        { "tipoDoEfeito": "DebuffVelocidade (self, 3 rds)", "valorPorNivel": [-3, -3, -3, -3, -3] }
+      ]
+    },
+    {
+      "nomeExibicao": "Se Sangra",
+      "nomeOriginal": "If It Bleeds",
+      "tipo": "Combate",
+      "descricao": "Ataque em área que causa Sangramento.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [2, 3],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-35%", "-35%", "-35%", "-35%", "-35%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [2, 2, 3, 3, 4], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Investida",
+      "nomeOriginal": "Breakthrough",
+      "tipo": "Combate",
+      "descricao": "Avança 1 e ataca área. Aplica debuff em si.",
+      "range": "Melee",
+      "rank": [2, 3, 4],
+      "target": [1, 2, 3],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["-1%", "0%", "1%", "2%", "3%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] },
+        { "tipoDoEfeito": "DebuffDano (self, 3 rds)", "valorPorNivel": ["-10%", "-10%", "-10%", "-10%", "-10%"] },
+        { "tipoDoEfeito": "DebuffVelocidade (self, 3 rds)", "valorPorNivel": [-1, -1, -1, -1, -1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Descarga de Adrenalina",
+      "nomeOriginal": "Adrenaline Rush",
+      "tipo": "Combate",
+      "descricao": "Cura self, remove Envenenamento/Sangramento, buff de ACC/DMG.",
+      "range": "Heal",
+      "rank": [1, 2, 3, 4],
+      "target": [],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (self)", "valorPorNivel": [1, 2, 2, 3, 4] },
+        { "tipoDoEfeito": "RemoverEnvenenamentoESangramento (self)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffPrecisao (self, 4 rds)", "valorPorNivel": [5, 6, 7, 8, 10] },
+        { "tipoDoEfeito": "BuffDano (self, 4 rds)", "valorPorNivel": ["+20%", "+22%", "+24%", "+26%", "+30%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Sangrar Até Morrer",
+      "nomeOriginal": "Bleed Out",
+      "tipo": "Combate",
+      "descricao": "Ataque devastador com Sangramento. Debuff em si.",
+      "range": "Melee",
+      "rank": [1],
+      "target": [1],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+20%", "+20%", "+20%", "+20%", "+20%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["6%", "7%", "8%", "9%", "10%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [3, 3, 4, 4, 5], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffDano (self, 3 rds)", "valorPorNivel": ["-20%", "-20%", "-20%", "-20%", "-20%"] },
+        { "tipoDoEfeito": "DebuffVelocidade (self, 3 rds)", "valorPorNivel": [-3, -3, -3, -3, -3] }
+      ]
+    },
+    {
+      "nomeExibicao": "Transe de Batalha",
+      "nomeOriginal": "Battle Trance",
+      "tipo": "Acampamento",
+      "descricao": "Buff de DMG apenas na posição 1.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano em posição 1 (4 Battles)", "valor": "+25%" },
+        { "tipoDoEfeito": "DebuffDano fora da posição 1 (4 Battles)", "valor": "-25%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Farra",
+      "nomeOriginal": "Revel",
+      "tipo": "Acampamento",
+      "descricao": "Alivia estresse mas reduz ACC/SPD.",
+      "custoDeDescanso": 3,
+      "alvo": "Party",
+      "efeitos": [
+        { "tipoDoEfeito": "DebuffPrecisao (4 Battles)", "valor": -5 },
+        { "tipoDoEfeito": "DebuffVelocidade (4 Battles)", "valor": -2 },
+        { "tipoDoEfeito": "ReduzirStress", "valor": -20 },
+        { "tipoDoEfeito": "ReduzirStressPercentual (4 Battles)", "valor": "-10%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Rejeitar os Deuses",
+      "nomeOriginal": "Reject the Gods",
+      "tipo": "Acampamento",
+      "descricao": "Alivia próprio estresse mas aumenta o dos aliados religiosos.",
+      "custoDeDescanso": 2,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (self)", "valor": -30 },
+        { "tipoDoEfeito": "AumentarStress (se não religioso)", "valor": 7 },
+        { "tipoDoEfeito": "AumentarStress (se religioso)", "valor": 15 }
+      ]
+    },
+    {
+      "nomeExibicao": "Afiar Lança",
+      "nomeOriginal": "Sharpen Spear",
+      "tipo": "Acampamento",
+      "descricao": "Buff próprio de CRIT.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffCritico (4 Battles)", "valor": "+10%" }
+      ]
+    }
+  ]
+}

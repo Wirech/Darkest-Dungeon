@@ -145,7 +145,7 @@ public static partial class HabilidadesSeed
             nomeOriginal: "Dark Ritual",
             descricao: "Cura 50% do HP e remove debuffs de mortalidade de um aliado ao custo de 100 tocha e +15 estresse próprio.",
             custoDeDescanso: 3,
-            alvo: AlvoDeAcampamento.UmAliado,
+            alvo: AlvoDeAcampamento.SelfEUmAliado,
             efeitos: new[]
             {
                 Efeito("Redução de Tocha", AlvoDeEfeito.Self, 100m, UnidadeDeEfeito.Pontos),
@@ -160,7 +160,7 @@ public static partial class HabilidadesSeed
             nomeOriginal: "Dark Strength",
             descricao: "Concede +20% de dano ao aliado por 4 batalhas ao custo de +15 estresse próprio.",
             custoDeDescanso: 2,
-            alvo: AlvoDeAcampamento.UmAliado,
+            alvo: AlvoDeAcampamento.SelfEUmAliado,
             efeitos: new[]
             {
                 Efeito("Aumento de Estresse", AlvoDeEfeito.Self, 15m, UnidadeDeEfeito.Pontos),

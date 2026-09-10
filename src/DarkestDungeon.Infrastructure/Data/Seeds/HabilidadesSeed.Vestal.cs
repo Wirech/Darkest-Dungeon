@@ -157,7 +157,7 @@ public static partial class HabilidadesSeed
             nomeOriginal: "Pray",
             descricao: "Reduz o estresse de todos os aliados (15 se religiosos, 5 se não) e concede bônus de proteção por 4 batalhas.",
             custoDeDescanso: 3,
-            alvo: AlvoDeAcampamento.TodosOsAliados,
+            alvo: AlvoDeAcampamento.Party,
             efeitos: new[]
             {
                 Efeito("Redução de Estresse", AlvoDeEfeito.Aliado, 15m, UnidadeDeEfeito.Pontos),

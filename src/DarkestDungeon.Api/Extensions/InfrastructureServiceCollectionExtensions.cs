@@ -1,5 +1,9 @@
 using DarkestDungeon.Application.Abstractions;
+using DarkestDungeon.Application.Auditoria;
+using DarkestDungeon.Application.Publicacao;
+using DarkestDungeon.Infrastructure.Auditoria;
 using DarkestDungeon.Infrastructure.Data;
+using DarkestDungeon.Infrastructure.Publicacao;
 using DarkestDungeon.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,8 +22,19 @@ public static class InfrastructureServiceCollectionExtensions
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, Action<DbContextOptionsBuilder> configureDbContext)
     {
         services.AddDbContext<DarkestDungeonDbContext>(configureDbContext);
+        services.AddDbContextFactory<DarkestDungeonDbContext>(configureDbContext, ServiceLifetime.Scoped);
         services.AddScoped<ISerRepository, SerRepository>();
         services.AddScoped(typeof(IRepositorioIdentificavel<>), typeof(RepositorioIdentificavel<>));
+
+        // Feature 005 - Auditoria providers
+        services.AddScoped<IProvedorDeSnapshotsWiki, ProvedorDeSnapshotsWikiEmDisco>();
+        services.AddScoped<IProvedorDeHabilidadesSeed, ProvedorDeHabilidadesSeedEfCore>();
+        services.AddScoped<IProvedorDeAssetsAuditados, ProvedorDeAssetsAuditadosEfCore>();
+        services.AddScoped<IAuditoriaWikiService, AuditoriaWikiService>();
+
+        // Feature 005 - Publicação atômica
+        services.AddScoped<IDetectorDeSessoesAtivas, DetectorDeSessoesAtivasSqlServer>();
+        services.AddScoped<IPublicadorAtomicoService, PublicadorAtomicoEfCore>();
 
         return services;
     }

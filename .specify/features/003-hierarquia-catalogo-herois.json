@@ -1,0 +1,34 @@
+{
+  "id": "003",
+  "slug": "hierarquia-catalogo-herois",
+  "titulo": "Hierarquia e Catálogo Oficial de Heróis",
+  "status": "implemented",
+  "dataConclusao": "2026-09-08",
+  "checkpoints": {
+    "US1_hierarquia_ser": "verde",
+    "US2_catalogo_classes_habilidades": "verde",
+    "US3_catalogo_itens": "verde",
+    "US4_personagens_inimigos": "verde",
+    "US5_mapa_cobertura": "verde"
+  },
+  "metricas": {
+    "classesSemeadas": 20,
+    "habilidadesSemeadas": 219,
+    "habilidadesDeCombate": 140,
+    "habilidadesDeAcampamento": 79,
+    "skillsCompartilhadasGlobais": 7,
+    "associacoesClasseHabilidade": 277,
+    "entradasMapaDeCobertura": 160,
+    "testesVerdes": 141,
+    "quickstartValidado": true,
+    "migracoesAplicadasSqlServerReal": true
+  },
+  "tasksConcluidas": "131/131",
+  "referencias": {
+    "spec": "specs/003-hierarquia-catalogo-herois/spec.md",
+    "plan": "specs/003-hierarquia-catalogo-herois/plan.md",
+    "tasks": "specs/003-hierarquia-catalogo-herois/tasks.md",
+    "dadosMinerados": "specs/003-hierarquia-catalogo-herois/dados-minerados.md",
+    "quickstart": "specs/003-hierarquia-catalogo-herois/quickstart.md"
+  }
+}

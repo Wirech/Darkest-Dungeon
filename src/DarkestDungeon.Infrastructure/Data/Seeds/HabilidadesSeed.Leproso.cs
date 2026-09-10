@@ -85,7 +85,11 @@ public static partial class HabilidadesSeed
             {
                 Efeito("Marcação", AlvoDeEfeito.Self, 1m, UnidadeDeEfeito.Rodadas, duracao: 1),
                 Efeito("Bônus de Proteção", AlvoDeEfeito.Self, 20m, UnidadeDeEfeito.Percentual, duracao: 1),
-                Efeito("Bônus de Resistências", AlvoDeEfeito.Self, 30m, UnidadeDeEfeito.Percentual, duracao: 1),
+                Efeito("Resistência a Atordoamento", AlvoDeEfeito.Self, 30m, UnidadeDeEfeito.Percentual, duracao: 1),
+                Efeito("Resistência a Sangramento", AlvoDeEfeito.Self, 30m, UnidadeDeEfeito.Percentual, duracao: 1),
+                Efeito("Resistência a Envenenamento", AlvoDeEfeito.Self, 30m, UnidadeDeEfeito.Percentual, duracao: 1),
+                Efeito("Resistência a Debuff", AlvoDeEfeito.Self, 30m, UnidadeDeEfeito.Percentual, duracao: 1),
+                Efeito("Resistência a Movimento", AlvoDeEfeito.Self, 30m, UnidadeDeEfeito.Percentual, duracao: 1),
             },
             limitePorUso: new LimitePorUso(EscopoDeLimite.Batalha, 1),
             id: IdDeterministico("Withstand"));

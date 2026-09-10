@@ -49,7 +49,7 @@ public static partial class HabilidadesSeed
             posicoesQueAtinge: new[] { 1, 2, 3, 4 },
             alvoEmArea: false,
             modificadorDano: 50m,
-            modificadorAcerto: 100m,
+            modificadorAcerto: 140m,
             modificadorCritico: 5m,
             efeitos: new[]
             {
@@ -69,7 +69,7 @@ public static partial class HabilidadesSeed
             posicoesQueAtinge: new[] { 1, 2, 3, 4 },
             alvoEmArea: true,
             modificadorDano: -100m,
-            modificadorAcerto: 100m,
+            modificadorAcerto: 125m,
             modificadorCritico: 0m,
             efeitos: new[]
             {
@@ -185,7 +185,7 @@ public static partial class HabilidadesSeed
             nomeOriginal: "Mockery",
             descricao: "Aumenta o estresse do alvo em 20 pontos e reduz o estresse dos outros aliados em 20 pontos.",
             custoDeDescanso: 2,
-            alvo: AlvoDeAcampamento.PartyInteira,
+            alvo: AlvoDeAcampamento.TodosOsAliados,
             efeitos: new[]
             {
                 Efeito("Aumento de Estresse", AlvoDeEfeito.Aliado, 20m, UnidadeDeEfeito.Pontos),

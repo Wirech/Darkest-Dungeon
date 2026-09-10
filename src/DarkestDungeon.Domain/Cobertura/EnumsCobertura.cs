@@ -6,6 +6,8 @@ public enum CategoriaDeCobertura
     HabilidadeCombate,
     HabilidadeAcampamento,
     ResistenciaBase,
+    NivelDeHabilidade,
+    AssetsVisuais,
 }
 
 /// Estado de coleta de um atributo no Mapa de Cobertura. Três estados distintos (FR-018).

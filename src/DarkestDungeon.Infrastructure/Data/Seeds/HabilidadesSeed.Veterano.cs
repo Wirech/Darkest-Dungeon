@@ -147,7 +147,7 @@ public static partial class HabilidadesSeed
             nomeOriginal: "Tactics",
             descricao: "Ensina táticas ao grupo: +10 esquiva e +5% crítico a todos os aliados por 4 batalhas.",
             custoDeDescanso: 4,
-            alvo: AlvoDeAcampamento.TodosOsAliados,
+            alvo: AlvoDeAcampamento.Party,
             efeitos: new[]
             {
                 Efeito("Bônus de Esquiva", AlvoDeEfeito.Aliado, 10m, UnidadeDeEfeito.Pontos, duracao: 4),

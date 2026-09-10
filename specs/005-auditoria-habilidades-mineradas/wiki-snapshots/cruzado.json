@@ -1,0 +1,189 @@
+﻿{
+  "classe": "Cruzado",
+  "classeSlug": "cruzado",
+  "classeDeHeroiEnum": "Cruzado",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Crusader",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Golpe Sagrado",
+      "nomeOriginal": "Smite",
+      "tipo": "Combate",
+      "descricao": "Ataque abençoado com dano extra contra Não-Mortos.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Não-Mortos", "valorPorNivel": ["+15%", "+20%", "+25%", "+30%", "+35%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Acusação Zelosa",
+      "nomeOriginal": "Zealous Accusation",
+      "tipo": "Combate",
+      "descricao": "Ataque em dois alvos frontais.",
+      "range": "Ranged",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-40%", "-40%", "-40%", "-40%", "-40%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["-4%", "-3%", "-2%", "-1%", "0%"]
+      },
+      "efeitos": []
+    },
+    {
+      "nomeExibicao": "Golpe Atordoante",
+      "nomeOriginal": "Stunning Blow",
+      "tipo": "Combate",
+      "descricao": "Golpe com forte chance de atordoar o alvo.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Baluarte da Fé",
+      "nomeOriginal": "Bulwark of Faith",
+      "tipo": "Combate",
+      "descricao": "Aumenta Tocha e Proteção, marcando-se a si mesmo. Uso limitado.",
+      "range": "Buff",
+      "rank": [1, 2],
+      "target": [],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 1, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Tocha (self)", "valorPorNivel": [24, 24, 24, 24, 24] },
+        { "tipoDoEfeito": "BuffProtecao (self, 1 Battle)", "valorPorNivel": ["+20%", "+22%", "+25%", "+28%", "+30%"] },
+        { "tipoDoEfeito": "Marcar (self, 1 Battle)", "valorPorNivel": [true, true, true, true, true] }
+      ]
+    },
+    {
+      "nomeExibicao": "Cura de Batalha",
+      "nomeOriginal": "Battle Heal",
+      "tipo": "Combate",
+      "descricao": "Cura direcionada a um aliado.",
+      "range": "Heal",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura", "valorPorNivel": ["2-3", "3-3", "3-4", "4-5", "5-6"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Lança Sagrada",
+      "nomeOriginal": "Holy Lance",
+      "tipo": "Combate",
+      "descricao": "Ataque com avanço, dano extra contra Não-Mortos.",
+      "range": "Melee",
+      "rank": [3, 4],
+      "target": [2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["6.5%", "7.5%", "8.5%", "9.5%", "10.5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Não-Mortos", "valorPorNivel": ["+15%", "+20%", "+25%", "+30%", "+35%"] },
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Grito Inspirador",
+      "nomeOriginal": "Inspiring Cry",
+      "tipo": "Combate",
+      "descricao": "Cura leve na party, reduz estresse e aumenta tocha.",
+      "range": "Heal",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (party)", "valorPorNivel": ["1-1", "1-1", "1-2", "1-2", "2-2"] },
+        { "tipoDoEfeito": "ReduzirStress (party)", "valorPorNivel": [-5, -5, -6, -7, -8] },
+        { "tipoDoEfeito": "Tocha (party)", "valorPorNivel": [5, 6, 7, 8, 10] }
+      ]
+    },
+    {
+      "nomeExibicao": "Líder Inabalável",
+      "nomeOriginal": "Unshakable Leader",
+      "tipo": "Acampamento",
+      "descricao": "Reduz estresse futuro em batalha.",
+      "custoDeDescanso": 2,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStressPercentual (4 Battles)", "valor": "-25%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Manter-se Firme",
+      "nomeOriginal": "Stand Tall",
+      "tipo": "Acampamento",
+      "descricao": "Alivia estresse e remove Mortality debuffs de um aliado.",
+      "custoDeDescanso": 3,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress", "valor": -15 },
+        { "tipoDoEfeito": "RemoverMortalityDebuffs", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Discurso Zeloso",
+      "nomeOriginal": "Zealous Speech",
+      "tipo": "Acampamento",
+      "descricao": "Alivia estresse e reduz estresse futuro de toda a party.",
+      "custoDeDescanso": 5,
+      "alvo": "Party",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (party)", "valor": -15 },
+        { "tipoDoEfeito": "ReduzirStressPercentual (all, 4 Battles)", "valor": "-15%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Vigília Zelosa",
+      "nomeOriginal": "Zealous Vigil",
+      "tipo": "Acampamento",
+      "descricao": "Alivia estresse e impede emboscada noturna. Bônus se Afligido.",
+      "custoDeDescanso": 4,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress", "valor": -25 },
+        { "tipoDoEfeito": "ReduzirStress (se Afligido)", "valor": -15 },
+        { "tipoDoEfeito": "PrevenirNightAmbush", "valor": true }
+      ]
+    }
+  ]
+}

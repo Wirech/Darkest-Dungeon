@@ -1,0 +1,199 @@
+{
+  "classe": "Abominação",
+  "classeSlug": "abominacao",
+  "classeDeHeroiEnum": "Abominacao",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Abomination",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "notas": ["Sistema dual: Forma Humana e Forma Besta. Transform é ação livre com limite 2 usos/batalha. Entrar em Besta causa +8 estresse aos aliados; sair alivia -2. Beast form causa 6 stress/turno no próprio Abominação. Todas as 7 skills ficam desbloqueadas no recrutamento (única classe assim)."],
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Transformar",
+      "nomeOriginal": "Transform",
+      "tipo": "Combate",
+      "descricao": "Ação livre — alterna entre Forma Humana e Besta. Efeitos diferentes por direção. 2 usos/batalha.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [],
+      "alvoEmArea": true,
+      "limitePorUso": { "quantidade": 2, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "TrocarParaBesta (self)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "AumentarStress (companions, Humano→Besta)", "valorPorNivel": [8, 8, 8, 8, 8] },
+        { "tipoDoEfeito": "BuffVelocidade (self, 4 rds, Humano→Besta)", "valorPorNivel": [1, 2, 3, 4, 5] },
+        { "tipoDoEfeito": "BuffResistenciaEnvenenamento (self, 4 rds, Humano→Besta)", "valorPorNivel": ["+20%", "+22%", "+25%", "+27%", "+30%"] },
+        { "tipoDoEfeito": "BuffDano (self, 3 rds, Humano→Besta)", "valorPorNivel": ["+10%", "+14%", "+17%", "+21%", "+25%"] },
+        { "tipoDoEfeito": "Cura (self, Humano→Besta)", "valorPorNivel": [5, 6, 7, 8, 10] },
+        { "tipoDoEfeito": "ReduzirStress (companions, Besta→Humano)", "valorPorNivel": [-2, -2, -2, -2, -2] },
+        { "tipoDoEfeito": "DebuffVelocidade (self, 4 rds, Besta→Humano)", "valorPorNivel": [-4, -3, -2, -1, 0] }
+      ]
+    },
+    {
+      "nomeExibicao": "Algemas",
+      "nomeOriginal": "Manacles",
+      "tipo": "Combate",
+      "descricao": "Forma Humana. Atordoa alvo.",
+      "range": "Ranged",
+      "rank": [2, 3],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-60%", "-60%", "-60%", "-60%", "-60%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["1%", "2%", "3%", "4%", "5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [90, 100, 110, 120, 130] }
+      ]
+    },
+    {
+      "nomeExibicao": "Bile da Besta",
+      "nomeOriginal": "Beast's Bile",
+      "tipo": "Combate",
+      "descricao": "Forma Humana. Aplica Envenenamento em área e reduz resistência.",
+      "range": "Ranged",
+      "rank": [2, 3],
+      "target": [2, 3],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-90%", "-90%", "-90%", "-90%", "-90%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["2%", "3%", "4%", "5%", "6%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Envenenamento (3 rds)", "valorPorNivel": [2, 3, 3, 4, 5], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffResistenciaEnvenenamento (3 rds)", "valorPorNivel": ["-20%", "-23%", "-26%", "-30%", "-33%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Absolvição",
+      "nomeOriginal": "Absolution",
+      "tipo": "Combate",
+      "descricao": "Forma Humana. Auto-cura e alivia estresse.",
+      "range": "Heal",
+      "rank": [1, 2, 3, 4],
+      "target": [],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (self)", "valorPorNivel": [3, 3, 4, 4, 5] },
+        { "tipoDoEfeito": "ReduzirStress (self)", "valorPorNivel": [-7, -8, -8, -9, -10] }
+      ]
+    },
+    {
+      "nomeExibicao": "Rasgar",
+      "nomeOriginal": "Rake",
+      "tipo": "Combate",
+      "descricao": "Forma Besta. Ataque em área frontal com buff próprio empilhável.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["-3%", "-2%", "-1%", "0%", "1%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDanoRake (self, 4 rds)", "valorPorNivel": ["+15%", "+17%", "+20%", "+22%", "+25%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Fúria",
+      "nomeOriginal": "Rage",
+      "tipo": "Combate",
+      "descricao": "Forma Besta. Ataque melee frontal.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["7.5%", "8.5%", "9.5%", "10.5%", "11.5%"]
+      },
+      "efeitos": []
+    },
+    {
+      "nomeExibicao": "Bater",
+      "nomeOriginal": "Slam",
+      "tipo": "Combate",
+      "descricao": "Forma Besta. Knockback e debuffs em alvo. Avança 1.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-25%", "-25%", "-25%", "-25%", "-25%"],
+        "modificadorAcerto": [80, 85, 90, 95, 100],
+        "modificadorCritico": ["1%", "2%", "3%", "4%", "5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Knockback 2", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffEsquiva (4 rds)", "valorPorNivel": [-10, -12, -15, -17, -20], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffVelocidade (4 rds)", "valorPorNivel": [-2, -3, -4, -5, -6], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Controle da Raiva",
+      "nomeOriginal": "Anger Management",
+      "tipo": "Acampamento",
+      "descricao": "Aumenta próprio estresse mas reduz o da party.",
+      "custoDeDescanso": 3,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "AumentarStress (self)", "valor": 20 },
+        { "tipoDoEfeito": "ReduzirStress (companions)", "valor": -10 }
+      ]
+    },
+    {
+      "nomeExibicao": "Preparação Psíquica",
+      "nomeOriginal": "Psych Up",
+      "tipo": "Acampamento",
+      "descricao": "Buff próprio de DMG mas aumenta estresse dos aliados.",
+      "custoDeDescanso": 3,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano (self, 4 Battles)", "valor": "+25%" },
+        { "tipoDoEfeito": "AumentarStress (companions não religiosos)", "valor": 10 },
+        { "tipoDoEfeito": "AumentarStress (companions religiosos)", "valor": 20 }
+      ]
+    },
+    {
+      "nomeExibicao": "Aceleração",
+      "nomeOriginal": "The Quickening",
+      "tipo": "Acampamento",
+      "descricao": "Buff próprio de Velocidade.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffVelocidade (4 Battles)", "valor": 4 }
+      ]
+    },
+    {
+      "nomeExibicao": "Sangue Ancião",
+      "nomeOriginal": "Eldritch Blood",
+      "tipo": "Acampamento",
+      "descricao": "Buffs de resistências mas aumenta estresse recebido.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffResistenciaEnvenenamento (4 Battles)", "valor": "+40%" },
+        { "tipoDoEfeito": "BuffResistenciaSangramento (4 Battles)", "valor": "+40%" },
+        { "tipoDoEfeito": "BuffResistenciaDoenca (4 Battles)", "valor": "+40%" },
+        { "tipoDoEfeito": "AumentarStressPercentual (4 Battles)", "valor": "+20%" }
+      ]
+    }
+  ]
+}

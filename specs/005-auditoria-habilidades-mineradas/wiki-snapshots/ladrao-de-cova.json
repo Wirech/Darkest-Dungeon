@@ -1,0 +1,195 @@
+{
+  "classe": "Ladrão de Cova",
+  "classeSlug": "ladrao-de-cova",
+  "classeDeHeroiEnum": "LadraoDeCova",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Grave_Robber",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Picareta na Cara",
+      "nomeOriginal": "Pick to the Face",
+      "tipo": "Combate",
+      "descricao": "Golpe melee que ignora armadura.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-15%", "-15%", "-15%", "-15%", "-15%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["1%", "2%", "3%", "4%", "5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "IgnorarArmadura", "valorPorNivel": [true, true, true, true, true] }
+      ]
+    },
+    {
+      "nomeExibicao": "Estocada",
+      "nomeOriginal": "Lunge",
+      "tipo": "Combate",
+      "descricao": "Investida forte contra alvos frontais, bônus contra Envenenados.",
+      "range": "Melee",
+      "rank": [3, 4],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+40%", "+40%", "+40%", "+40%", "+40%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["8%", "9%", "10%", "11%", "12%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Envenenado", "valorPorNivel": ["+20%", "+23%", "+26%", "+29%", "+33%"] },
+        { "tipoDoEfeito": "Avança 2 (self)", "valorPorNivel": [2, 2, 2, 2, 2] }
+      ]
+    },
+    {
+      "nomeExibicao": "Adagas Cintilantes",
+      "nomeOriginal": "Flashing Daggers",
+      "tipo": "Combate",
+      "descricao": "Adagas em área que reduzem resistência a Sangramento.",
+      "range": "Ranged",
+      "rank": [2, 3, 4],
+      "target": [2, 3],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-33%", "-33%", "-33%", "-33%", "-33%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["-5%", "-4%", "-3%", "-2%", "-1%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "DebuffResistenciaSangramento (3 rds)", "valorPorNivel": ["-20%", "-23%", "-26%", "-30%", "-33%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Fusão nas Sombras",
+      "nomeOriginal": "Shadow Fade",
+      "tipo": "Combate",
+      "descricao": "Recua 2, entra em Furtividade e ganha buffs.",
+      "range": "Buff",
+      "rank": [1, 2],
+      "target": [],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Recua 2 (self)", "valorPorNivel": [2, 2, 2, 2, 2] },
+        { "tipoDoEfeito": "Furtividade (self, 2 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffDano (self, 2 rds)", "valorPorNivel": ["+80%", "+85%", "+90%", "+95%", "+100%"] },
+        { "tipoDoEfeito": "BuffCritico (self, 2 rds)", "valorPorNivel": ["+4%", "+5%", "+6%", "+7%", "+8%"] },
+        { "tipoDoEfeito": "BuffEsquiva (self, 4 rds)", "valorPorNivel": [10, 11, 12, 13, 15] }
+      ]
+    },
+    {
+      "nomeExibicao": "Adaga Arremessada",
+      "nomeOriginal": "Thrown Dagger",
+      "tipo": "Combate",
+      "descricao": "Adaga com bônus contra Marcado/Envenenado; buff de ACC ao usar.",
+      "range": "Ranged",
+      "rank": [2, 3, 4],
+      "target": [2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-10%", "-10%", "-10%", "-10%", "-10%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["8%", "9%", "10%", "11%", "12%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Marcado", "valorPorNivel": ["+25%", "+28%", "+32%", "+36%", "+40%"] },
+        { "tipoDoEfeito": "BuffDano vs Envenenado", "valorPorNivel": ["+20%", "+23%", "+26%", "+29%", "+33%"] },
+        { "tipoDoEfeito": "BuffPrecisao (self, 4 rds)", "valorPorNivel": [5, 6, 7, 8, 10] }
+      ]
+    },
+    {
+      "nomeExibicao": "Dardo Envenenado",
+      "nomeOriginal": "Poison Dart",
+      "tipo": "Combate",
+      "descricao": "Aplica forte Envenenamento e reduz resistência.",
+      "range": "Ranged",
+      "rank": [2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-60%", "-60%", "-60%", "-60%", "-60%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["7.5%", "8.5%", "9.5%", "10.5%", "11.5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Envenenamento (4 rds)", "valorPorNivel": [2, 3, 3, 3, 4], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffResistenciaEnvenenamento (3 rds)", "valorPorNivel": ["-20%", "-23%", "-26%", "-30%", "-33%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Truque Tóxico",
+      "nomeOriginal": "Toxin Trickery",
+      "tipo": "Combate",
+      "descricao": "Cura Envenenamento/Sangramento e ganha DODGE/SPD. Uso único por batalha.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 1, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "RemoverEnvenenamentoESangramento (self)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffEsquiva (self, 1 Battle)", "valorPorNivel": [9, 10, 11, 12, 13] },
+        { "tipoDoEfeito": "BuffVelocidade (self, 1 Battle)", "valorPorNivel": [2, 2, 3, 3, 4] }
+      ]
+    },
+    {
+      "nomeExibicao": "Caixa de Rapé",
+      "nomeOriginal": "Snuff Box",
+      "tipo": "Acampamento",
+      "descricao": "Remove Doença de si e de um aliado.",
+      "custoDeDescanso": 3,
+      "alvo": "SelfAndOneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "RemoverDoenca (self)", "valor": true },
+        { "tipoDoEfeito": "RemoverDoenca (companion)", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Humor Negro",
+      "nomeOriginal": "Gallows Humor",
+      "tipo": "Acampamento",
+      "descricao": "Alivia próprio estresse; efeito na party é probabilístico.",
+      "custoDeDescanso": 4,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (self)", "valor": -25 },
+        { "tipoDoEfeito": "ReduzirStress (companions, 75% chance)", "valor": -20 },
+        { "tipoDoEfeito": "AumentarStress (companions, 25% chance)", "valor": 10 }
+      ]
+    },
+    {
+      "nomeExibicao": "Andanças Noturnas",
+      "nomeOriginal": "Night Moves",
+      "tipo": "Acampamento",
+      "descricao": "Aumenta chance de escoteirar.",
+      "custoDeDescanso": 2,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffScoutingChance (4 Battles)", "valor": "+20%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Furto",
+      "nomeOriginal": "Pilfer",
+      "tipo": "Acampamento",
+      "descricao": "Produz um item de suprimento aleatório.",
+      "custoDeDescanso": 1,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ProduzirSupplyAleatorio", "valor": true }
+      ]
+    }
+  ]
+}

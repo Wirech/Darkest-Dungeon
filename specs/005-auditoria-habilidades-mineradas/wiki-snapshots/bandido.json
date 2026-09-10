@@ -1,0 +1,198 @@
+{
+  "classe": "Bandido",
+  "classeSlug": "bandido",
+  "classeDeHeroiEnum": "Bandido",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Highwayman",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Corte Perverso",
+      "nomeOriginal": "Wicked Slice",
+      "tipo": "Combate",
+      "descricao": "Golpe melee com bônus de dano frontal.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+15%", "+15%", "+15%", "+15%", "+15%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": []
+    },
+    {
+      "nomeExibicao": "Tiro de Pistola",
+      "nomeOriginal": "Pistol Shot",
+      "tipo": "Combate",
+      "descricao": "Tiro ranged com bônus de dano contra alvo Marcado.",
+      "range": "Ranged",
+      "rank": [2, 3, 4],
+      "target": [2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-15%", "-15%", "-15%", "-15%", "-15%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["7.5%", "8.5%", "9.5%", "10.5%", "11.5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Marcado", "valorPorNivel": ["+25%", "+30%", "+35%", "+40%", "+50%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Tiro à Queima-Roupa",
+      "nomeOriginal": "Point Blank Shot",
+      "tipo": "Combate",
+      "descricao": "Tiro na primeira posição com knockback; recua o próprio Bandido.",
+      "range": "Ranged",
+      "rank": [1],
+      "target": [1],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+50%", "+50%", "+50%", "+50%", "+50%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Knockback 1", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Recua 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Disparo de Chumbo",
+      "nomeOriginal": "Grapeshot Blast",
+      "tipo": "Combate",
+      "descricao": "Ataque em área com dano baixo, aumenta chance de crítico recebido pelos alvos.",
+      "range": "Ranged",
+      "rank": [2, 3],
+      "target": [1, 2, 3],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [75, 80, 85, 90, 95],
+        "modificadorCritico": ["-9%", "-8%", "-7%", "-6%", "-5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "AumentarCritsRecebidos (3 rds)", "valorPorNivel": ["+4%", "+5%", "+6%", "+7%", "+8%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Tiro Rastreador",
+      "nomeOriginal": "Tracking Shot",
+      "tipo": "Combate",
+      "descricao": "Buff próprio de ACC/CRIT/DMG e remove Furtividade do alvo. Uso único por batalha.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [2, 3, 4],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 1, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": ["-80%", "-80%", "-80%", "-80%", "-80%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["0%", "0%", "0.5%", "0.5%", "1%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "RemoverFurtividade", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffPrecisao (self, 1 Battle)", "valorPorNivel": [6, 7, 8, 9, 10] },
+        { "tipoDoEfeito": "BuffCritico (self, 1 Battle)", "valorPorNivel": ["+4%", "+5%", "+6%", "+7%", "+8%"] },
+        { "tipoDoEfeito": "BuffDano (self, 1 Battle)", "valorPorNivel": ["+12%", "+14%", "+16%", "+18%", "+20%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Avanço do Duelista",
+      "nomeOriginal": "Duelist's Advance",
+      "tipo": "Combate",
+      "descricao": "Avança 1, ativa Riposte por 3 rodadas.",
+      "range": "Melee",
+      "rank": [2, 3, 4],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-20%", "-20%", "-20%", "-20%", "-20%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] },
+        { "tipoDoEfeito": "AtivarRiposte (3 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Riposte DebuffDano (3 rds)", "valorPorNivel": ["-40%", "-33%", "-25%", "-20%", "-15%"] },
+        { "tipoDoEfeito": "Riposte BuffCritico (3 rds)", "valorPorNivel": ["0%", "+2%", "+3%", "+4%", "+5%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Cortar Veia",
+      "nomeOriginal": "Open Vein",
+      "tipo": "Combate",
+      "descricao": "Golpe que causa forte Sangramento e reduz resistência ao mesmo.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-15%", "-15%", "-15%", "-15%", "-15%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [2, 2, 3, 3, 4], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffResistenciaSangramento (3 rds)", "valorPorNivel": ["-20%", "-23%", "-26%", "-30%", "-33%"], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffVelocidade (3 rds)", "valorPorNivel": [-1, -1, -2, -2, -3], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Humor Negro",
+      "nomeOriginal": "Gallows Humor",
+      "tipo": "Acampamento",
+      "descricao": "Alivia próprio estresse; efeito na party é probabilístico.",
+      "custoDeDescanso": 4,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (self)", "valor": -25 },
+        { "tipoDoEfeito": "ReduzirStress (companions, 75% chance)", "valor": -20 },
+        { "tipoDoEfeito": "AumentarStress (companions, 25% chance)", "valor": 10 }
+      ]
+    },
+    {
+      "nomeExibicao": "Destreza Sem Igual",
+      "nomeOriginal": "Unparalleled Finesse",
+      "tipo": "Acampamento",
+      "descricao": "Buffs próprios de Esquiva, Velocidade e melee.",
+      "custoDeDescanso": 4,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffEsquiva (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffVelocidade (4 Battles)", "valor": 2 },
+        { "tipoDoEfeito": "BuffDano Melee (4 Battles)", "valor": "+20%" },
+        { "tipoDoEfeito": "BuffPrecisao Melee (4 Battles)", "valor": 10 }
+      ]
+    },
+    {
+      "nomeExibicao": "Limpar Armas",
+      "nomeOriginal": "Clean Guns",
+      "tipo": "Acampamento",
+      "descricao": "Buffs próprios de ranged (ACC/DMG/CRIT).",
+      "custoDeDescanso": 4,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao Ranged (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffDano Ranged (4 Battles)", "valor": "+20%" },
+        { "tipoDoEfeito": "BuffCritico Ranged (4 Battles)", "valor": "+6%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Instinto de Bandido",
+      "nomeOriginal": "Bandit's Sense",
+      "tipo": "Acampamento",
+      "descricao": "Previne emboscada noturna e reduz chance de surpresa.",
+      "custoDeDescanso": 4,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "PrevenirNightAmbush", "valor": true },
+        { "tipoDoEfeito": "ReduzirChancePartySurpreendida (4 Battles)", "valor": "-20%" },
+        { "tipoDoEfeito": "AumentarChanceMonstroSurpreendido (4 Battles)", "valor": "+20%" }
+      ]
+    }
+  ]
+}

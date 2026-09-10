@@ -1,0 +1,195 @@
+{
+  "classe": "Veterano",
+  "classeSlug": "veterano",
+  "classeDeHeroiEnum": "Veterano",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Man-at-Arms",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Esmagar",
+      "nomeOriginal": "Crush",
+      "tipo": "Combate",
+      "descricao": "Golpe melee frontal padrão.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": []
+    },
+    {
+      "nomeExibicao": "Muralha",
+      "nomeOriginal": "Rampart",
+      "tipo": "Combate",
+      "descricao": "Ataque com knockback e stun; avança 1.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-60%", "-60%", "-60%", "-60%", "-60%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Knockback 1", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Rugido",
+      "nomeOriginal": "Bellow",
+      "tipo": "Combate",
+      "descricao": "Debuff em área que reduz Esquiva/Velocidade e aumenta CRITs recebidos por Marcados.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "DebuffEsquiva (3 rds)", "valorPorNivel": [-5, -6, -7, -8, -10], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffVelocidade (3 rds)", "valorPorNivel": [-5, -5, -6, -6, -7], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "AumentarCritsRecebidosMarcado (3 rds)", "valorPorNivel": ["+5%", "+5%", "+5%", "+5%", "+5%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Defensor",
+      "nomeOriginal": "Defender",
+      "tipo": "Combate",
+      "descricao": "Guarda aliado por 3 rodadas e ganha PROT.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "GuardarAliado (3 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffProtecao (self, 4 rds)", "valorPorNivel": ["+15%", "+18%", "+22%", "+26%", "+30%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Retribuição",
+      "nomeOriginal": "Retribution",
+      "tipo": "Combate",
+      "descricao": "Marca a si mesmo e ativa Riposte por 3 rodadas.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-75%", "-75%", "-75%", "-75%", "-75%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["2.5%", "3.5%", "4.5%", "5.5%", "6.5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "MarcarSelf (2 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "AtivarRiposte (3 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Riposte DebuffDano (3 rds)", "valorPorNivel": ["-40%", "-35%", "-30%", "-25%", "-20%"] },
+        { "tipoDoEfeito": "Riposte BuffCritico (3 rds)", "valorPorNivel": ["0%", "+1%", "+2%", "+3%", "+4%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Comando",
+      "nomeOriginal": "Command",
+      "tipo": "Combate",
+      "descricao": "Buff em área — ACC, CRIT e DMG quando Guardado.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao (3 rds)", "valorPorNivel": [5, 6, 7, 8, 10] },
+        { "tipoDoEfeito": "BuffCritico (3 rds)", "valorPorNivel": ["+4%", "+5%", "+6%", "+7%", "+8%"] },
+        { "tipoDoEfeito": "BuffDano ao Guardado (3 rds)", "valorPorNivel": ["+15%", "+17%", "+20%", "+22%", "+25%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Reforçar",
+      "nomeOriginal": "Bolster",
+      "tipo": "Combate",
+      "descricao": "Buff em área de Esquiva e redução de estresse recebido. Uso único por batalha.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "limitePorUso": { "quantidade": 1, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffEsquiva (1 Battle)", "valorPorNivel": [5, 6, 7, 8, 10] },
+        { "tipoDoEfeito": "ReduzirStressRecebido (1 Battle)", "valorPorNivel": ["-10%", "-10%", "-15%", "-15%", "-20%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Manter Equipamento",
+      "nomeOriginal": "Maintain Equipment",
+      "tipo": "Acampamento",
+      "descricao": "Buffs pessoais de PROT e DMG.",
+      "custoDeDescanso": 4,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffProtecao (4 Battles)", "valor": "+15%" },
+        { "tipoDoEfeito": "BuffDano (4 Battles)", "valor": "+15%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Táticas",
+      "nomeOriginal": "Tactics",
+      "tipo": "Acampamento",
+      "descricao": "Buffs de Esquiva e Crítico para toda a party.",
+      "custoDeDescanso": 4,
+      "alvo": "Party",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffEsquiva (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffCritico (4 Battles)", "valor": "+5%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Instrução",
+      "nomeOriginal": "Instruction",
+      "tipo": "Acampamento",
+      "descricao": "Buffs de Precisão e Velocidade para um aliado.",
+      "custoDeDescanso": 3,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffVelocidade (4 Battles)", "valor": 3 }
+      ]
+    },
+    {
+      "nomeExibicao": "Prática de Armas",
+      "nomeOriginal": "Weapons Practice",
+      "tipo": "Acampamento",
+      "descricao": "Buff de DMG para toda a party; buff de CRIT probabilístico.",
+      "custoDeDescanso": 4,
+      "alvo": "AllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano (4 Battles)", "valor": "+10%" },
+        { "tipoDoEfeito": "BuffCritico (75% chance, 4 Battles)", "valor": "+8%" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "classe": "Flagelante",
+  "classeSlug": "flagelante",
+  "classeDeHeroiEnum": "Flagelante",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Flagellant",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "notas": ["ÚNICA classe sem shared skills. Exsanguinate e Redeem só usáveis com HP < 40%. Deathblow 73% (não 67% padrão). Trap 0%. Afflicted vira Rapturous ao invés de padrão."],
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Punir",
+      "nomeOriginal": "Punish",
+      "tipo": "Combate",
+      "descricao": "Golpe devastador com forte Sangramento (+100% DMG).",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+100%", "+100%", "+100%", "+100%", "+100%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [4, 4, 5, 5, 6], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffResistenciaSangramento (3 rds)", "valorPorNivel": ["-20%", "-23%", "-26%", "-30%", "-33%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Chuva de Sofrimento",
+      "nomeOriginal": "Rain of Sorrows",
+      "tipo": "Combate",
+      "descricao": "Ataque em área backline com Sangramento.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-67%", "-67%", "-67%", "-67%", "-67%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["2%", "3%", "4%", "5%", "6%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [3, 3, 4, 4, 5], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffResistenciaSangramento (3 rds)", "valorPorNivel": ["-20%", "-23%", "-26%", "-30%", "-33%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Exsanguinação",
+      "nomeOriginal": "Exsanguinate",
+      "tipo": "Combate",
+      "descricao": "Emergency heal (35-50% max HP) e Sangramento fortíssimo. Só usável abaixo de 40% HP. 3 usos/batalha.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 3, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": ["+100%", "+100%", "+100%", "+100%", "+100%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["3%", "4%", "5%", "6%", "7%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [5, 6, 7, 8, 9], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Cura (self)", "valorPorNivel": ["35%HP", "39%HP", "42%HP", "46%HP", "50%HP"] },
+        { "tipoDoEfeito": "DebuffCura (self, 3 rds)", "valorPorNivel": ["-25%", "-25%", "-25%", "-25%", "-25%"] },
+        { "tipoDoEfeito": "DebuffCuraRecebida (self, 3 rds)", "valorPorNivel": ["-25%", "-25%", "-25%", "-25%", "-25%"] },
+        { "tipoDoEfeito": "DebuffVelocidade (self, 3 rds)", "valorPorNivel": [-3, -3, -3, -3, -3] }
+      ]
+    },
+    {
+      "nomeExibicao": "Reclamar",
+      "nomeOriginal": "Reclaim",
+      "tipo": "Combate",
+      "descricao": "Auto-Sangramento que causa dano por rodada; mecânica única.",
+      "range": "Heal",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura ao Longo (target)", "valorPorNivel": ["2/rd por 2rd", "2/rd por 3rd", "3/rd por 2rd", "3/rd por 3rd", "4/rd por 3rd"] },
+        { "tipoDoEfeito": "Sangramento (self, 3 rds)", "valorPorNivel": [3, 3, 4, 4, 5], "chancePorNivel": [120, 130, 140, 150, 160] }
+      ]
+    },
+    {
+      "nomeExibicao": "Redimir",
+      "nomeOriginal": "Redeem",
+      "tipo": "Combate",
+      "descricao": "Cura poderosa em aliado. Só usável abaixo de 40% HP. 2 usos/batalha.",
+      "range": "Heal",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 2, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (target)", "valorPorNivel": ["33%maxHP", "35%maxHP", "37.5%maxHP", "40%maxHP", "43%maxHP"] },
+        { "tipoDoEfeito": "Cura (self)", "valorPorNivel": ["35%maxHP", "39%maxHP", "42%maxHP", "46%maxHP", "50%maxHP"] },
+        { "tipoDoEfeito": "DebuffCura (self, 3 rds)", "valorPorNivel": ["-25%", "-25%", "-25%", "-25%", "-25%"] },
+        { "tipoDoEfeito": "DebuffVelocidade (self, 3 rds)", "valorPorNivel": [-3, -3, -3, -3, -3] }
+      ]
+    },
+    {
+      "nomeExibicao": "Suportar",
+      "nomeOriginal": "Endure",
+      "tipo": "Combate",
+      "descricao": "Alivia estresse de aliado ao custo próprio; buffa self velocidade.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (target)", "valorPorNivel": [-10, -11, -12, -13, -14] },
+        { "tipoDoEfeito": "AumentarStress (self)", "valorPorNivel": [10, 9, 8, 7, 6] },
+        { "tipoDoEfeito": "BuffVelocidade (self, 4 rds)", "valorPorNivel": [1, 1, 2, 2, 3] }
+      ]
+    },
+    {
+      "nomeExibicao": "Sofrer",
+      "nomeOriginal": "Suffer",
+      "tipo": "Combate",
+      "descricao": "Transfere Envenenamento/Sangramento e Marca do alvo para si; alivia estresse do target.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "LimparMarca (target)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "TransferirEnvenenamentoESangramentoParaSelf", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "MarcarSelf (2 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "ReduzirStressPercentual (self, 4 rds)", "valorPorNivel": ["-20%", "-25%", "-30%", "-35%", "-40%"] },
+        { "tipoDoEfeito": "BuffResistenciaGolpeMortal (self, 4 rds)", "valorPorNivel": ["+6%", "+7%", "+8%", "+9%", "+10%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Raiva do Açoite",
+      "nomeOriginal": "Lash's Anger",
+      "tipo": "Acampamento",
+      "descricao": "Aumenta próprio estresse (para acelerar Rapturous).",
+      "custoDeDescanso": 1,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "AumentarStress (self)", "valor": 40 }
+      ]
+    },
+    {
+      "nomeExibicao": "Consolo do Açoite",
+      "nomeOriginal": "Lash's Solace",
+      "tipo": "Acampamento",
+      "descricao": "Alivia muito estresse próprio.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (self)", "valor": -50 }
+      ]
+    },
+    {
+      "nomeExibicao": "Beijo do Açoite",
+      "nomeOriginal": "Lash's Kiss",
+      "tipo": "Acampamento",
+      "descricao": "Cura própria e remove Envenenamento/Sangramento; buff SPD.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (self)", "valor": "33%HP" },
+        { "tipoDoEfeito": "RemoverSangramento", "valor": true },
+        { "tipoDoEfeito": "RemoverEnvenenamento", "valor": true },
+        { "tipoDoEfeito": "BuffVelocidade (self, 4 Battles)", "valor": 3 }
+      ]
+    },
+    {
+      "nomeExibicao": "Cura do Açoite",
+      "nomeOriginal": "Lash's Cure",
+      "tipo": "Acampamento",
+      "descricao": "Remove Doença.",
+      "custoDeDescanso": 2,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "RemoverDoenca", "valor": true }
+      ]
+    }
+  ]
+}
