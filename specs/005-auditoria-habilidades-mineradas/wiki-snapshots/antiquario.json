@@ -1,0 +1,194 @@
+{
+  "classe": "Antiquário",
+  "classeSlug": "antiquario",
+  "classeDeHeroiEnum": "Antiquario",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Antiquarian",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Facada Nervosa",
+      "nomeOriginal": "Nervous Stab",
+      "tipo": "Combate",
+      "descricao": "Golpe melee fraco padrão.",
+      "range": "Melee",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["3%", "4%", "5%", "6%", "7%"]
+      },
+      "efeitos": []
+    },
+    {
+      "nomeExibicao": "Vapores Purulentos",
+      "nomeOriginal": "Festering Vapours",
+      "tipo": "Combate",
+      "descricao": "Envenena qualquer alvo e reduz resistência.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-75%", "-75%", "-75%", "-75%", "-75%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Envenenamento (3 rds)", "valorPorNivel": [1, 2, 2, 3, 4], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffResistenciaEnvenenamento (3 rds)", "valorPorNivel": ["-20%", "-24%", "-28%", "-32%", "-36%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Abaixe-se!",
+      "nomeOriginal": "Get Down!",
+      "tipo": "Combate",
+      "descricao": "Recua 2 e buffa self (Envenenamento chance, DODGE, SPD).",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Recua 2 (self)", "valorPorNivel": [2, 2, 2, 2, 2] },
+        { "tipoDoEfeito": "BuffChanceEnvenenamento (self, 4 rds)", "valorPorNivel": ["+10%", "+11%", "+12%", "+13%", "+15%"] },
+        { "tipoDoEfeito": "BuffEsquiva (self, 4 rds)", "valorPorNivel": [15, 18, 20, 22, 25] },
+        { "tipoDoEfeito": "BuffVelocidade (self, 4 rds)", "valorPorNivel": [1, 2, 3, 4, 5] }
+      ]
+    },
+    {
+      "nomeExibicao": "Pó de Flash",
+      "nomeOriginal": "Flashpowder",
+      "tipo": "Combate",
+      "descricao": "Reduz ACC do alvo e remove Furtividade.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "DebuffPrecisao (2 rds)", "valorPorNivel": [-10, -11, -12, -14, -15], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "RemoverFurtividade", "valorPorNivel": [true, true, true, true, true] }
+      ]
+    },
+    {
+      "nomeExibicao": "Vapores Fortificantes",
+      "nomeOriginal": "Fortifying Vapours",
+      "tipo": "Combate",
+      "descricao": "Cura leve e resistências a Sangramento/Envenenamento.",
+      "range": "Heal",
+      "rank": [3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura", "valorPorNivel": ["1-1", "1-2", "2-2", "2-3", "3-3"] },
+        { "tipoDoEfeito": "BuffResistenciaSangramento (3 rds)", "valorPorNivel": ["+10%", "+11%", "+12%", "+14%", "+15%"] },
+        { "tipoDoEfeito": "BuffResistenciaEnvenenamento (3 rds)", "valorPorNivel": ["+10%", "+11%", "+12%", "+14%", "+15%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Vapores Revigorantes",
+      "nomeOriginal": "Invigorating Vapours",
+      "tipo": "Combate",
+      "descricao": "Buff de Esquiva para toda a party.",
+      "range": "Buff",
+      "rank": [3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffEsquiva (party, 3 rds)", "valorPorNivel": [3, 5, 7, 9, 10] }
+      ]
+    },
+    {
+      "nomeExibicao": "Proteja-me!",
+      "nomeOriginal": "Protect Me",
+      "tipo": "Combate",
+      "descricao": "Reverse guard — força aliado a guardá-la. Marca alvo. 3 usos/batalha.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 3, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffEsquiva (target, 4 rds)", "valorPorNivel": [4, 5, 6, 7, 8] },
+        { "tipoDoEfeito": "BuffProtecao (target, 4 rds)", "valorPorNivel": ["+10%", "+13%", "+15%", "+18%", "+20%"] },
+        { "tipoDoEfeito": "MarcarSelf (3 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "ForcarGuardPorAliado (2 rds)", "valorPorNivel": [true, true, true, true, true] }
+      ]
+    },
+    {
+      "nomeExibicao": "Reabastecer",
+      "nomeOriginal": "Resupply",
+      "tipo": "Acampamento",
+      "descricao": "Produz item de suprimento aleatório (3 usos).",
+      "custoDeDescanso": 1,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ProduzirSupplyAleatorio (3 usos)", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Vasculhar Bugigangas",
+      "nomeOriginal": "Trinket Scrounge",
+      "tipo": "Acampamento",
+      "descricao": "Produz troféu aleatório.",
+      "custoDeDescanso": 2,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ProduzirTrinketAleatorio", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Pós Estranhos",
+      "nomeOriginal": "Strange Powders",
+      "tipo": "Acampamento",
+      "descricao": "Buffs de várias resistências para um aliado.",
+      "custoDeDescanso": 2,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffResistenciaSangramento (4 Battles)", "valor": "+20%" },
+        { "tipoDoEfeito": "BuffResistenciaEnvenenamento (4 Battles)", "valor": "+20%" },
+        { "tipoDoEfeito": "BuffResistenciaMovimento (4 Battles)", "valor": "+20%" },
+        { "tipoDoEfeito": "BuffResistenciaDebuff (4 Battles)", "valor": "+20%" },
+        { "tipoDoEfeito": "BuffResistenciaDoenca (4 Battles)", "valor": "+20%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Encantamento Curioso",
+      "nomeOriginal": "Curious Incantation",
+      "tipo": "Acampamento",
+      "descricao": "Reduz estresse recebido pela metade.",
+      "custoDeDescanso": 1,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStressPercentual (4 Battles)", "valor": "-50%" }
+      ]
+    }
+  ]
+}

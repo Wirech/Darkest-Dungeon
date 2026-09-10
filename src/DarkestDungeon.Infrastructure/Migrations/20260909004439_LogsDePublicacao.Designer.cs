@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DarkestDungeon.Infrastructure.Data.Migrations
+namespace DarkestDungeon.Infrastructure.Migrations
 {
     [DbContext(typeof(DarkestDungeonDbContext))]
-    [Migration("20260908002538_AddCatalogoHeroisEEntidades")]
-    partial class AddCatalogoHeroisEEntidades
+    [Migration("20260909004439_LogsDePublicacao")]
+    partial class LogsDePublicacao
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,48 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("DarkestDungeon.Application.Publicacao.LogDePublicacao", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Campo")
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<Guid?>("HabilidadeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Mensagem")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("Nivel")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
+
+                    b.Property<string>("NomeExibicao")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<Guid>("PublicacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("StackTrace")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PublicacaoId", "Timestamp");
+
+                    b.ToTable("LogsDePublicacao", (string)null);
+                });
 
             modelBuilder.Entity("DarkestDungeon.Domain.Classes.Classe", b =>
                 {
@@ -360,6 +402,11 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
                 {
                     b.HasBaseType("DarkestDungeon.Domain.Seres.Ser");
 
+                    b.Property<string>("HabilidadesIds")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("HabilidadesIds");
+
                     b.Property<string>("TipoDeInimigo")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -395,6 +442,11 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
+                    b.Property<string>("Aparencia")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("nvarchar(2)");
+
                     b.Property<Guid?>("ArmaEquipadaId")
                         .HasColumnType("uniqueidentifier");
 
@@ -411,6 +463,14 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
 
                     b.Property<bool>("EstadoPortasDaMorte")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Experiencia")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Inventario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("InventarioSlots");
 
                     b.Property<bool>("RecuperouAtaqueCardiaco")
                         .HasColumnType("bit");
@@ -441,12 +501,44 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
 
                             t.HasCheckConstraint("CK_Personagens_ChanceVirtude", "[ChanceDeVirtude] >= 0 AND [ChanceDeVirtude] <= 100");
 
+                            t.HasCheckConstraint("CK_Personagens_Experiencia", "[Experiencia] >= 0");
+
                             t.HasCheckConstraint("CK_Personagens_Stress", "[Stress] >= 0 AND [Stress] <= 200");
                         });
                 });
 
             modelBuilder.Entity("DarkestDungeon.Domain.Classes.Classe", b =>
                 {
+                    b.OwnsMany("DarkestDungeon.Domain.Classes.AssetsDeClasse", "Assets", b1 =>
+                        {
+                            b1.Property<Guid>("ClasseId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Aparencia")
+                                .HasMaxLength(2)
+                                .HasColumnType("nvarchar(2)");
+
+                            b1.Property<string>("ConjuntoSpineId")
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)");
+
+                            b1.Property<string>("HashArquivo")
+                                .HasMaxLength(64)
+                                .HasColumnType("nvarchar(64)");
+
+                            b1.Property<string>("Status")
+                                .IsRequired()
+                                .HasMaxLength(20)
+                                .HasColumnType("nvarchar(20)");
+
+                            b1.HasKey("ClasseId", "Aparencia");
+
+                            b1.ToTable("AssetsDeClasse", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("ClasseId");
+                        });
+
                     b.OwnsOne("DarkestDungeon.Domain.Classes.ResistenciasDeClasse", "ResistenciasBase", b1 =>
                         {
                             b1.Property<Guid>("ClasseId")
@@ -492,6 +584,8 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
                                 .HasForeignKey("ClasseId");
                         });
 
+                    b.Navigation("Assets");
+
                     b.Navigation("ResistenciasBase")
                         .IsRequired();
                 });
@@ -509,6 +603,82 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
                         .HasForeignKey("HabilidadeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("DarkestDungeon.Domain.Habilidades.Habilidade", b =>
+                {
+                    b.OwnsMany("DarkestDungeon.Domain.Habilidades.NivelDeHabilidade", "Niveis", b1 =>
+                        {
+                            b1.Property<Guid>("HabilidadeId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<int>("NumeroDoNivel")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("int");
+
+                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<int>("NumeroDoNivel"));
+
+                            b1.Property<int?>("CustoDeDescanso")
+                                .HasColumnType("int");
+
+                            b1.Property<decimal>("ModificadorAcerto")
+                                .HasPrecision(9, 2)
+                                .HasColumnType("decimal(9,2)");
+
+                            b1.Property<decimal>("ModificadorCritico")
+                                .HasPrecision(9, 2)
+                                .HasColumnType("decimal(9,2)");
+
+                            b1.Property<decimal>("ModificadorDano")
+                                .HasPrecision(9, 2)
+                                .HasColumnType("decimal(9,2)");
+
+                            b1.HasKey("HabilidadeId", "NumeroDoNivel");
+
+                            b1.ToTable("NiveisDeHabilidade", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("HabilidadeId");
+
+                            b1.OwnsMany("DarkestDungeon.Domain.Habilidades.ValorDeEfeito", "ValoresDeEfeito", b2 =>
+                                {
+                                    b2.Property<Guid>("NivelDeHabilidadeHabilidadeId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<int>("NivelDeHabilidadeNumeroDoNivel")
+                                        .HasColumnType("int");
+
+                                    b2.Property<int>("Id")
+                                        .ValueGeneratedOnAdd()
+                                        .HasColumnType("int");
+
+                                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b2.Property<int>("Id"));
+
+                                    b2.Property<decimal?>("Chance")
+                                        .HasPrecision(5, 2)
+                                        .HasColumnType("decimal(5,2)");
+
+                                    b2.Property<string>("TipoDoEfeito")
+                                        .IsRequired()
+                                        .HasMaxLength(60)
+                                        .HasColumnType("nvarchar(60)");
+
+                                    b2.Property<decimal>("Valor")
+                                        .HasPrecision(9, 2)
+                                        .HasColumnType("decimal(9,2)");
+
+                                    b2.HasKey("NivelDeHabilidadeHabilidadeId", "NivelDeHabilidadeNumeroDoNivel", "Id");
+
+                                    b2.ToTable("ValoresDeEfeitoDeNivel", (string)null);
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("NivelDeHabilidadeHabilidadeId", "NivelDeHabilidadeNumeroDoNivel");
+                                });
+
+                            b1.Navigation("ValoresDeEfeito");
+                        });
+
+                    b.Navigation("Niveis");
                 });
 
             modelBuilder.Entity("DarkestDungeon.Domain.Seres.Ser", b =>
@@ -906,6 +1076,9 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
 
                             b1.Property<bool>("Habilitada")
                                 .HasColumnType("bit");
+
+                            b1.Property<int>("NumeroDoNivel")
+                                .HasColumnType("int");
 
                             b1.Property<bool>("Treinada")
                                 .HasColumnType("bit");

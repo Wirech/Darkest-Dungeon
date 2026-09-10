@@ -42,7 +42,12 @@ public class EnumsDoCatalogoTests
         Enum.GetValues<AlvoDeEfeito>().Should().Contain(new[] { AlvoDeEfeito.Self, AlvoDeEfeito.Aliado, AlvoDeEfeito.Inimigo });
         Enum.GetValues<UnidadeDeEfeito>().Should().Contain(new[] { UnidadeDeEfeito.Percentual, UnidadeDeEfeito.Pontos, UnidadeDeEfeito.Rodadas });
         Enum.GetValues<EscopoDeLimite>().Should().Contain(new[] { EscopoDeLimite.Batalha, EscopoDeLimite.Acampamento });
-        Enum.GetValues<AlvoDeAcampamento>().Length.Should().Be(4);
+        Enum.GetValues<AlvoDeAcampamento>().Length.Should().Be(6);
+        Enum.GetValues<AlvoDeAcampamento>().Should().Contain(new[]
+        {
+            AlvoDeAcampamento.Self, AlvoDeAcampamento.UmAliado, AlvoDeAcampamento.TodosOsAliados,
+            AlvoDeAcampamento.PartyInteira, AlvoDeAcampamento.SelfEUmAliado, AlvoDeAcampamento.Party,
+        });
     }
 
     [Fact]
@@ -71,7 +76,16 @@ public class EnumsDoCatalogoTests
     [Fact]
     public void CategoriaDeCobertura_e_EstadoDeAtributo_devem_ter_valores_esperados()
     {
-        Enum.GetValues<CategoriaDeCobertura>().Length.Should().Be(3);
+        // Feature 005: adicionadas categorias NivelDeHabilidade e AssetsVisuais.
+        Enum.GetValues<CategoriaDeCobertura>().Length.Should().Be(5);
+        Enum.GetValues<CategoriaDeCobertura>().Should().Contain(new[]
+        {
+            CategoriaDeCobertura.HabilidadeCombate,
+            CategoriaDeCobertura.HabilidadeAcampamento,
+            CategoriaDeCobertura.ResistenciaBase,
+            CategoriaDeCobertura.NivelDeHabilidade,
+            CategoriaDeCobertura.AssetsVisuais,
+        });
         Enum.GetValues<EstadoDeAtributo>().Should().Contain(new[]
         {
             EstadoDeAtributo.Coletado,

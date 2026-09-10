@@ -14,7 +14,7 @@ public static partial class HabilidadesSeed
             descricao: "Alterna entre Forma Humana e Forma Besta como ação livre. Ao virar Besta: +1 velocidade, +20% resistência a envenenamento, +10% dano por 3-4 rodadas, cura 5 HP, mas todos os aliados sofrem +8 estresse. Limite 2 usos por batalha.",
             posicoesValidas: new[] { 1, 2, 3, 4 },
             posicoesQueAtinge: new[] { 1, 2, 3, 4 },
-            alvoEmArea: false,
+            alvoEmArea: true,
             modificadorDano: 0m,
             modificadorAcerto: 0m,
             modificadorCritico: 0m,

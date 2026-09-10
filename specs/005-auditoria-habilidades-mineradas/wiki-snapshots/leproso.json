@@ -1,0 +1,200 @@
+{
+  "classe": "Leproso",
+  "classeSlug": "leproso",
+  "classeDeHeroiEnum": "Leproso",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Leper",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Talhar",
+      "nomeOriginal": "Chop",
+      "tipo": "Combate",
+      "descricao": "Golpe frontal padrão.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [75, 80, 85, 90, 95],
+        "modificadorCritico": ["3%", "4%", "5%", "6%", "7%"]
+      },
+      "efeitos": []
+    },
+    {
+      "nomeExibicao": "Cortar",
+      "nomeOriginal": "Hew",
+      "tipo": "Combate",
+      "descricao": "Golpe em área frontal.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [75, 80, 85, 90, 95],
+        "modificadorCritico": ["-4%", "-3%", "-2%", "-1%", "0%"]
+      },
+      "efeitos": []
+    },
+    {
+      "nomeExibicao": "Expurgar",
+      "nomeOriginal": "Purge",
+      "tipo": "Combate",
+      "descricao": "Knockback 3, limpa cadáveres, buff próprio de ACC.",
+      "range": "Melee",
+      "rank": [1],
+      "target": [1],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-40%", "-40%", "-40%", "-40%", "-40%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Knockback 3", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "LimparCadaveres", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffPrecisao (self, 4 rds)", "valorPorNivel": [5, 5, 5, 5, 5] }
+      ]
+    },
+    {
+      "nomeExibicao": "Vingança",
+      "nomeOriginal": "Revenge",
+      "tipo": "Combate",
+      "descricao": "Buff berserker: ACC/DMG/CRIT altos mas com penalidades. Uso único por batalha.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 1, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao (self, 1 Battle)", "valorPorNivel": [10, 11, 12, 13, 15] },
+        { "tipoDoEfeito": "BuffDano (self, 1 Battle)", "valorPorNivel": ["+25%", "+27%", "+30%", "+32%", "+35%"] },
+        { "tipoDoEfeito": "BuffCritico (self, 1 Battle)", "valorPorNivel": ["+7%", "+8%", "+9%", "+10%", "+11%"] },
+        { "tipoDoEfeito": "DebuffEsquiva (self, 1 Battle)", "valorPorNivel": [-10, -10, -10, -10, -10] },
+        { "tipoDoEfeito": "AumentarDmgRecebido (self, 1 Battle)", "valorPorNivel": ["+25%", "+25%", "+25%", "+25%", "+25%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Resistir",
+      "nomeOriginal": "Withstand",
+      "tipo": "Combate",
+      "descricao": "Buff defensivo: Marca self, PROT + resistências. Uso único por batalha.",
+      "range": "Buff",
+      "rank": [1, 2, 3],
+      "target": [],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 1, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "MarcarSelf (1 Battle)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffProtecao (self, 1 Battle)", "valorPorNivel": ["+20%", "+22%", "+25%", "+27%", "+30%"] },
+        { "tipoDoEfeito": "BuffResistenciasBloqueiaDebuff (self, 1 Battle)", "valorPorNivel": ["+30%", "+30%", "+30%", "+30%", "+30%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Solenidade",
+      "nomeOriginal": "Solemnity",
+      "tipo": "Combate",
+      "descricao": "Auto-cura e alivia estresse.",
+      "range": "Heal",
+      "rank": [1, 2],
+      "target": [],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (self)", "valorPorNivel": [6, 7, 8, 9, 10] },
+        { "tipoDoEfeito": "ReduzirStress (self)", "valorPorNivel": [-5, -5, -6, -6, -7] }
+      ]
+    },
+    {
+      "nomeExibicao": "Intimidar",
+      "nomeOriginal": "Intimidate",
+      "tipo": "Combate",
+      "descricao": "Debuffa alvo (dano/velocidade), remove Furtividade e buffa self.",
+      "range": "Melee",
+      "rank": [1],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-85%", "-85%", "-85%", "-80%", "-80%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["0%", "0%", "0%", "0%", "0%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "RemoverFurtividade", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "DebuffDano (3 rds)", "valorPorNivel": ["-20%", "-23%", "-26%", "-29%", "-33%"], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffVelocidade (3 rds)", "valorPorNivel": [-3, -3, -4, -4, -5], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "MarcarSelf (4 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffVelocidade (self, 4 rds)", "valorPorNivel": [2, 2, 3, 3, 4] }
+      ]
+    },
+    {
+      "nomeExibicao": "Remover a Máscara",
+      "nomeOriginal": "Let the Mask Down",
+      "tipo": "Acampamento",
+      "descricao": "Alivia próprio estresse mas aumenta o dos aliados.",
+      "custoDeDescanso": 1,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (self)", "valor": -25 },
+        { "tipoDoEfeito": "AumentarStress (companions)", "valor": 5 }
+      ]
+    },
+    {
+      "nomeExibicao": "Mortalha Sangrenta",
+      "nomeOriginal": "Bloody Shroud",
+      "tipo": "Acampamento",
+      "descricao": "Buffs de várias resistências para si.",
+      "custoDeDescanso": 2,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffResistenciaSangramento (4 Battles)", "valor": "+25%" },
+        { "tipoDoEfeito": "BuffResistenciaEnvenenamento (4 Battles)", "valor": "+25%" },
+        { "tipoDoEfeito": "BuffResistenciaMovimento (4 Battles)", "valor": "+25%" },
+        { "tipoDoEfeito": "BuffResistenciaDebuff (4 Battles)", "valor": "+25%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Reflexão",
+      "nomeOriginal": "Reflection",
+      "tipo": "Acampamento",
+      "descricao": "Alivia estresse e buffs de ACC/CRIT.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress", "valor": -20 },
+        { "tipoDoEfeito": "BuffPrecisao (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffCritico (4 Battles)", "valor": "+8%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Quarentena",
+      "nomeOriginal": "Quarantine",
+      "tipo": "Acampamento",
+      "descricao": "Sofre dano mas reduz estresse dos aliados.",
+      "custoDeDescanso": 3,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "DanoHP (self)", "valor": "20%HP" },
+        { "tipoDoEfeito": "ReduzirStress (companions, 50% chance)", "valor": -20 },
+        { "tipoDoEfeito": "ReduzirStress (companions, 50% chance)", "valor": -15 }
+      ]
+    }
+  ]
+}

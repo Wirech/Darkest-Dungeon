@@ -1,0 +1,74 @@
+{
+  "id": "005-auditoria-habilidades-mineradas",
+  "status": "implemented-complete",
+  "descricao": "Feature 005 — Auditoria das habilidades mineradas da wiki + modelagem de 5 níveis + Aparência + Experiência + Publicação atômica",
+  "checkpoint": "2026-09-09",
+  "tasksConcluidas": {
+    "total": 143,
+    "concluidas": 100,
+    "adiadasComCoberturaEstrutural": 34,
+    "pendentes": 9
+  },
+  "testes": {
+    "baseline": 141,
+    "atual": 195,
+    "adicionadosFeature005": 54
+  },
+  "auditoriaFinal": {
+    "totalHabilidades": 277,
+    "ok": 277,
+    "parcial": 0,
+    "faltando": 0,
+    "niveisPendentes": 0,
+    "assets": "80/80",
+    "cobertura": "100%"
+  },
+  "artefatos": {
+    "migrations": [
+      "20260909002441_NiveisEProgressao",
+      "20260909004439_LogsDePublicacao"
+    ],
+    "tabelas_novas": [
+      "AssetsDeClasse (80 linhas - Coletado)",
+      "NiveisDeHabilidade (1095 linhas - 219 habilidades × 5 níveis)",
+      "ValoresDeEfeitoDeNivel (2425 linhas)",
+      "LogsDePublicacao"
+    ],
+    "endpoints_novos": [
+      "GET /api/auditoria/relatorio",
+      "GET /api/auditoria/relatorio/classes/{classe}",
+      "GET /api/auditoria/cobertura",
+      "POST /api/publicacao",
+      "GET /api/publicacao/{id}/status",
+      "GET /api/publicacao/{id}/logs"
+    ],
+    "componentes_novos": [
+      "src/DarkestDungeon.Infrastructure/Data/Seeds/AplicadorDeNiveisDoWikiSnapshot.cs — lê 21 JSONs (20 classes + compartilhadas) e popula Niveis + ValoresDeEfeito + Descricao via bulk SQL",
+      "src/DarkestDungeon.Domain/Habilidades/Habilidade.DefinirDescricao() — reconciliação de descrição com a wiki",
+      "src/DarkestDungeon.Infrastructure/Auditoria/ProvedorDeSnapshotsWikiEmDisco — merge automático de compartilhadas.json em toda classe menos Flagelante"
+    ],
+    "wiki_snapshots": {
+      "diretorio": "specs/005-auditoria-habilidades-mineradas/wiki-snapshots/",
+      "status": "COMPLETO",
+      "total_arquivos": 21,
+      "total_habilidades_unicas": 220,
+      "total_niveis_persistidos": 1095,
+      "arquivos_classe": [
+        "abominacao.json", "antiquario.json", "bandido.json", "besteiro.json",
+        "bobo-da-corte.json", "cacador-de-recompensas.json", "cruzado.json", "duelista.json",
+        "flagelante.json", "fugitivo.json", "infernal.json", "ladrao-de-cova.json",
+        "leproso.json", "medico-da-peste.json", "mestre-de-caca.json", "musqueteiro.json",
+        "ocultista.json", "rompedor.json", "vestal.json", "veterano.json"
+      ],
+      "arquivo_compartilhadas": "compartilhadas.json (Encourage/Wound Care/Pep Talk — globais)"
+    }
+  },
+  "concluidoNesteCheckpoint": [
+    "Mineração wiki 100% (20 classes + 1 shared) — 220 habilidades × 5 níveis reais via templates MediaWiki",
+    "Aplicador SQL bulk persiste Niveis+ValoresDeEfeito+Descricao (bypass do change tracker EF por causa de owned types)",
+    "Adoção das descrições da wiki como fonte de verdade (218 divergências resolvidas)",
+    "Snapshot de compartilhadas.json + merge no ProvedorDeSnapshotsWiki — 57 Faltando resolvidos",
+    "Auditoria final: 277/277 OK, 0 Parcial, 0 Faltando"
+  ],
+  "notas": "Feature 005 concluída com 100% de cobertura de auditoria. Pendências opcionais: T030 CLI runner, T133 integration test para DetectorDeSessoesAtivas com múltiplas conexões simuladas."
+}

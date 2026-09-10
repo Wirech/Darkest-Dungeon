@@ -1,0 +1,193 @@
+{
+  "classe": "Ocultista",
+  "classeSlug": "ocultista",
+  "classeDeHeroiEnum": "Ocultista",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Occultist",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Punhalada Sacrificial",
+      "nomeOriginal": "Sacrificial Stab",
+      "tipo": "Combate",
+      "descricao": "Golpe melee com bônus contra Eldritch.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [80, 85, 90, 95, 100],
+        "modificadorCritico": ["9%", "10%", "11%", "12%", "13%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Eldritch", "valorPorNivel": ["+15%", "+20%", "+25%", "+30%", "+35%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Artilharia do Abismo",
+      "nomeOriginal": "Abyssal Artillery",
+      "tipo": "Combate",
+      "descricao": "Bombardeio ranged com bônus contra Eldritch.",
+      "range": "Ranged",
+      "rank": [3, 4],
+      "target": [3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-33%", "-33%", "-33%", "-33%", "-33%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Eldritch", "valorPorNivel": ["+15%", "+17%", "+20%", "+22%", "+25%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Maldição Enfraquecedora",
+      "nomeOriginal": "Weakening Curse",
+      "tipo": "Combate",
+      "descricao": "Reduz dano e proteção do alvo por 3 rodadas.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-75%", "-75%", "-75%", "-75%", "-75%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "DebuffDano (3 rds)", "valorPorNivel": ["-10%", "-12%", "-15%", "-17%", "-20%"], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffProtecao (3 rds)", "valorPorNivel": ["-10%", "-13%", "-15%", "-17%", "-20%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Reconstrução Estranha",
+      "nomeOriginal": "Wyrd Reconstruction",
+      "tipo": "Combate",
+      "descricao": "Cura eldrítica variável; pode causar Sangramento como efeito colateral.",
+      "range": "Heal",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (variável)", "valorPorNivel": ["0-13", "0-15", "0-17", "0-19", "0-22"] },
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": ["1 pt/rd", "1 pt/rd", "2 pt/rd", "2 pt/rd", "3 pt/rd"], "chancePorNivel": [60, 70, 70, 80, 85] }
+      ]
+    },
+    {
+      "nomeExibicao": "Maldição de Vulnerabilidade",
+      "nomeOriginal": "Vulnerability Hex",
+      "tipo": "Combate",
+      "descricao": "Marca o alvo e reduz sua Esquiva.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-90%", "-90%", "-90%", "-90%", "-90%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Marcar (3 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "DebuffEsquiva (3 rds)", "valorPorNivel": [-15, -16, -17, -18, -20], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Mãos do Abismo",
+      "nomeOriginal": "Hands from the Abyss",
+      "tipo": "Combate",
+      "descricao": "Reduz Tocha e atordoa alvos frontais. Chance base > 100% (capa da wiki).",
+      "range": "Ranged",
+      "rank": [1, 2],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["9%", "10%", "11%", "12%", "13%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Tocha", "valorPorNivel": [-5, -5, -5, -5, -5] },
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [110, 120, 130, 140, 150] }
+      ]
+    },
+    {
+      "nomeExibicao": "Chamado do Daemon",
+      "nomeOriginal": "Daemon's Pull",
+      "tipo": "Combate",
+      "descricao": "Puxa alvo backline para a frente e remove todos os cadáveres.",
+      "range": "Ranged",
+      "rank": [2, 3, 4],
+      "target": [3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Puxar 2", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "LimparCadaveres", "valorPorNivel": [true, true, true, true, true] }
+      ]
+    },
+    {
+      "nomeExibicao": "Abandonai a Esperança",
+      "nomeOriginal": "Abandon Hope",
+      "tipo": "Acampamento",
+      "descricao": "Alivia próprio estresse ao custo de aumentar o dos aliados.",
+      "custoDeDescanso": 1,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (self)", "valor": -25 },
+        { "tipoDoEfeito": "AumentarStress (companions +10, 50% chance)", "valor": 10 },
+        { "tipoDoEfeito": "AumentarStress (companions +5, 50% chance)", "valor": 5 }
+      ]
+    },
+    {
+      "nomeExibicao": "Ritual Sombrio",
+      "nomeOriginal": "Dark Ritual",
+      "tipo": "Acampamento",
+      "descricao": "Custo alto: reduz sua Tocha e aumenta seu estresse, mas cura e remove Mortality debuffs de um aliado.",
+      "custoDeDescanso": 3,
+      "alvo": "SelfAndOneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirTocha (self)", "valor": -100 },
+        { "tipoDoEfeito": "AumentarStress (self)", "valor": 15 },
+        { "tipoDoEfeito": "Cura (companion)", "valor": "50%HP" },
+        { "tipoDoEfeito": "RemoverMortalityDebuffs (companion)", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Força Sombria",
+      "nomeOriginal": "Dark Strength",
+      "tipo": "Acampamento",
+      "descricao": "Aumenta seu estresse mas concede grande buff de dano a um aliado.",
+      "custoDeDescanso": 2,
+      "alvo": "SelfAndOneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "AumentarStress (self)", "valor": 15 },
+        { "tipoDoEfeito": "BuffDano (companion, 4 Battles)", "valor": "+20%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Comunhão Indizível",
+      "nomeOriginal": "Unspeakable Commune",
+      "tipo": "Acampamento",
+      "descricao": "Impede emboscada noturna ao custo de estresse na party.",
+      "custoDeDescanso": 3,
+      "alvo": "SelfAndAllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "PrevenirNightAmbush (self)", "valor": true },
+        { "tipoDoEfeito": "AumentarStress (all companions)", "valor": 7 }
+      ]
+    }
+  ]
+}

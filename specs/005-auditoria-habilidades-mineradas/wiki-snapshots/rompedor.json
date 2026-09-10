@@ -1,0 +1,197 @@
+{
+  "classe": "Rompedor",
+  "classeSlug": "rompedor",
+  "classeDeHeroiEnum": "Rompedor",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Shieldbreaker",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Perfurar",
+      "nomeOriginal": "Pierce",
+      "tipo": "Combate",
+      "descricao": "Golpe melee com armor piercing e avanço.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-10%", "-10%", "-10%", "-10%", "-10%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "IgnorarArmadura", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Puncionar",
+      "nomeOriginal": "Puncture",
+      "tipo": "Combate",
+      "descricao": "Quebra Guard, puxa alvo, impede re-guard por 2 rodadas.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["0%", "0%", "0%", "0%", "0%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "IgnorarQuebrarGuard", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "ImpedirGuard (2 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Puxar 2", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffVelocidade (4 rds)", "valorPorNivel": [-1, -1, -2, -2, -3], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Beijo da Víbora",
+      "nomeOriginal": "Adder's Kiss",
+      "tipo": "Combate",
+      "descricao": "Golpe melee com Envenenamento; recua 1.",
+      "range": "Melee",
+      "rank": [1],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Envenenamento (3 rds)", "valorPorNivel": [3, 3, 4, 4, 5], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Recua 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Empalar",
+      "nomeOriginal": "Impale",
+      "tipo": "Combate",
+      "descricao": "Ataque em área total (todos os inimigos). Recua 1.",
+      "range": "Ranged",
+      "rank": [1],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-60%", "-60%", "-60%", "-60%", "-60%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["-6%", "-5%", "-4%", "-3%", "-2%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Envenenamento (3 rds)", "valorPorNivel": [0, 0, 1, 1, 2], "chancePorNivel": [0, 0, 120, 130, 140] },
+        { "tipoDoEfeito": "Recua 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Expor",
+      "nomeOriginal": "Expose",
+      "tipo": "Combate",
+      "descricao": "Remove Furtividade, aumenta CRITs recebidos e reduz SPD; recua 1.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-40%", "-40%", "-40%", "-40%", "-40%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["2.5%", "3.5%", "4.5%", "5.5%", "6.5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "RemoverFurtividade", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "AumentarCritsRecebidos (3 rds)", "valorPorNivel": ["+8%", "+8%", "+9%", "+9%", "+10%"], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffVelocidade (4 rds)", "valorPorNivel": [-4, -5, -6, -7, -8], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Recua 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Cativar",
+      "nomeOriginal": "Captivate",
+      "tipo": "Combate",
+      "descricao": "Dano vs Marcado + Envenenamento em duas posições.",
+      "range": "Ranged",
+      "rank": [2, 3],
+      "target": [2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-25%", "-25%", "-25%", "-25%", "-25%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["4%", "5%", "6%", "7%", "8%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Marcado", "valorPorNivel": ["+40%", "+45%", "+50%", "+55%", "+60%"] },
+        { "tipoDoEfeito": "Envenenamento (3 rds)", "valorPorNivel": [3, 3, 4, 4, 5], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Balanço da Serpente",
+      "nomeOriginal": "Serpent Sway",
+      "tipo": "Combate",
+      "descricao": "Avança 1, ganha 2 Blocks (Aegis) e SPD. 2 usos/batalha.",
+      "range": "Buff",
+      "rank": [1, 2, 3],
+      "target": [],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 2, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] },
+        { "tipoDoEfeito": "AegisBlocks (self)", "valorPorNivel": [2, 2, 2, 2, 2] },
+        { "tipoDoEfeito": "BuffVelocidade (self, 4 rds)", "valorPorNivel": [1, 2, 3, 3, 4] }
+      ]
+    },
+    {
+      "nomeExibicao": "Olhos da Serpente",
+      "nomeOriginal": "Snake Eyes",
+      "tipo": "Acampamento",
+      "descricao": "Buff de Armor Piercing para toda a party.",
+      "custoDeDescanso": 3,
+      "alvo": "AllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffArmorPiercing (4 Battles)", "valor": "+15%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Pele de Serpente",
+      "nomeOriginal": "Snake Skin",
+      "tipo": "Acampamento",
+      "descricao": "Buffs próprios de PROT e HP.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffProtecao (4 Battles)", "valor": "+15%" },
+        { "tipoDoEfeito": "BuffMaxHP (4 Battles)", "valor": "+15%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Tempestade de Areia",
+      "nomeOriginal": "Sandstorm",
+      "tipo": "Acampamento",
+      "descricao": "Aliado não pode ser Marcado.",
+      "custoDeDescanso": 2,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "ImunidadeMarca (4 Battles)", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Abraço da Víbora",
+      "nomeOriginal": "Adder's Embrace",
+      "tipo": "Acampamento",
+      "descricao": "Buff próprio de chance/resistência a Envenenamento.",
+      "custoDeDescanso": 2,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffChanceEnvenenamento (4 Battles)", "valor": "+20%" },
+        { "tipoDoEfeito": "BuffResistenciaEnvenenamento (4 Battles)", "valor": "+20%" }
+      ]
+    }
+  ]
+}

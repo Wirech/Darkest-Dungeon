@@ -1,0 +1,44 @@
+{
+  "escopo": "Habilidades globais compartilhadas de Acampamento (todas as classes menos o Flagelante)",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Camping_Skills",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Encorajar",
+      "nomeOriginal": "Encourage",
+      "tipo": "Acampamento",
+      "descricao": "Reduz 15 pontos de estresse de um aliado.",
+      "custoDeDescanso": 2,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress", "valor": -15 }
+      ]
+    },
+    {
+      "nomeExibicao": "Cuidados com Ferimentos",
+      "nomeOriginal": "Wound Care",
+      "tipo": "Acampamento",
+      "descricao": "Cura 15% do HP máximo e remove Sangramento e Envenenamento.",
+      "custoDeDescanso": 2,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "Cura", "valor": "15%HP" },
+        { "tipoDoEfeito": "RemoverSangramento", "valor": true },
+        { "tipoDoEfeito": "RemoverEnvenenamento", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Conversa Motivadora",
+      "nomeOriginal": "Pep Talk",
+      "tipo": "Acampamento",
+      "descricao": "Reduz o Estresse recebido pelo aliado em 15% por 4 batalhas.",
+      "custoDeDescanso": 2,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "DebuffStressRecebido (4 Battles)", "valor": "-15%" }
+      ]
+    }
+  ]
+}

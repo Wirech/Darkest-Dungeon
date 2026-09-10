@@ -144,7 +144,7 @@ public static partial class HabilidadesSeed
             nomeOriginal: "Revel",
             descricao: "Farra em grupo: -5 precisão, -2 velocidade, -20 estresse e -10% estresse recebido em toda a party por 4 batalhas.",
             custoDeDescanso: 3,
-            alvo: AlvoDeAcampamento.PartyInteira,
+            alvo: AlvoDeAcampamento.Party,
             efeitos: new[]
             {
                 Efeito("Redução de Precisão", AlvoDeEfeito.Aliado, 5m, UnidadeDeEfeito.Pontos, duracao: 4),

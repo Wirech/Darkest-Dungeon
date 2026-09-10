@@ -1,0 +1,192 @@
+{
+  "classe": "Caçador de Recompensas",
+  "classeSlug": "cacador-de-recompensas",
+  "classeDeHeroiEnum": "CacadorDeRecompensas",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Bounty_Hunter",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Coletar Recompensa",
+      "nomeOriginal": "Collect Bounty",
+      "tipo": "Combate",
+      "descricao": "Golpe devastador contra Marcados; bônus contra Humanos.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["7%", "8%", "9%", "10%", "11%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Marcado", "valorPorNivel": ["+90%", "+90%", "+90%", "+90%", "+90%"] },
+        { "tipoDoEfeito": "BuffDano vs Humano", "valorPorNivel": ["+15%", "+20%", "+25%", "+30%", "+35%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Marca de Morte",
+      "nomeOriginal": "Mark for Death",
+      "tipo": "Combate",
+      "descricao": "Marca alvo, reduz PROT dele e buffa self em Velocidade.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [100, 105, 110, 115, 120],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Marcar (3 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "DebuffProtecao (3 rds)", "valorPorNivel": ["-10%", "-12.5%", "-15%", "-17.5%", "-20%"], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "BuffVelocidade (self, 2 rds)", "valorPorNivel": [3, 3, 4, 4, 5] }
+      ]
+    },
+    {
+      "nomeExibicao": "Venha Cá",
+      "nomeOriginal": "Come Hither",
+      "tipo": "Combate",
+      "descricao": "Puxa alvo backline e marca.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-80%", "-80%", "-80%", "-80%", "-80%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Marcar (2 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Puxar 2", "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Soco Cruzado",
+      "nomeOriginal": "Uppercut",
+      "tipo": "Combate",
+      "descricao": "Knockback e Atordoamento.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-67%", "-67%", "-67%", "-67%", "-67%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Knockback 2", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Bomba de Fumaça",
+      "nomeOriginal": "Flashbang",
+      "tipo": "Combate",
+      "descricao": "Atordoa e move alvo.",
+      "range": "Ranged",
+      "rank": [2, 3, 4],
+      "target": [2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [110, 120, 130, 140, 150] },
+        { "tipoDoEfeito": "MoverInimigo (Shuffle)", "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Acabe com Ele",
+      "nomeOriginal": "Finish Him",
+      "tipo": "Combate",
+      "descricao": "Golpe com bônus vs Atordoado.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Atordoado", "valorPorNivel": ["+25%", "+33%", "+40%", "+50%", "+60%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Estrepes",
+      "nomeOriginal": "Caltrops",
+      "tipo": "Combate",
+      "descricao": "Aplica Sangramento e debuffs (+DMG recebido, -SPD).",
+      "range": "Ranged",
+      "rank": [2, 3, 4],
+      "target": [3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-95%", "-95%", "-95%", "-95%", "-95%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [2, 2, 3, 3, 4], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "AumentarDmgRecebido (3 rds)", "valorPorNivel": ["+10%", "+12%", "+15%", "+18%", "+20%"], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffVelocidade (3 rds)", "valorPorNivel": [-4, -5, -6, -7, -8], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "É Assim que a Gente Faz",
+      "nomeOriginal": "This Is How We Do It",
+      "tipo": "Acampamento",
+      "descricao": "Buffs próprios de ACC/CRIT.",
+      "custoDeDescanso": 2,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffCritico (4 Battles)", "valor": "+8%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Rastreamento",
+      "nomeOriginal": "Tracking",
+      "tipo": "Acampamento",
+      "descricao": "Reduz chance de surpresa contra party.",
+      "custoDeDescanso": 2,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirChancePartySurpreendida (4 Battles)", "valor": "-15%" },
+        { "tipoDoEfeito": "AumentarChanceMonstroSurpreendido (4 Battles)", "valor": "+10%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Abate Planejado",
+      "nomeOriginal": "Planned Takedown",
+      "tipo": "Acampamento",
+      "descricao": "Buffs contra inimigos grandes (size 2+).",
+      "custoDeDescanso": 4,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Size2+ (4 Battles)", "valor": "+25%" },
+        { "tipoDoEfeito": "BuffPrecisao vs Size2+ (4 Battles)", "valor": 15 }
+      ]
+    },
+    {
+      "nomeExibicao": "Explorar à Frente",
+      "nomeOriginal": "Scout Ahead",
+      "tipo": "Acampamento",
+      "descricao": "Aumenta chance de escoteirar.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffScoutingChance (4 Battles)", "valor": "+25%" }
+      ]
+    }
+  ]
+}

@@ -94,6 +94,23 @@ public class Ser : EntidadeIdentificavel
     public int Nivel { get; private set; }
     public Resistencias Resistencias { get; private set; }
 
+    /// Ajusta o `Nivel` derivadamente — usado por `Personagem` quando `Experiencia` cruza limiares (Feature 005).
+    protected void AtualizarNivel(int novoNivel)
+    {
+        if (novoNivel is < 0 or > 6)
+        {
+            throw new ArgumentOutOfRangeException(nameof(novoNivel), "Nivel deve estar entre 0 e 6.");
+        }
+
+        Nivel = novoNivel;
+    }
+
+    /// Ajusta as resistências (usado por `Personagem` ao aplicar bônus de nível — Feature 005).
+    protected void AtualizarResistencias(Resistencias novas)
+    {
+        Resistencias = novas ?? throw new ArgumentNullException(nameof(novas));
+    }
+
     protected static string NormalizarTexto(string valor, string campo)
     {
         if (string.IsNullOrWhiteSpace(valor))

@@ -1,0 +1,204 @@
+{
+  "classe": "Bobo da Corte",
+  "classeSlug": "bobo-da-corte",
+  "classeDeHeroiEnum": "BoboDaCorte",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Jester",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "notas": ["Sistema Finale: cada uso de skill (exceto Finale) acumula +30% DMG por 8 rodadas para o próximo Finale. Solo empilha +75% DMG e +8% CRIT."],
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Adaga de Punho",
+      "nomeOriginal": "Dirk Stab",
+      "tipo": "Combate",
+      "descricao": "Golpe que ignora guarda e avança 1. Acumula Finale.",
+      "range": "Melee",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] },
+        { "tipoDoEfeito": "IgnorarGuarda", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "AcumularFinale (self, 8 rds)", "valorPorNivel": ["+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Colheita",
+      "nomeOriginal": "Harvest",
+      "tipo": "Combate",
+      "descricao": "Ataque em área com Sangramento. Acumula Finale.",
+      "range": "Melee",
+      "rank": [2, 3],
+      "target": [2, 3],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [2, 2, 3, 3, 4], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "AcumularFinale (self, 8 rds)", "valorPorNivel": ["+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Grande Final",
+      "nomeOriginal": "Finale",
+      "tipo": "Combate",
+      "descricao": "Ataque devastador que consome os bônus acumulados. Recua 3 e sofre penalidades. Uso único por batalha.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "limitePorUso": { "quantidade": 1, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": ["+50%", "+50%", "+50%", "+50%", "+50%"],
+        "modificadorAcerto": [140, 145, 150, 155, 160],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Recua 3 (self)", "valorPorNivel": [3, 3, 3, 3, 3] },
+        { "tipoDoEfeito": "DebuffEsquiva (self, 1 Battle)", "valorPorNivel": [-25, -25, -25, -25, -25] },
+        { "tipoDoEfeito": "DebuffVelocidade (self, 1 Battle)", "valorPorNivel": [-3, -3, -3, -3, -3] },
+        { "tipoDoEfeito": "AumentarStress (self, 1 Battle)", "valorPorNivel": ["+100%", "+100%", "+100%", "+100%", "+100%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Solo",
+      "nomeOriginal": "Solo",
+      "tipo": "Combate",
+      "descricao": "Avança 3 e ganha buffs pesados. Marca a si mesmo. 2 usos/batalha.",
+      "range": "Buff",
+      "rank": [3, 4],
+      "target": [],
+      "alvoEmArea": true,
+      "limitePorUso": { "quantidade": 2, "escopo": "Batalha" },
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [125, 130, 135, 140, 145],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Avança 3 (self)", "valorPorNivel": [3, 3, 3, 3, 3] },
+        { "tipoDoEfeito": "MarcarSelf (3 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffEsquiva (self, 4 rds)", "valorPorNivel": [20, 22, 25, 27, 30] },
+        { "tipoDoEfeito": "AcumularFinale (self, 8 rds)", "valorPorNivel": ["+75% DMG", "+75% DMG", "+75% DMG", "+75% DMG", "+75% DMG"] },
+        { "tipoDoEfeito": "AcumularFinaleCritico (self, 8 rds)", "valorPorNivel": ["+8%", "+8%", "+8%", "+8%", "+8%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Corte Fora",
+      "nomeOriginal": "Slice Off",
+      "tipo": "Combate",
+      "descricao": "Ataque com forte Sangramento. Acumula Finale.",
+      "range": "Melee",
+      "rank": [2, 3],
+      "target": [2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-33%", "-33%", "-33%", "-33%", "-33%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["8%", "9%", "10%", "11%", "12%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [3, 3, 4, 4, 5], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "AcumularFinale (self, 8 rds)", "valorPorNivel": ["+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Balada de Guerra",
+      "nomeOriginal": "Battle Ballad",
+      "tipo": "Combate",
+      "descricao": "Buff da party (ACC/CRIT/SPD). Acumula Finale.",
+      "range": "Buff",
+      "rank": [3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao (party, 4 rds)", "valorPorNivel": [5, 6, 7, 8, 10] },
+        { "tipoDoEfeito": "BuffCritico (party, 4 rds)", "valorPorNivel": ["+2%", "+3%", "+4%", "+5%", "+6%"] },
+        { "tipoDoEfeito": "BuffVelocidade (party, 4 rds)", "valorPorNivel": [2, 2, 3, 3, 4] },
+        { "tipoDoEfeito": "AcumularFinale (self, 8 rds)", "valorPorNivel": ["+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Melodia Inspiradora",
+      "nomeOriginal": "Inspiring Tune",
+      "tipo": "Combate",
+      "descricao": "Reduz estresse da party. Acumula Finale.",
+      "range": "Buff",
+      "rank": [3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (party)", "valorPorNivel": [-8, -9, -10, -11, -12] },
+        { "tipoDoEfeito": "ReduzirStressPercentual (party, 4 rds)", "valorPorNivel": ["-10%", "-12.5%", "-15%", "-17.5%", "-20%"] },
+        { "tipoDoEfeito": "AcumularFinale (self, 8 rds)", "valorPorNivel": ["+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG", "+30% DMG"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Voltar no Tempo",
+      "nomeOriginal": "Turn Back Time",
+      "tipo": "Acampamento",
+      "descricao": "Reduz muito estresse de um aliado, especialmente se afligido.",
+      "custoDeDescanso": 3,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress", "valor": -30 },
+        { "tipoDoEfeito": "ReduzirStress (se Afligido)", "valor": -15 }
+      ]
+    },
+    {
+      "nomeExibicao": "Toda Rosa Tem Seu Espinho",
+      "nomeOriginal": "Every Rose Has Its Thorn",
+      "tipo": "Acampamento",
+      "descricao": "Reduz estresse de todos e diminui estresse futuro.",
+      "custoDeDescanso": 3,
+      "alvo": "AllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress", "valor": -15 },
+        { "tipoDoEfeito": "ReduzirStressPercentual (4 Battles)", "valor": "-15%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Olho do Tigre",
+      "nomeOriginal": "Tiger's Eye",
+      "tipo": "Acampamento",
+      "descricao": "Buffs de ACC e CRIT para um aliado.",
+      "custoDeDescanso": 3,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffCritico (4 Battles)", "valor": "+8%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Zombaria",
+      "nomeOriginal": "Mockery",
+      "tipo": "Acampamento",
+      "descricao": "Reduz estresse dos aliados ao custo de estresse de um.",
+      "custoDeDescanso": 2,
+      "alvo": "AllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "AumentarStress (One Companion)", "valor": 20 },
+        { "tipoDoEfeito": "ReduzirStress (All Companions)", "valor": -20 }
+      ]
+    }
+  ]
+}

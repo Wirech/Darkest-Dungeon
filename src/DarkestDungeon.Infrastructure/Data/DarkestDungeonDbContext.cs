@@ -1,3 +1,4 @@
+using DarkestDungeon.Application.Publicacao;
 using DarkestDungeon.Domain.Classes;
 using DarkestDungeon.Domain.Cobertura;
 using DarkestDungeon.Domain.Habilidades;
@@ -21,6 +22,7 @@ public sealed class DarkestDungeonDbContext : DbContext
     public DbSet<ClasseHabilidade> ClassesHabilidades => Set<ClasseHabilidade>();
     public DbSet<Item> Itens => Set<Item>();
     public DbSet<EntradaDoMapaDeCobertura> MapaDeCobertura => Set<EntradaDoMapaDeCobertura>();
+    public DbSet<LogDePublicacao> LogsDePublicacao => Set<LogDePublicacao>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -32,6 +34,7 @@ public sealed class DarkestDungeonDbContext : DbContext
         MapearClasseHabilidade(modelBuilder);
         MapearItem(modelBuilder);
         MapearMapaDeCobertura(modelBuilder);
+        MapearLogDePublicacao(modelBuilder);
     }
 
     private static void MapearSer(ModelBuilder modelBuilder)
@@ -77,6 +80,7 @@ public sealed class DarkestDungeonDbContext : DbContext
             {
                 table.HasCheckConstraint("CK_Personagens_Stress", "[Stress] >= 0 AND [Stress] <= 200");
                 table.HasCheckConstraint("CK_Personagens_ChanceVirtude", "[ChanceDeVirtude] >= 0 AND [ChanceDeVirtude] <= 100");
+                table.HasCheckConstraint("CK_Personagens_Experiencia", "[Experiencia] >= 0");
             });
             entity.Property(p => p.Classe).HasConversion<string>().HasMaxLength(30);
             entity.Property(p => p.Aflicao).HasMaxLength(60);
@@ -107,6 +111,8 @@ public sealed class DarkestDungeonDbContext : DbContext
                 .HasConversion(slotsConverter, slotsComparer)
                 .HasColumnType("nvarchar(max)")
                 .HasColumnName("InventarioSlots");
+
+            entity.Property(p => p.Aparencia).HasConversion<string>().HasMaxLength(2);
         });
     }
 
@@ -155,6 +161,17 @@ public sealed class DarkestDungeonDbContext : DbContext
                 owned.Property(r => r.GolpeMortal).HasPrecision(5, 2);
                 owned.Property(r => r.Armadilha).HasPrecision(5, 2);
             });
+
+            entity.OwnsMany(classe => classe.Assets, owned =>
+            {
+                owned.ToTable("AssetsDeClasse");
+                owned.WithOwner().HasForeignKey("ClasseId");
+                owned.HasKey("ClasseId", nameof(DarkestDungeon.Domain.Classes.AssetsDeClasse.Aparencia));
+                owned.Property(a => a.Aparencia).HasConversion<string>().HasMaxLength(2);
+                owned.Property(a => a.ConjuntoSpineId).HasMaxLength(200);
+                owned.Property(a => a.HashArquivo).HasMaxLength(64);
+                owned.Property(a => a.Status).HasConversion<string>().HasMaxLength(20);
+            });
         });
     }
 
@@ -174,6 +191,25 @@ public sealed class DarkestDungeonDbContext : DbContext
                 .HasValue<HabilidadeDeCombate>("Combate")
                 .HasValue<HabilidadeDeAcampamento>("Acampamento")
                 .HasValue<HabilidadeDeInimigo>("Inimigo");
+
+            entity.OwnsMany(h => h.Niveis, owned =>
+            {
+                owned.ToTable("NiveisDeHabilidade");
+                owned.WithOwner().HasForeignKey("HabilidadeId");
+                owned.HasKey("HabilidadeId", nameof(DarkestDungeon.Domain.Habilidades.NivelDeHabilidade.NumeroDoNivel));
+                owned.Property(n => n.ModificadorDano).HasPrecision(9, 2);
+                owned.Property(n => n.ModificadorAcerto).HasPrecision(9, 2);
+                owned.Property(n => n.ModificadorCritico).HasPrecision(9, 2);
+
+                owned.OwnsMany(n => n.ValoresDeEfeito, ownedEfeito =>
+                {
+                    ownedEfeito.ToTable("ValoresDeEfeitoDeNivel");
+                    ownedEfeito.WithOwner();
+                    ownedEfeito.Property(v => v.TipoDoEfeito).IsRequired().HasMaxLength(60);
+                    ownedEfeito.Property(v => v.Valor).HasPrecision(9, 2);
+                    ownedEfeito.Property(v => v.Chance).HasPrecision(5, 2);
+                });
+            });
         });
 
         modelBuilder.Entity<HabilidadeDeCombate>(entity =>
@@ -307,6 +343,25 @@ public sealed class DarkestDungeonDbContext : DbContext
             entity.Property(e => e.ChaveDoAtributo).IsRequired().HasMaxLength(80);
             entity.Property(e => e.Notas).HasMaxLength(200);
             entity.HasIndex(e => new { e.Classe, e.Categoria, e.ChaveDoAtributo }).IsUnique();
+        });
+    }
+
+    private static void MapearLogDePublicacao(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<LogDePublicacao>(entity =>
+        {
+            entity.ToTable("LogsDePublicacao");
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.PublicacaoId);
+            entity.Property(e => e.Timestamp);
+            entity.Property(e => e.Nivel).HasConversion<string>().HasMaxLength(16);
+            entity.Property(e => e.HabilidadeId);
+            entity.Property(e => e.NomeExibicao).HasMaxLength(200);
+            entity.Property(e => e.Campo).HasMaxLength(64);
+            entity.Property(e => e.Mensagem).IsRequired().HasMaxLength(1000);
+            entity.Property(e => e.StackTrace).HasColumnType("nvarchar(max)");
+            entity.HasIndex(e => new { e.PublicacaoId, e.Timestamp });
         });
     }
 }

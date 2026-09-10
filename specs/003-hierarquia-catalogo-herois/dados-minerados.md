@@ -379,7 +379,41 @@ Isso é **coerente com o design do domínio** (`HabilidadeDePersonagem` tem prop
 | Skills compartilhadas globais | **7** (Encourage/Wound Care/Pep Talk + Field Dressing/Marching Plan/Triage + Gallows Humor) |
 | Associações Classe×Habilidade | **277** |
 | Entradas Mapa de Cobertura | **160** (8 × 20 = todas resistências como `Coletado`) |
-| Testes automatizados verdes | **129** (46 Domain + 25 Architecture + 58 API) |
+| Testes automatizados verdes | **141** (46 Domain + 25 Architecture + 70 API) |
 | Cenários de quickstart validados end-to-end | **8/8** (7 conformes ao esperado + 1 com nota semântica sobre FR-009) |
-| Progresso tasks 003 | **128/131 (98%)** |
+| Progresso tasks 003 | **131/131 (100%)** |
+
+## 8. Persistência em SQL Server real (T112, 2026-09-08)
+
+Após validação em InMemory, o schema foi aplicado numa instância SQL Server 2022 Developer Edition rodando em container Docker (`mcr.microsoft.com/mssql/server:2022-latest`, porta 1433, volume persistente `mssql-dd-data`).
+
+**Consolidação de migrações**: as migrações originais (`InitialSerSchema` + `AddCatalogoHeroisEEntidades` + `SincronizarSeedResistenciasEMapa`) foram consolidadas numa única migração `20260908131601_SchemaCompleto` porque a `AddCatalogoHeroisEEntidades` tentava recriar a tabela `Seres` que a migração anterior já havia criado (bug de snapshot). A consolidação é segura porque é a primeira aplicação em SQL Server real; não havia dados de produção.
+
+**Descoberta de bug de seed capturada apenas em SQL real**: o índice único global `IX_Habilidades_NomeExibicao` (FR-006) rejeitou a inserção de duas habilidades com nome PT-BR `"Investida"` (era usado tanto pelo Lunge do Ladrão de Cova quanto pelo Breakthrough do Infernal). O provedor InMemory do EF Core não valida constraints únicas, então esse bug só apareceu ao subir contra o SQL real. Fix: renomeada `"Investida"` da Ladrão de Cova para `"Estocada"` (mais próximo do original `Lunge`). InMemory + SQL Server real agora ambos verdes.
+
+**Validação final via `sqlcmd`**:
+
+```sql
+SELECT COUNT(*) FROM Classes;              -- 20
+SELECT COUNT(*) FROM Habilidades;          -- 219
+SELECT COUNT(*) FROM ClassesHabilidades;   -- 277
+SELECT COUNT(*) FROM MapaDeCobertura;      -- 160
+SELECT COUNT(*) FROM sys.tables;           -- 16 (Classes, ClassesHabilidades, Habilidades, HabilidadesDePersonagem, Inimigos, MapaDeCobertura, Seres, Personagens, Armas, Armaduras, Acessorios, NiveisArma, NiveisArmadura, EfeitosAcessorio, InventarioSlots, __EFMigrationsHistory)
+```
+
+**Connection string** (dev/hosting local — trocar senha antes de expor à internet):
+```
+Server=localhost,1433;Database=DarkestDungeon;User Id=sa;Password=Devlocal!2024;TrustServerCertificate=True
+```
+
+**Comandos para reproduzir**:
+```powershell
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Devlocal!2024" `
+           -p 1433:1433 -v mssql-dd-data:/var/opt/mssql `
+           --name mssql-dd --restart unless-stopped `
+           -d mcr.microsoft.com/mssql/server:2022-latest
+dotnet ef database update --startup-project src/DarkestDungeon.Api --project src/DarkestDungeon.Infrastructure
+$env:ASPNETCORE_ENVIRONMENT="Development"; dotnet run --project src/DarkestDungeon.Api
+```
+
 

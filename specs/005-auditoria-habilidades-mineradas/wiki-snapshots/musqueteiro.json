@@ -1,0 +1,196 @@
+{
+  "classe": "Musqueteiro",
+  "classeSlug": "musqueteiro",
+  "classeDeHeroiEnum": "Musqueteiro",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Musketeer",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "notas": ["Reskin funcional do Besteiro — todas as habilidades de combate têm valores IDÊNTICOS aos do Besteiro, apenas com nomes/sprites diferentes."],
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Tiro Certeiro",
+      "nomeOriginal": "Aimed Shot",
+      "tipo": "Combate",
+      "descricao": "Tiro devastador contra alvo Marcado (equivalente ao Sniper Shot do Besteiro).",
+      "range": "Ranged",
+      "rank": [3, 4],
+      "target": [2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano vs Marcado", "valorPorNivel": ["+50%", "+60%", "+70%", "+80%", "+100%"] },
+        { "tipoDoEfeito": "BuffCritico vs Marcado", "valorPorNivel": ["+9%", "+10%", "+11%", "+12%", "+13%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Cortina de Fumaça",
+      "nomeOriginal": "Smokescreen",
+      "tipo": "Combate",
+      "descricao": "Reduz ACC e CRIT de alvos backline (equivalente ao Suppressing Fire).",
+      "range": "Ranged",
+      "rank": [3, 4],
+      "target": [3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-80%", "-80%", "-80%", "-80%", "-80%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["-10%", "-9%", "-8%", "-7%", "-6%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "DebuffPrecisao (2 rds)", "valorPorNivel": [-15, -16, -17, -18, -20], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "DebuffCritico (2 rds)", "valorPorNivel": ["-15%", "-16%", "-17%", "-18%", "-19%"], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Anunciar o Alvo",
+      "nomeOriginal": "Call the Shot",
+      "tipo": "Combate",
+      "descricao": "Marca alvo e reduz Esquiva (equivalente ao Sniper's Mark).",
+      "range": "Ranged",
+      "rank": [3, 4],
+      "target": [2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [100, 105, 110, 115, 120],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Marcar (3 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "DebuffEsquiva (2 rds)", "valorPorNivel": [-20, -22, -25, -27, -30], "chancePorNivel": [100, 110, 120, 130, 140] }
+      ]
+    },
+    {
+      "nomeExibicao": "Chumbinho",
+      "nomeOriginal": "Buckshot",
+      "tipo": "Combate",
+      "descricao": "Atinge dois alvos frontais com Knockback (equivalente à Bola).",
+      "range": "Ranged",
+      "rank": [3, 4],
+      "target": [1, 2],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["2%", "3%", "4%", "5%", "6%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Knockback 1", "chancePorNivel": [75, 85, 95, 105, 105] }
+      ]
+    },
+    {
+      "nomeExibicao": "Pistola",
+      "nomeOriginal": "Sidearm",
+      "tipo": "Combate",
+      "descricao": "Atira em alvo aleatório e ganha buff de velocidade (equivalente ao Blindfire).",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-10%", "-10%", "-10%", "-10%", "-10%"],
+        "modificadorAcerto": [75, 80, 85, 90, 95],
+        "modificadorCritico": ["0%", "1%", "2%", "3%", "4%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "AlvoAleatorio", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffVelocidade (self, 4 rds)", "valorPorNivel": [3, 3, 4, 4, 5] }
+      ]
+    },
+    {
+      "nomeExibicao": "Reparo Rápido",
+      "nomeOriginal": "Patch Up",
+      "tipo": "Combate",
+      "descricao": "Cura e aumenta cura recebida (equivalente ao Battlefield Bandage).",
+      "range": "Heal",
+      "rank": [3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura", "valorPorNivel": ["2-3", "3-3", "3-4", "4-4", "4-5"] },
+        { "tipoDoEfeito": "BuffCuraRecebida (3 rds)", "valorPorNivel": ["+20%", "+24%", "+28%", "+33%", "+38%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Tiro de Skeet",
+      "nomeOriginal": "Skeet Shot",
+      "tipo": "Combate",
+      "descricao": "Sinalizador que remove Furtividade e beneficia toda a party (equivalente ao Rallying Flare).",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "RemoverFurtividade", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Tocha", "valorPorNivel": [3, 4, 5, 6, 7] },
+        { "tipoDoEfeito": "LimparAtordoamento (party)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "LimparMarca (party)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "ReduzirStress (party)", "valorPorNivel": [-1, -2, -2, -3, -3], "chancePorNivel": [60, 60, 67, 60, 67] }
+      ]
+    },
+    {
+      "nomeExibicao": "Curativo de Emergência",
+      "nomeOriginal": "Field Dressing",
+      "tipo": "Acampamento",
+      "descricao": "Cura probabilística e remove Sangramento.",
+      "custoDeDescanso": 2,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (75% chance)", "valor": "35%HP" },
+        { "tipoDoEfeito": "Cura (25% chance)", "valor": "50%HP" },
+        { "tipoDoEfeito": "RemoverSangramento", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Plano de Marcha",
+      "nomeOriginal": "Marching Plan",
+      "tipo": "Acampamento",
+      "descricao": "Aumenta Velocidade de todos os companheiros.",
+      "custoDeDescanso": 3,
+      "alvo": "AllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffVelocidade (4 Battles)", "valor": 2 }
+      ]
+    },
+    {
+      "nomeExibicao": "Limpar Mosquete",
+      "nomeOriginal": "Clean Musket",
+      "tipo": "Acampamento",
+      "descricao": "Buffs pessoais de ranged (ACC/DMG/CRIT); reduz velocidade. Equivalente ao Restring Crossbow do Besteiro mas específico do Musqueteiro.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao Ranged (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffDano Ranged (4 Battles)", "valor": "+20%" },
+        { "tipoDoEfeito": "BuffCritico Ranged (4 Battles)", "valor": "+8%" },
+        { "tipoDoEfeito": "DebuffVelocidade (4 Battles)", "valor": -2 }
+      ]
+    },
+    {
+      "nomeExibicao": "Triagem",
+      "nomeOriginal": "Triage",
+      "tipo": "Acampamento",
+      "descricao": "Cura leve para toda a party.",
+      "custoDeDescanso": 3,
+      "alvo": "AllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "Cura", "valor": "20%HP" }
+      ]
+    }
+  ]
+}

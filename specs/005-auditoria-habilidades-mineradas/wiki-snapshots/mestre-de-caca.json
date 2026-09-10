@@ -1,0 +1,188 @@
+{
+  "classe": "Mestre de Caça",
+  "classeSlug": "mestre-de-caca",
+  "classeDeHeroiEnum": "MestreDeCaca",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Houndmaster",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Investida do Cão",
+      "nomeOriginal": "Hound's Rush",
+      "tipo": "Combate",
+      "descricao": "Cão ataca com Sangramento, bônus vs Bestas e Marcados.",
+      "range": "Ranged",
+      "rank": [2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [1, 1, 1, 2, 2], "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "BuffDano vs Besta", "valorPorNivel": ["+15%", "+20%", "+25%", "+30%", "+35%"] },
+        { "tipoDoEfeito": "BuffDano vs Marcado", "valorPorNivel": ["+60%", "+70%", "+80%", "+90%", "+100%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Assédio do Cão",
+      "nomeOriginal": "Hound's Harry",
+      "tipo": "Combate",
+      "descricao": "Ataque em área total com Sangramento.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": ["-75%", "-75%", "-75%", "-75%", "-75%"],
+        "modificadorAcerto": [85, 90, 95, 100, 105],
+        "modificadorCritico": ["-5%", "-4%", "-3%", "-2%", "-1%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Sangramento (3 rds)", "valorPorNivel": [1, 1, 2, 2, 3], "chancePorNivel": [110, 120, 130, 140, 150] }
+      ]
+    },
+    {
+      "nomeExibicao": "Assobio de Alvo",
+      "nomeOriginal": "Target Whistle",
+      "tipo": "Combate",
+      "descricao": "Marca o alvo e reduz sua Proteção.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-100%", "-100%", "-100%", "-100%", "-100%"],
+        "modificadorAcerto": [100, 105, 110, 115, 120],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Marcar (3 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "DebuffProtecao (4 rds)", "valorPorNivel": ["-20%", "-22%", "-25%", "-27%", "-30%"], "chancePorNivel": [130, 140, 150, 160, 170] }
+      ]
+    },
+    {
+      "nomeExibicao": "Grito de Guerra",
+      "nomeOriginal": "Cry Havoc",
+      "tipo": "Combate",
+      "descricao": "Alivia estresse da party.",
+      "range": "Buff",
+      "rank": [3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": true,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress (party)", "valorPorNivel": [-2, -3, -4, -5, -6], "chancePorNivel": [66, 68, 70, 72, 74] }
+      ]
+    },
+    {
+      "nomeExibicao": "Cão de Guarda",
+      "nomeOriginal": "Guard Dog",
+      "tipo": "Combate",
+      "descricao": "Guarda aliado por 2 rodadas e ganha DODGE.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "GuardarAliado (2 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffEsquiva (self, 3 rds)", "valorPorNivel": [10, 12, 14, 17, 20] }
+      ]
+    },
+    {
+      "nomeExibicao": "Lamber Feridas",
+      "nomeOriginal": "Lick Wounds",
+      "tipo": "Combate",
+      "descricao": "Auto-cura.",
+      "range": "Heal",
+      "rank": [2, 3, 4],
+      "target": [],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Cura (self)", "valorPorNivel": [4, 5, 6, 7, 8] }
+      ]
+    },
+    {
+      "nomeExibicao": "Cassetete",
+      "nomeOriginal": "Blackjack",
+      "tipo": "Combate",
+      "descricao": "Ataque melee com forte Atordoamento.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-65%", "-65%", "-65%", "-65%", "-65%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["5%", "6%", "7%", "8%", "9%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [110, 120, 130, 140, 150] }
+      ]
+    },
+    {
+      "nomeExibicao": "Vigília do Cão",
+      "nomeOriginal": "Hound's Watch",
+      "tipo": "Acampamento",
+      "descricao": "Reduz chance de party surpreendida, previne emboscada.",
+      "custoDeDescanso": 4,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirChancePartySurpreendida (4 Battles)", "valor": "-20%" },
+        { "tipoDoEfeito": "AumentarChanceMonstroSurpreendido (4 Battles)", "valor": "+20%" },
+        { "tipoDoEfeito": "PrevenirNightAmbush", "valor": true }
+      ]
+    },
+    {
+      "nomeExibicao": "Cão de Terapia",
+      "nomeOriginal": "Therapy Dog",
+      "tipo": "Acampamento",
+      "descricao": "Reduz estresse da party e resistência a estresse.",
+      "custoDeDescanso": 3,
+      "alvo": "AllCompanions",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress", "valor": -10 },
+        { "tipoDoEfeito": "ReduzirStressPercentual (4 Battles)", "valor": "-10%" }
+      ]
+    },
+    {
+      "nomeExibicao": "Melhor Amigo do Homem",
+      "nomeOriginal": "Man's Best Friend",
+      "tipo": "Acampamento",
+      "descricao": "Alivia próprio estresse.",
+      "custoDeDescanso": 2,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "ReduzirStress", "valor": -20 }
+      ]
+    },
+    {
+      "nomeExibicao": "Soltar o Cão",
+      "nomeOriginal": "Release the Hound",
+      "tipo": "Acampamento",
+      "descricao": "Aumenta chance de escoteirar por 4 batalhas.",
+      "custoDeDescanso": 4,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffScoutingChance (4 Battles)", "valor": "+30%" }
+      ]
+    }
+  ]
+}

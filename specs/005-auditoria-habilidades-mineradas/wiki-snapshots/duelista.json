@@ -1,0 +1,204 @@
+{
+  "classe": "Duelista",
+  "classeSlug": "duelista",
+  "classeDeHeroiEnum": "Duelista",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Duelist",
+  "mineradoEm": "2026-09-09",
+  "mineradoPor": "agente-copilot-via-fetch-webpage",
+  "notas": ["Sistema dual: Postura Defensiva e Agressiva. Anticipation alterna postura como ação livre. Todas as 7 skills desbloqueadas no recrutamento. Postura persiste entre batalhas (diferente da Abominação). Ao iniciar batalha, ativa Riposte 2 rodadas com debuff -50% Riposte DMG 1 rodada."],
+  "status": "preenchido",
+  "habilidades": [
+    {
+      "nomeExibicao": "Antecipação",
+      "nomeOriginal": "Anticipation",
+      "tipo": "Combate",
+      "descricao": "Ação livre — alterna entre Defensiva e Agressiva; ativa Riposte 2 rodadas. Buffs diferentes por postura ativa.",
+      "range": "Buff",
+      "rank": [1, 2, 3, 4],
+      "target": [],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": [null, null, null, null, null],
+        "modificadorAcerto": [null, null, null, null, null],
+        "modificadorCritico": [null, null, null, null, null]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "AlternarPostura", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "AtivarRiposte (2 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffCritico com Riposte ativo (Defensiva→Agressiva, 4 rds)", "valorPorNivel": ["+3%", "+3%", "+4%", "+4%", "+5%"] },
+        { "tipoDoEfeito": "BuffEsquiva com Riposte ativo (Agressiva→Defensiva, 4 rds)", "valorPorNivel": [3, 4, 4, 5, 5] }
+      ]
+    },
+    {
+      "nomeExibicao": "Touché",
+      "nomeOriginal": "Touché",
+      "tipo": "Combate",
+      "descricao": "Defensiva. Recua 1 e ganha grande buff de DODGE até próxima esquiva.",
+      "range": "Melee",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+0%", "+0%", "+0%", "+0%", "+0%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["1%", "2%", "3%", "4%", "5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Recua 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] },
+        { "tipoDoEfeito": "BuffEsquiva até próxima esquiva (self, 4 rds)", "valorPorNivel": [25, 27, 30, 32, 35] }
+      ]
+    },
+    {
+      "nomeExibicao": "Finta",
+      "nomeOriginal": "Feint",
+      "tipo": "Combate",
+      "descricao": "Defensiva. Marca self, ativa Riposte com bônus. Debuff vs Marcado.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["3%", "4%", "5%", "6%", "7%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "DebuffPrecisao vs Marcado", "valorPorNivel": [-10, -10, -10, -10, -10], "chancePorNivel": [110, 120, 130, 140, 150] },
+        { "tipoDoEfeito": "DebuffProtecao", "valorPorNivel": ["-20%", "-22%", "-25%", "-27%", "-30%"], "chancePorNivel": [110, 120, 130, 140, 150] },
+        { "tipoDoEfeito": "MarcarSelf (2 rds)", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "Riposte BuffDano (self, 4 rds)", "valorPorNivel": ["+25%", "+27%", "+30%", "+32%", "+35%"] }
+      ]
+    },
+    {
+      "nomeExibicao": "Desengajar",
+      "nomeOriginal": "Disengage",
+      "tipo": "Combate",
+      "descricao": "Defensiva. Recua 3, buffs próprios e habilita ataques de qualquer posição por 2 rodadas.",
+      "range": "Melee",
+      "rank": [1, 2],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-50%", "-50%", "-50%", "-50%", "-50%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["-1%", "0%", "1%", "2%", "3%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Recua 3 (self)", "valorPorNivel": [3, 3, 3, 3, 3] },
+        { "tipoDoEfeito": "BuffVelocidade (self, 4 rds)", "valorPorNivel": [4, 4, 5, 5, 6] },
+        { "tipoDoEfeito": "BuffPrecisao (self, 4 rds)", "valorPorNivel": [10, 10, 10, 10, 10] },
+        { "tipoDoEfeito": "AtaquesQualquerPosicao (self, 2 rds)", "valorPorNivel": [true, true, true, true, true] }
+      ]
+    },
+    {
+      "nomeExibicao": "Flèche",
+      "nomeOriginal": "Flèche",
+      "tipo": "Combate",
+      "descricao": "Agressiva. Avança 2, alto dano/CRIT. Marca self.",
+      "range": "Melee",
+      "rank": [2, 3, 4],
+      "target": [1, 2, 3],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["+20%", "+20%", "+20%", "+20%", "+20%"],
+        "modificadorAcerto": [90, 95, 100, 105, 110],
+        "modificadorCritico": ["9%", "10%", "11%", "12%", "13%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Avança 2 (self)", "valorPorNivel": [2, 2, 2, 2, 2] },
+        { "tipoDoEfeito": "MarcarSelf (2 rds)", "valorPorNivel": [true, true, true, true, true] }
+      ]
+    },
+    {
+      "nomeExibicao": "Golpe de Misericórdia",
+      "nomeOriginal": "Coup de Grâce",
+      "tipo": "Combate",
+      "descricao": "Agressiva. Armor piercing, +100% CRIT vs Atordoado. Ao matar: +1 ação.",
+      "range": "Ranged",
+      "rank": [1, 2, 3, 4],
+      "target": [1, 2, 3, 4],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-60%", "-60%", "-60%", "-60%", "-60%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["7%", "8%", "9%", "10%", "11%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "IgnorarArmadura", "valorPorNivel": [true, true, true, true, true] },
+        { "tipoDoEfeito": "BuffCritico vs Atordoado", "valorPorNivel": ["+100%", "+100%", "+100%", "+100%", "+100%"] },
+        { "tipoDoEfeito": "AcaoExtraAoMatar (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Chute",
+      "nomeOriginal": "The Boot",
+      "tipo": "Combate",
+      "descricao": "Agressiva. Atordoa e faz Knockback; avança 1.",
+      "range": "Melee",
+      "rank": [1, 2, 3],
+      "target": [1, 2],
+      "alvoEmArea": false,
+      "campos": {
+        "modificadorDano": ["-40%", "-40%", "-40%", "-40%", "-40%"],
+        "modificadorAcerto": [95, 100, 105, 110, 115],
+        "modificadorCritico": ["1%", "2%", "3%", "4%", "5%"]
+      },
+      "efeitos": [
+        { "tipoDoEfeito": "Atordoamento", "chancePorNivel": [100, 110, 120, 130, 140] },
+        { "tipoDoEfeito": "Knockback 1", "chancePorNivel": [110, 120, 130, 140, 150] },
+        { "tipoDoEfeito": "Avança 1 (self)", "valorPorNivel": [1, 1, 1, 1, 1] }
+      ]
+    },
+    {
+      "nomeExibicao": "Meditação",
+      "nomeOriginal": "Meditation",
+      "tipo": "Acampamento",
+      "descricao": "Buffs próprios enquanto Riposte ativo.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffPrecisao com Riposte (4 Battles)", "valor": 10 },
+        { "tipoDoEfeito": "BuffEsquiva com Riposte (4 Battles)", "valor": 10 }
+      ]
+    },
+    {
+      "nomeExibicao": "Preparação",
+      "nomeOriginal": "Preparation",
+      "tipo": "Acampamento",
+      "descricao": "Buffs enormes na primeira rodada.",
+      "custoDeDescanso": 3,
+      "alvo": "Self",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffDano na 1ª rodada (4 Battles)", "valor": "+25%" },
+        { "tipoDoEfeito": "BuffEsquiva na 1ª rodada (4 Battles)", "valor": 20 },
+        { "tipoDoEfeito": "BuffVelocidade na 1ª rodada (4 Battles)", "valor": 2 }
+      ]
+    },
+    {
+      "nomeExibicao": "Instrução Impiedosa",
+      "nomeOriginal": "Ruthless Instruction",
+      "tipo": "Acampamento",
+      "descricao": "Buffs CRIT/SPD em aliado com custo de estresse.",
+      "custoDeDescanso": 2,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "BuffCritico (4 Battles)", "valor": "+7%" },
+        { "tipoDoEfeito": "BuffVelocidade (4 Battles)", "valor": 2 },
+        { "tipoDoEfeito": "AumentarStress (target)", "valor": 10 },
+        { "tipoDoEfeito": "AumentarStress adicional (50% chance)", "valor": 10 }
+      ]
+    },
+    {
+      "nomeExibicao": "De Novo!",
+      "nomeOriginal": "Again!",
+      "tipo": "Acampamento",
+      "descricao": "Renova usos de skills de acampamento de um aliado, ao custo de estresse.",
+      "custoDeDescanso": 1,
+      "alvo": "OneCompanion",
+      "efeitos": [
+        { "tipoDoEfeito": "RenovarUsosCampingSkill", "valor": true },
+        { "tipoDoEfeito": "AumentarStress (target)", "valor": 15 }
+      ]
+    }
+  ]
+}

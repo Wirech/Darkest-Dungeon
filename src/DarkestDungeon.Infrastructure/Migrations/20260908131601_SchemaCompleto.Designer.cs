@@ -4,16 +4,19 @@ using DarkestDungeon.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DarkestDungeon.Infrastructure.Data.Migrations
+namespace DarkestDungeon.Infrastructure.Migrations
 {
     [DbContext(typeof(DarkestDungeonDbContext))]
-    partial class DarkestDungeonDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260908131601_SchemaCompleto")]
+    partial class SchemaCompleto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -357,6 +360,11 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
                 {
                     b.HasBaseType("DarkestDungeon.Domain.Seres.Ser");
 
+                    b.Property<string>("HabilidadesIds")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("HabilidadesIds");
+
                     b.Property<string>("TipoDeInimigo")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -408,6 +416,11 @@ namespace DarkestDungeon.Infrastructure.Data.Migrations
 
                     b.Property<bool>("EstadoPortasDaMorte")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Inventario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("InventarioSlots");
 
                     b.Property<bool>("RecuperouAtaqueCardiaco")
                         .HasColumnType("bit");

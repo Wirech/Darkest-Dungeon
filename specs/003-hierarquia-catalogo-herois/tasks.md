@@ -254,9 +254,9 @@ exclusÃ£o de Classe/Habilidade/Item estÃ¡ fora de escopo, com todas as FKs p
 - [x] T109 [P] Adicionar teste `HabilidadesCompartilhadasTests` em `tests/DarkestDungeon.Api.Tests/HabilidadesCompartilhadasTests.cs` validando que a mesma `HabilidadeDeAcampamento` aparece nas duas classes que a compartilham (por exemplo, `Gallows Humor` em Bandido e LadrÃ£o de Cova) com o mesmo `Id`.
 - [x] T110 Rodar `dotnet build DarkestDungeon.sln -c Release` e resolver eventuais warnings virados em erro pelo `TreatWarningsAsErrors`.
 - [x] T111 Rodar `dotnet test` completo e garantir todos os testes verdes (Domain + Api + Architecture).
-- [ ] T112 Executar `dotnet ef database update --startup-project src/DarkestDungeon.Api --project src/DarkestDungeon.Infrastructure` contra SQL Server real e confirmar aplicaÃ§Ã£o das migraÃ§Ãµes `AddCatalogoHabilidadesEClasses`, `AddCatalogoItens`, `AddPersonagensEInimigos`, `AddMapaDeCobertura`.
+- [x] T112 Executar `dotnet ef database update --startup-project src/DarkestDungeon.Api --project src/DarkestDungeon.Infrastructure` contra SQL Server real e confirmar aplicaÃ§Ã£o das migraÃ§Ãµes `AddCatalogoHabilidadesEClasses`, `AddCatalogoItens`, `AddPersonagensEInimigos`, `AddMapaDeCobertura`. (executado 2026-09-08 contra SQL Server 2022 em Docker â€” migraÃ§Ãµes consolidadas em `SchemaCompleto`; 16 tabelas + seeds populados: 20 classes, 219 habilidades, 277 associaÃ§Ãµes, 160 entradas do mapa)
 - [x] T113 Executar cenÃ¡rios do `quickstart.md` (curl PowerShell) contra a API rodando localmente e anexar evidÃªncia em `specs/003-hierarquia-catalogo-herois/dados-minerados.md` (contagem 20, exemplos de habilidade, cobertura). (executado 2026-09-07 — seÃ§Ã£o 6 do dados-minerados.md com 8/8 cenÃ¡rios validados via InMemory)
-- [ ] T114 Atualizar `.specify/feature.json` apontando `status` para `implemented` quando os checkpoints das cinco US estiverem verdes.
+- [x] T114 Atualizar `.specify/feature.json` apontando `status` para `implemented` quando os checkpoints das cinco US estiverem verdes. (criado `.specify/features/003-hierarquia-catalogo-herois.json` com status=implemented e checkpoints das 5 US)
 
 ---
 
