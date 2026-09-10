@@ -9,6 +9,13 @@ if (!OpcoesDoColetor.TentarCriar(args, out var opcoes, out var erro))
 	return 1;
 }
 
+if (opcoes!.ModoEquipamentos)
+{
+	var resultadoEquipamentos = await new ImportadorDeEquipamentos(opcoes).ExecutarAsync(CancellationToken.None);
+	Console.WriteLine($"{resultadoEquipamentos.Arquivos.Count} arquivos inventariados; {resultadoEquipamentos.Lacunas.Count} lacunas.");
+	return 0;
+}
+
 var catalogo = CatalogoDeHerois.ObterTodos();
 var herois = opcoes!.Classes.Count == 0
 	? catalogo

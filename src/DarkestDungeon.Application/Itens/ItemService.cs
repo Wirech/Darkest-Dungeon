@@ -86,4 +86,32 @@ public sealed class ItemService : IItemService
             return ResultadoOperacao<ItemDetalheDto>.Invalido(ex.Message, new ErroOperacao(ex.ParamName ?? "requisicao", ex.Message));
         }
     }
+
+    public async Task<ResultadoOperacao<ItemDetalheDto>> CriarItemDeAcampamentoAsync(CriarItemSimplesCommand command, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var item = new ItemDeAcampamento(command.NomeExibicao, command.NomeOriginal, command.Descricao);
+            await itens.AdicionarAsync(item, cancellationToken).ConfigureAwait(false);
+            return ResultadoOperacao<ItemDetalheDto>.Ok(ItemMapper.ParaDto(item));
+        }
+        catch (ArgumentException ex)
+        {
+            return ResultadoOperacao<ItemDetalheDto>.Invalido(ex.Message, new ErroOperacao(ex.ParamName ?? "requisicao", ex.Message));
+        }
+    }
+
+    public async Task<ResultadoOperacao<ItemDetalheDto>> CriarConsumivelAsync(CriarItemSimplesCommand command, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var item = new Consumivel(command.NomeExibicao, command.NomeOriginal, command.Descricao);
+            await itens.AdicionarAsync(item, cancellationToken).ConfigureAwait(false);
+            return ResultadoOperacao<ItemDetalheDto>.Ok(ItemMapper.ParaDto(item));
+        }
+        catch (ArgumentException ex)
+        {
+            return ResultadoOperacao<ItemDetalheDto>.Invalido(ex.Message, new ErroOperacao(ex.ParamName ?? "requisicao", ex.Message));
+        }
+    }
 }

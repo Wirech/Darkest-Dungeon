@@ -1,4 +1,5 @@
 using DarkestDungeon.Application.Classes;
+using DarkestDungeon.Application.Midias;
 using DarkestDungeon.Domain.Classes;
 using DarkestDungeon.Domain.Seres;
 
@@ -30,7 +31,10 @@ public sealed record PersonagemDetalheDto(
     IReadOnlyList<HabilidadeDePersonagemDto> Habilidades,
     Guid? ArmaEquipadaId,
     Guid? ArmaduraEquipadaId,
-    IReadOnlyList<Guid> AcessoriosEquipadosIds);
+    IReadOnlyList<Guid> AcessoriosEquipadosIds,
+    MidiaDeEquipamentoDePersonagemDto? MidiaArmaEquipada = null,
+    MidiaDeEquipamentoDePersonagemDto? MidiaArmaduraEquipada = null,
+    IReadOnlyList<MidiaDeAcessorioDePersonagemDto>? MidiasAcessoriosEquipados = null);
 
 public sealed record InimigoDetalheDto(
     Guid Id,

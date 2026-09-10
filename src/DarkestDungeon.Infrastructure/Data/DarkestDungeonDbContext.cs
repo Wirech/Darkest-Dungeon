@@ -21,6 +21,7 @@ public sealed class DarkestDungeonDbContext : DbContext
     public DbSet<Habilidade> Habilidades => Set<Habilidade>();
     public DbSet<ClasseHabilidade> ClassesHabilidades => Set<ClasseHabilidade>();
     public DbSet<Item> Itens => Set<Item>();
+    public DbSet<PublicacaoDeVinculosDeMidia> PublicacoesDeVinculosDeMidia => Set<PublicacaoDeVinculosDeMidia>();
     public DbSet<EntradaDoMapaDeCobertura> MapaDeCobertura => Set<EntradaDoMapaDeCobertura>();
     public DbSet<LogDePublicacao> LogsDePublicacao => Set<LogDePublicacao>();
 
@@ -33,6 +34,7 @@ public sealed class DarkestDungeonDbContext : DbContext
         MapearHabilidade(modelBuilder);
         MapearClasseHabilidade(modelBuilder);
         MapearItem(modelBuilder);
+        MapearPublicacaoDeVinculosDeMidia(modelBuilder);
         MapearMapaDeCobertura(modelBuilder);
         MapearLogDePublicacao(modelBuilder);
     }
@@ -258,7 +260,9 @@ public sealed class DarkestDungeonDbContext : DbContext
             entity.HasDiscriminator<string>("Discriminador")
                 .HasValue<Arma>("Arma")
                 .HasValue<Armadura>("Armadura")
-                .HasValue<Acessorio>("Acessorio");
+                .HasValue<Acessorio>("Acessorio")
+                .HasValue<ItemDeAcampamento>("ItemDeAcampamento")
+                .HasValue<Consumivel>("Consumivel");
         });
 
         modelBuilder.Entity<Arma>(entity =>
@@ -269,6 +273,7 @@ public sealed class DarkestDungeonDbContext : DbContext
                 owned.ToTable("NiveisArma");
                 owned.WithOwner();
                 owned.Property(n => n.Critico).HasPrecision(5, 2);
+                owned.OwnsOne(n => n.Midia, MapearMidiaDeItem);
             });
         });
 
@@ -280,6 +285,7 @@ public sealed class DarkestDungeonDbContext : DbContext
                 owned.ToTable("NiveisArmadura");
                 owned.WithOwner();
                 owned.Property(n => n.Esquiva).HasPrecision(5, 2);
+                owned.OwnsOne(n => n.Midia, MapearMidiaDeItem);
             });
         });
 
@@ -287,6 +293,7 @@ public sealed class DarkestDungeonDbContext : DbContext
         {
             entity.Property(a => a.Raridade).HasConversion<string>().HasMaxLength(30);
             entity.Property(a => a.ClasseExclusiva).HasConversion<string>().HasMaxLength(30);
+            entity.OwnsOne(a => a.Midia, MapearMidiaDeItem);
             entity.OwnsMany(a => a.Efeitos, owned =>
             {
                 owned.ToTable("EfeitosAcessorio");
@@ -296,6 +303,38 @@ public sealed class DarkestDungeonDbContext : DbContext
                 owned.Property(e => e.Sinal).HasConversion<string>().HasMaxLength(10);
                 owned.Property(e => e.Valor).HasPrecision(9, 2);
             });
+        });
+
+        modelBuilder.Entity<ItemDeAcampamento>(entity =>
+        {
+            entity.OwnsOne(i => i.Midia, MapearMidiaDeItem);
+        });
+
+        modelBuilder.Entity<Consumivel>(entity =>
+        {
+            entity.OwnsOne(i => i.Midia, MapearMidiaDeItem);
+        });
+    }
+
+    private static void MapearMidiaDeItem<TOwner>(Microsoft.EntityFrameworkCore.Metadata.Builders.OwnedNavigationBuilder<TOwner, MidiaDeItem> owned)
+        where TOwner : class
+    {
+        owned.Property(m => m.ArquivoInventarioId).HasMaxLength(200).HasColumnName("Midia_ArquivoInventarioId");
+        owned.Property(m => m.ConjuntoSpineId).HasMaxLength(200).HasColumnName("Midia_ConjuntoSpineId");
+        owned.Property(m => m.HashArquivo).HasMaxLength(64).HasColumnName("Midia_HashArquivo");
+        owned.Property(m => m.Status).HasConversion<string>().HasMaxLength(20).HasColumnName("Midia_Status");
+    }
+
+    private static void MapearPublicacaoDeVinculosDeMidia(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<PublicacaoDeVinculosDeMidia>(entity =>
+        {
+            entity.ToTable("PublicacoesDeVinculosDeMidia");
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Categoria).HasConversion<string>().HasMaxLength(30);
+            entity.Property(e => e.Estado).HasConversion<string>().HasMaxLength(30);
+            entity.HasIndex(e => new { e.Categoria, e.Estado });
         });
     }
 

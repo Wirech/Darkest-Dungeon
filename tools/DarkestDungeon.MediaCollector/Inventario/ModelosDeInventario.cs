@@ -8,13 +8,15 @@ public sealed record ArquivoImportado(
     string CaminhoDestino,
     string Sha256,
     long TamanhoBytes,
-    bool Reutilizado);
+    bool Reutilizado,
+    string? Categoria = null);
 
 public sealed record LacunaDeImportacao(
     string Classe,
     string Motivo,
     string CaminhoConsultado,
-    DateTime TentadoEmUtc);
+    DateTime TentadoEmUtc,
+    string? Categoria = null);
 
 public sealed record ResumoDaClasse(
     string Classe,

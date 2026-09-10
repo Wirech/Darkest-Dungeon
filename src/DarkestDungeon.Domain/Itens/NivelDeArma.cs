@@ -5,6 +5,7 @@ public sealed record NivelDeArma
 {
     private NivelDeArma()
     {
+        Midia = MidiaDeItem.Pendente();
     }
 
     public NivelDeArma(int nivel, int danoMinimo, int danoMaximo, decimal critico, int velocidade)
@@ -39,6 +40,7 @@ public sealed record NivelDeArma
         DanoMaximo = danoMaximo;
         Critico = critico;
         Velocidade = velocidade;
+        Midia = MidiaDeItem.Pendente();
     }
 
     public int Nivel { get; private init; }
@@ -46,4 +48,11 @@ public sealed record NivelDeArma
     public int DanoMaximo { get; private init; }
     public decimal Critico { get; private init; }
     public int Velocidade { get; private init; }
+    public MidiaDeItem Midia { get; private set; }
+
+    public void DefinirMidia(MidiaDeItem midia)
+    {
+        ArgumentNullException.ThrowIfNull(midia);
+        Midia = midia;
+    }
 }

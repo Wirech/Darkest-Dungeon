@@ -63,3 +63,33 @@ public sealed class AcessoriosController : EntidadeControllerBase
     public async Task<ActionResult> Criar([FromBody] CriarAcessorioRequest request, CancellationToken cancellationToken) =>
         MapearCriacao(await service.CriarAcessorioAsync(request.ParaCommand(), cancellationToken), v => v, v => $"/itens/{v.Id}");
 }
+
+[Route("itens-acampamento")]
+public sealed class ItensDeAcampamentoController : EntidadeControllerBase
+{
+    private readonly IItemService service;
+
+    public ItensDeAcampamentoController(IItemService service)
+    {
+        this.service = service;
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Criar([FromBody] CriarItemSimplesRequest request, CancellationToken cancellationToken) =>
+        MapearCriacao(await service.CriarItemDeAcampamentoAsync(request.ParaCommand(), cancellationToken), v => v, v => $"/itens/{v.Id}");
+}
+
+[Route("consumiveis")]
+public sealed class ConsumiveisController : EntidadeControllerBase
+{
+    private readonly IItemService service;
+
+    public ConsumiveisController(IItemService service)
+    {
+        this.service = service;
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Criar([FromBody] CriarItemSimplesRequest request, CancellationToken cancellationToken) =>
+        MapearCriacao(await service.CriarConsumivelAsync(request.ParaCommand(), cancellationToken), v => v, v => $"/itens/{v.Id}");
+}
