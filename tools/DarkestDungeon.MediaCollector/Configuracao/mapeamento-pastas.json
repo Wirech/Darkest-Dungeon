@@ -1,0 +1,34 @@
+{
+  "origens": [
+    {
+      "categoria": "Arma",
+      "globais": [ "heroes/**", "dlc/**/heroes/**" ],
+      "filtroNome": "weapon",
+      "extensoes": [ ".png", ".atlas", ".skel" ]
+    },
+    {
+      "categoria": "Armadura",
+      "globais": [ "heroes/**", "dlc/**/heroes/**" ],
+      "filtroNome": "armour|armor",
+      "extensoes": [ ".png", ".atlas", ".skel" ]
+    },
+    {
+      "categoria": "Acessorio",
+      "globais": [ "inventory/trinkets/**", "dlc/**/inventory/trinkets/**" ],
+      "filtroNome": null,
+      "extensoes": [ ".png", ".atlas", ".skel" ]
+    },
+    {
+      "categoria": "ItemDeAcampamento",
+      "globais": [ "inventory/provision/**", "dlc/**/inventory/provision/**" ],
+      "filtroNome": null,
+      "extensoes": [ ".png" ]
+    },
+    {
+      "categoria": "Consumivel",
+      "globais": [ "inventory/quest/**", "inventory/raid/items/**", "dlc/**/inventory/quest/**", "dlc/**/inventory/raid/items/**" ],
+      "filtroNome": null,
+      "extensoes": [ ".png" ]
+    }
+  ]
+}

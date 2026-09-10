@@ -193,8 +193,8 @@ namespace DarkestDungeon.Infrastructure.Migrations
 
                     b.Property<string>("Discriminador")
                         .IsRequired()
-                        .HasMaxLength(13)
-                        .HasColumnType("nvarchar(13)");
+                        .HasMaxLength(21)
+                        .HasColumnType("nvarchar(21)");
 
                     b.Property<string>("NomeExibicao")
                         .IsRequired()
@@ -213,6 +213,46 @@ namespace DarkestDungeon.Infrastructure.Migrations
                     b.HasDiscriminator<string>("Discriminador").HasValue("Item");
 
                     b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("DarkestDungeon.Domain.Itens.PublicacaoDeVinculosDeMidia", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AcessoriosNovos")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Categoria")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTimeOffset?>("ConcluidaEm")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTimeOffset>("IniciadaEm")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<int>("ItensAtualizados")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VinculosOk")
+                        .HasColumnType("int");
+
+                    b.Property<int>("VinculosPendentes")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Categoria", "Estado");
+
+                    b.ToTable("PublicacoesDeVinculosDeMidia", (string)null);
                 });
 
             modelBuilder.Entity("DarkestDungeon.Domain.Seres.Ser", b =>
@@ -393,6 +433,20 @@ namespace DarkestDungeon.Infrastructure.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.HasDiscriminator().HasValue("Armadura");
+                });
+
+            modelBuilder.Entity("DarkestDungeon.Domain.Itens.Consumivel", b =>
+                {
+                    b.HasBaseType("DarkestDungeon.Domain.Itens.Item");
+
+                    b.HasDiscriminator().HasValue("Consumivel");
+                });
+
+            modelBuilder.Entity("DarkestDungeon.Domain.Itens.ItemDeAcampamento", b =>
+                {
+                    b.HasBaseType("DarkestDungeon.Domain.Itens.Item");
+
+                    b.HasDiscriminator().HasValue("ItemDeAcampamento");
                 });
 
             modelBuilder.Entity("DarkestDungeon.Domain.Seres.Inimigo", b =>
@@ -922,6 +976,44 @@ namespace DarkestDungeon.Infrastructure.Migrations
 
             modelBuilder.Entity("DarkestDungeon.Domain.Itens.Acessorio", b =>
                 {
+                    b.OwnsOne("DarkestDungeon.Domain.Itens.MidiaDeItem", "Midia", b1 =>
+                        {
+                            b1.Property<Guid>("AcessorioId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("ArquivoInventarioId")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)")
+                                .HasColumnName("Midia_ArquivoInventarioId");
+
+                            b1.Property<string>("ConjuntoSpineId")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)")
+                                .HasColumnName("Midia_ConjuntoSpineId");
+
+                            b1.Property<string>("HashArquivo")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(64)
+                                .HasColumnType("nvarchar(64)")
+                                .HasColumnName("Midia_HashArquivo");
+
+                            b1.Property<string>("Status")
+                                .IsRequired()
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(20)
+                                .HasColumnType("nvarchar(20)")
+                                .HasColumnName("Midia_Status");
+
+                            b1.HasKey("AcessorioId");
+
+                            b1.ToTable("Itens");
+
+                            b1.WithOwner()
+                                .HasForeignKey("AcessorioId");
+                        });
+
                     b.OwnsMany("DarkestDungeon.Domain.Itens.EfeitoDeAcessorio", "Efeitos", b1 =>
                         {
                             b1.Property<Guid>("AcessorioId")
@@ -961,6 +1053,9 @@ namespace DarkestDungeon.Infrastructure.Migrations
                         });
 
                     b.Navigation("Efeitos");
+
+                    b.Navigation("Midia")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DarkestDungeon.Domain.Itens.Arma", b =>
@@ -998,6 +1093,46 @@ namespace DarkestDungeon.Infrastructure.Migrations
 
                             b1.WithOwner()
                                 .HasForeignKey("ArmaId");
+
+                            b1.OwnsOne("DarkestDungeon.Domain.Itens.MidiaDeItem", "Midia", b2 =>
+                                {
+                                    b2.Property<Guid>("NivelDeArmaArmaId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<int>("NivelDeArmaId")
+                                        .HasColumnType("int");
+
+                                    b2.Property<string>("ArquivoInventarioId")
+                                        .HasMaxLength(200)
+                                        .HasColumnType("nvarchar(200)")
+                                        .HasColumnName("Midia_ArquivoInventarioId");
+
+                                    b2.Property<string>("ConjuntoSpineId")
+                                        .HasMaxLength(200)
+                                        .HasColumnType("nvarchar(200)")
+                                        .HasColumnName("Midia_ConjuntoSpineId");
+
+                                    b2.Property<string>("HashArquivo")
+                                        .HasMaxLength(64)
+                                        .HasColumnType("nvarchar(64)")
+                                        .HasColumnName("Midia_HashArquivo");
+
+                                    b2.Property<string>("Status")
+                                        .IsRequired()
+                                        .HasMaxLength(20)
+                                        .HasColumnType("nvarchar(20)")
+                                        .HasColumnName("Midia_Status");
+
+                                    b2.HasKey("NivelDeArmaArmaId", "NivelDeArmaId");
+
+                                    b2.ToTable("NiveisArma");
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("NivelDeArmaArmaId", "NivelDeArmaId");
+                                });
+
+                            b1.Navigation("Midia")
+                                .IsRequired();
                         });
 
                     b.Navigation("Niveis");
@@ -1032,9 +1167,137 @@ namespace DarkestDungeon.Infrastructure.Migrations
 
                             b1.WithOwner()
                                 .HasForeignKey("ArmaduraId");
+
+                            b1.OwnsOne("DarkestDungeon.Domain.Itens.MidiaDeItem", "Midia", b2 =>
+                                {
+                                    b2.Property<Guid>("NivelDeArmaduraArmaduraId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<int>("NivelDeArmaduraId")
+                                        .HasColumnType("int");
+
+                                    b2.Property<string>("ArquivoInventarioId")
+                                        .HasMaxLength(200)
+                                        .HasColumnType("nvarchar(200)")
+                                        .HasColumnName("Midia_ArquivoInventarioId");
+
+                                    b2.Property<string>("ConjuntoSpineId")
+                                        .HasMaxLength(200)
+                                        .HasColumnType("nvarchar(200)")
+                                        .HasColumnName("Midia_ConjuntoSpineId");
+
+                                    b2.Property<string>("HashArquivo")
+                                        .HasMaxLength(64)
+                                        .HasColumnType("nvarchar(64)")
+                                        .HasColumnName("Midia_HashArquivo");
+
+                                    b2.Property<string>("Status")
+                                        .IsRequired()
+                                        .HasMaxLength(20)
+                                        .HasColumnType("nvarchar(20)")
+                                        .HasColumnName("Midia_Status");
+
+                                    b2.HasKey("NivelDeArmaduraArmaduraId", "NivelDeArmaduraId");
+
+                                    b2.ToTable("NiveisArmadura");
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("NivelDeArmaduraArmaduraId", "NivelDeArmaduraId");
+                                });
+
+                            b1.Navigation("Midia")
+                                .IsRequired();
                         });
 
                     b.Navigation("Niveis");
+                });
+
+            modelBuilder.Entity("DarkestDungeon.Domain.Itens.Consumivel", b =>
+                {
+                    b.OwnsOne("DarkestDungeon.Domain.Itens.MidiaDeItem", "Midia", b1 =>
+                        {
+                            b1.Property<Guid>("ConsumivelId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("ArquivoInventarioId")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)")
+                                .HasColumnName("Midia_ArquivoInventarioId");
+
+                            b1.Property<string>("ConjuntoSpineId")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)")
+                                .HasColumnName("Midia_ConjuntoSpineId");
+
+                            b1.Property<string>("HashArquivo")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(64)
+                                .HasColumnType("nvarchar(64)")
+                                .HasColumnName("Midia_HashArquivo");
+
+                            b1.Property<string>("Status")
+                                .IsRequired()
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(20)
+                                .HasColumnType("nvarchar(20)")
+                                .HasColumnName("Midia_Status");
+
+                            b1.HasKey("ConsumivelId");
+
+                            b1.ToTable("Itens");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ConsumivelId");
+                        });
+
+                    b.Navigation("Midia")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DarkestDungeon.Domain.Itens.ItemDeAcampamento", b =>
+                {
+                    b.OwnsOne("DarkestDungeon.Domain.Itens.MidiaDeItem", "Midia", b1 =>
+                        {
+                            b1.Property<Guid>("ItemDeAcampamentoId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("ArquivoInventarioId")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)")
+                                .HasColumnName("Midia_ArquivoInventarioId");
+
+                            b1.Property<string>("ConjuntoSpineId")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)")
+                                .HasColumnName("Midia_ConjuntoSpineId");
+
+                            b1.Property<string>("HashArquivo")
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(64)
+                                .HasColumnType("nvarchar(64)")
+                                .HasColumnName("Midia_HashArquivo");
+
+                            b1.Property<string>("Status")
+                                .IsRequired()
+                                .ValueGeneratedOnUpdateSometimes()
+                                .HasMaxLength(20)
+                                .HasColumnType("nvarchar(20)")
+                                .HasColumnName("Midia_Status");
+
+                            b1.HasKey("ItemDeAcampamentoId");
+
+                            b1.ToTable("Itens");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ItemDeAcampamentoId");
+                        });
+
+                    b.Navigation("Midia")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DarkestDungeon.Domain.Seres.Inimigo", b =>

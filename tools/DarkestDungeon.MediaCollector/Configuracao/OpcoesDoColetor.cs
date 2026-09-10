@@ -7,23 +7,40 @@ public sealed record OpcoesDoColetor(
     string? CaminhoDoManifesto,
     bool Simular,
     bool Continuar,
-    bool GerarManifesto)
+    bool GerarManifesto,
+    IReadOnlyList<string> Categorias,
+    string? CaminhoDoMapeamento,
+    string? CaminhoDoInventarioHerois)
 {
+    public bool ModoEquipamentos => Categorias.Count > 0;
+
     public static bool TentarCriar(string[] argumentos, out OpcoesDoColetor? opcoes, out string? erro)
     {
         string? origem = null;
         string? saida = null;
         string? manifesto = null;
+        string? mapeamento = null;
+        string? inventarioHerois = null;
         var classes = new List<string>();
+        var categorias = new List<string>();
         var simular = false;
         var continuar = false;
         var gerarManifesto = false;
+        var aliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["arma"] = "Arma",
+            ["armadura"] = "Armadura",
+            ["acessorio"] = "Acessorio",
+            ["acampamento"] = "ItemDeAcampamento",
+            ["itemdeacampamento"] = "ItemDeAcampamento",
+            ["consumivel"] = "Consumivel",
+        };
 
         for (var indice = 0; indice < argumentos.Length; indice++)
         {
             var argumento = argumentos[indice];
             string? valor = null;
-            if (argumento is "--origem" or "--saida" or "--classe" or "--manifesto")
+            if (argumento is "--origem" or "--saida" or "--classe" or "--manifesto" or "--categoria" or "--mapeamento" or "--inventario-herois")
             {
                 if (++indice >= argumentos.Length || argumentos[indice].StartsWith("--", StringComparison.Ordinal))
                 {
@@ -44,6 +61,17 @@ public sealed record OpcoesDoColetor(
                 case "--simular": simular = true; break;
                 case "--continuar": continuar = true; break;
                 case "--gerar-manifesto": gerarManifesto = true; break;
+                case "--categoria":
+                    if (!aliases.TryGetValue(valor!.Trim(), out var canonica))
+                    {
+                        opcoes = null;
+                        erro = "Informe uma categoria: arma, armadura, acessorio, acampamento ou consumivel.";
+                        return false;
+                    }
+                    categorias.Add(canonica);
+                    break;
+                case "--mapeamento": mapeamento = valor; break;
+                case "--inventario-herois": inventarioHerois = valor; break;
                 default: opcoes = null; erro = $"Opção desconhecida: '{argumento}'."; return false;
             }
         }
@@ -62,7 +90,17 @@ public sealed record OpcoesDoColetor(
             return false;
         }
 
-        opcoes = new(Path.GetFullPath(origem), Path.GetFullPath(saida), classes, manifesto is null ? null : Path.GetFullPath(manifesto), simular, continuar, gerarManifesto);
+        opcoes = new(
+            Path.GetFullPath(origem),
+            Path.GetFullPath(saida),
+            classes,
+            manifesto is null ? null : Path.GetFullPath(manifesto),
+            simular,
+            continuar,
+            gerarManifesto,
+            categorias,
+            mapeamento is null ? null : Path.GetFullPath(mapeamento),
+            inventarioHerois is null ? null : Path.GetFullPath(inventarioHerois));
         erro = null;
         return true;
     }

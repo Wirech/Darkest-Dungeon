@@ -31,3 +31,8 @@ public sealed record CriarAcessorioCommand(
     ClasseDeHeroi? ClasseExclusiva,
     Guid? ConjuntoId,
     IReadOnlyCollection<EfeitoDeAcessorioCommand> Efeitos);
+
+public sealed record CriarItemSimplesCommand(
+    string NomeExibicao,
+    string NomeOriginal,
+    string Descricao);

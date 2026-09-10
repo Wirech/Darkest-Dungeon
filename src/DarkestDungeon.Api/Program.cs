@@ -31,7 +31,7 @@ builder.Services.AdicionarServicosDoCatalogo();
 if (builder.Environment.IsEnvironment("Testing"))
 {
     var databaseName = builder.Configuration["Testing:DatabaseName"] ?? "DarkestDungeonTesting";
-    builder.Services.AddInfrastructureServices(options => options.UseInMemoryDatabase(databaseName));
+    builder.Services.AddInfrastructureServices(options => options.UseInMemoryDatabase(databaseName), builder.Configuration);
 }
 else
 {

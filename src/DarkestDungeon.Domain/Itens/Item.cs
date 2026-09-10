@@ -3,7 +3,7 @@ using DarkestDungeon.Domain.Common;
 namespace DarkestDungeon.Domain.Itens;
 
 /// Base identificável abstrata para qualquer objeto do jogo (FR-010).
-/// Discriminada em `Arma`, `Armadura` e `Acessorio`.
+/// Discriminada em `Arma`, `Armadura`, `Acessorio`, `ItemDeAcampamento` e `Consumivel`.
 public abstract class Item : EntidadeIdentificavel
 {
     protected Item()

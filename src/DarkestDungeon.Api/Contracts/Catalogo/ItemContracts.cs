@@ -33,6 +33,11 @@ public sealed record CriarAcessorioRequest(
     Guid? ConjuntoId,
     IReadOnlyCollection<EfeitoDeAcessorioRequest> Efeitos);
 
+public sealed record CriarItemSimplesRequest(
+    string NomeExibicao,
+    string NomeOriginal,
+    string Descricao);
+
 internal static class ItemRequestMapper
 {
     public static CriarArmaCommand ParaCommand(this CriarArmaRequest request) =>
@@ -63,4 +68,7 @@ internal static class ItemRequestMapper
             request.ConjuntoId,
             (request.Efeitos ?? Array.Empty<EfeitoDeAcessorioRequest>())
                 .Select(e => new EfeitoDeAcessorioCommand(e.Nome, e.Valor, e.Unidade, e.Sinal)).ToArray());
+
+    public static CriarItemSimplesCommand ParaCommand(this CriarItemSimplesRequest request) =>
+        new(request.NomeExibicao ?? string.Empty, request.NomeOriginal ?? string.Empty, request.Descricao ?? string.Empty);
 }

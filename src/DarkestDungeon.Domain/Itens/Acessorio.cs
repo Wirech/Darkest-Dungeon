@@ -10,6 +10,7 @@ public sealed class Acessorio : Item
 
     private Acessorio()
     {
+        Midia = MidiaDeItem.Pendente();
     }
 
     public Acessorio(
@@ -28,10 +29,18 @@ public sealed class Acessorio : Item
         Raridade = raridade;
         ClasseExclusiva = classeExclusiva;
         ConjuntoId = conjuntoId;
+        Midia = MidiaDeItem.Pendente();
     }
 
     public RaridadeDeAcessorio Raridade { get; private set; }
     public ClasseDeHeroi? ClasseExclusiva { get; private set; }
     public Guid? ConjuntoId { get; private set; }
     public IReadOnlyList<EfeitoDeAcessorio> Efeitos => efeitos;
+    public MidiaDeItem Midia { get; private set; }
+
+    public void DefinirMidia(MidiaDeItem midia)
+    {
+        ArgumentNullException.ThrowIfNull(midia);
+        Midia = midia;
+    }
 }

@@ -5,6 +5,7 @@ public sealed record NivelDeArmadura
 {
     private NivelDeArmadura()
     {
+        Midia = MidiaDeItem.Pendente();
     }
 
     public NivelDeArmadura(int nivel, int hpAdicional, decimal esquiva)
@@ -27,9 +28,17 @@ public sealed record NivelDeArmadura
         Nivel = nivel;
         HpAdicional = hpAdicional;
         Esquiva = esquiva;
+        Midia = MidiaDeItem.Pendente();
     }
 
     public int Nivel { get; private init; }
     public int HpAdicional { get; private init; }
     public decimal Esquiva { get; private init; }
+    public MidiaDeItem Midia { get; private set; }
+
+    public void DefinirMidia(MidiaDeItem midia)
+    {
+        ArgumentNullException.ThrowIfNull(midia);
+        Midia = midia;
+    }
 }

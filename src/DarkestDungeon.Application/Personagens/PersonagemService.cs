@@ -3,6 +3,7 @@ using DarkestDungeon.Application.Habilidades;
 using DarkestDungeon.Application.Personagens.Commands;
 using DarkestDungeon.Application.Validation;
 using DarkestDungeon.Domain.Habilidades;
+using DarkestDungeon.Domain.Itens;
 using DarkestDungeon.Domain.Personagens;
 using DarkestDungeon.Domain.Seres;
 
@@ -35,7 +36,7 @@ public sealed class PersonagemService : IPersonagemService
             return ResultadoOperacao<PersonagemDetalheDto>.NaoEncontrado($"Personagem '{id}' não encontrado.");
         }
 
-        return ResultadoOperacao<PersonagemDetalheDto>.Ok(PersonagemMapper.ParaDto(personagem));
+        return ResultadoOperacao<PersonagemDetalheDto>.Ok(PersonagemMapper.ParaDto(personagem, await CarregarItensAsync(personagem, cancellationToken)));
     }
 
     public async Task<ResultadoOperacao<PersonagemDetalheDto>> CriarAsync(CriarPersonagemCommand command, CancellationToken cancellationToken = default)
@@ -99,7 +100,7 @@ public sealed class PersonagemService : IPersonagemService
             }
 
             await personagens.AdicionarAsync(personagem, cancellationToken).ConfigureAwait(false);
-            return ResultadoOperacao<PersonagemDetalheDto>.Ok(PersonagemMapper.ParaDto(personagem));
+            return ResultadoOperacao<PersonagemDetalheDto>.Ok(PersonagemMapper.ParaDto(personagem, await CarregarItensAsync(personagem, cancellationToken)));
         }
         catch (ArgumentException ex)
         {
@@ -170,7 +171,7 @@ public sealed class PersonagemService : IPersonagemService
                 acessorios.ElementAtOrDefault(1) is var a2 && a2 != Guid.Empty ? a2 : null);
 
             await personagens.AtualizarAsync(personagem, cancellationToken).ConfigureAwait(false);
-            return ResultadoOperacao<PersonagemDetalheDto>.Ok(PersonagemMapper.ParaDto(personagem));
+            return ResultadoOperacao<PersonagemDetalheDto>.Ok(PersonagemMapper.ParaDto(personagem, await CarregarItensAsync(personagem, cancellationToken)));
         }
         catch (ArgumentException ex)
         {
@@ -222,5 +223,14 @@ public sealed class PersonagemService : IPersonagemService
         }
 
         return null;
+    }
+
+    private async Task<IReadOnlyDictionary<Guid, Item>> CarregarItensAsync(Personagem personagem, CancellationToken cancellationToken)
+    {
+        var ids = new[] { personagem.ArmaEquipadaId, personagem.ArmaduraEquipadaId, personagem.AcessorioEquipado1Id, personagem.AcessorioEquipado2Id }
+            .Where(id => id.HasValue)
+            .Select(id => id!.Value);
+        var lista = await itens.ListarPorIdsAsync(ids, cancellationToken).ConfigureAwait(false);
+        return lista.ToDictionary(i => i.Id);
     }
 }
