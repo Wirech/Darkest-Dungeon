@@ -92,6 +92,23 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"[Feature 009] Equipamentos oficiais: {novosEquipamentos.Length} itens semeados.");
     }
 
+    try
+    {
+        var itensParaTrinkets = context.Itens.ToList();
+        var upsertTrinkets = DarkestDungeon.Infrastructure.Data.Seeds.AcessoriosOficiaisSeed.Aplicar(
+            itensParaTrinkets,
+            acessorio => context.Itens.Add(acessorio));
+        if (upsertTrinkets > 0)
+        {
+            context.SaveChanges();
+            Console.WriteLine($"[Feature 013] Acessórios oficiais: {upsertTrinkets} snapshots aplicados.");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"[Feature 013] Upsert de trinkets ignorado (snapshots parciais): {ex.Message}");
+    }
+
     var idsClassePorEnum = context.Classes.ToDictionary(c => c.ClasseDeHeroi, c => c.Id);
     var idsHabilidadeExistentes = context.Habilidades.Select(h => h.Id).ToHashSet();
     var todasHabilidadesSeed = DarkestDungeon.Infrastructure.Data.Seeds.HabilidadesSeed.Materializar();

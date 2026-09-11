@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="DarkestDungeon.Api.Tests" />
+  </ItemGroup>
+
 </Project>

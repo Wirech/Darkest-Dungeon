@@ -1,0 +1,13 @@
+{
+  "nomeOriginal": "Sniper's Ring",
+  "nomeExibicao": "Anel do Atirador",
+  "descricao": "Amostra rara sem restrição de classe.",
+  "raridade": "Rara",
+  "classeExclusiva": null,
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Sniper%27s_Ring",
+  "efeitos": [
+    { "nome": "ACC", "valor": 8, "unidade": "Pontos", "sinal": "Positivo" },
+    { "nome": "CRIT", "valor": 3, "unidade": "Percentual", "sinal": "Positivo" }
+  ],
+  "lacunas": []
+}

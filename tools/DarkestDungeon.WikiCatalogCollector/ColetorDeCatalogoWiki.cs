@@ -8,14 +8,17 @@ internal static class ColetorDeCatalogoWiki
 
         Uso:
           dotnet run --project tools/DarkestDungeon.WikiCatalogCollector -- --saida <pasta>
+          dotnet run --project tools/DarkestDungeon.WikiCatalogCollector -- --trinkets --saida <pasta>
 
         Argumentos:
-          --saida <pasta>   Destino dos 20 arquivos {slug}.json (obrigatório).
+          --saida <pasta>   Destino dos arquivos {slug}.json (obrigatório).
+          --trinkets        Coleta trinkets (jogo base + DLC listados). Melhor esforço: lacuna não aborta.
           --ajuda           Exibe este texto.
 
         Regras:
-          - Não interpola, não inventa e não copia Besteiro para Musqueteiro.
-          - Lacuna (campo ausente, ambíguo ou forma besta sem bloco humano) falha com código ≠ 0.
+          - Modo classe (padrão): não interpola, não inventa e não copia Besteiro para Musqueteiro.
+          - Modo classe: lacuna (campo ausente, ambíguo ou forma besta sem bloco humano) falha com código ≠ 0.
+          - Modo --trinkets: continua após lacuna; código ≠ 0 só para falha de rede/429/disco.
           - A API de personagens nunca executa este coletor.
         """;
 
@@ -36,6 +39,11 @@ internal static class ColetorDeCatalogoWiki
         }
 
         Directory.CreateDirectory(pastaSaida);
+        if (args.Any(arg => string.Equals(arg, "--trinkets", StringComparison.OrdinalIgnoreCase)))
+        {
+            return await ColetorDeTrinkets.ExecutarAsync(pastaSaida, cancellationToken).ConfigureAwait(false);
+        }
+
         return await CatalogoWikiExecutor.ExecutarColetaAsync(pastaSaida, cancellationToken).ConfigureAwait(false);
     }
 

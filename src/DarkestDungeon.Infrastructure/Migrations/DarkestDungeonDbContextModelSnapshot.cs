@@ -431,6 +431,11 @@ namespace DarkestDungeon.Infrastructure.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.HasIndex("NomeOriginal")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Itens_Acessorio_NomeOriginal")
+                        .HasFilter("[Discriminador] = N'Acessorio'");
+
                     b.HasDiscriminator().HasValue("Acessorio");
                 });
 

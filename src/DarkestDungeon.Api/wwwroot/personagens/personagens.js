@@ -521,33 +521,37 @@ function renderSkills(skills) {
         ${mediaSlot(character.midias?.arma, 'Arma')}
         ${mediaSlot(character.midias?.armadura, 'Armadura')}
       </div>
-      <div class="card-category">
-        <h3>HP</h3>
-        <div class="metric-row"><span class="metric-label">Atual / máximo</span><span class="metric-value">${character.hpAtual} / ${character.hpMaximo}</span></div>
+      ${renderTrinketSlots(character)}
+      <div class="card-category ficha-efetiva">
+        <h3>HP (ficha efetiva)</h3>
+        <div class="metric-row"><span class="metric-label">Atual / máximo</span><span class="metric-value metric-efetivo">${character.hpAtual} / ${character.hpMaximo}</span></div>
+        <div class="metric-row metric-base"><span class="metric-label">Base</span><span class="metric-value">${formatNumber(character.fichaBase?.hpAtual)} / ${formatNumber(character.fichaBase?.hpMaximo)}</span></div>
       </div>
       <div class="card-category">
         <h3>Stress</h3>
         <div class="metric-row"><span class="metric-label">Stress</span><span class="metric-value">${character.stress}</span></div>
       </div>
-      <div class="card-category">
-        <h3>Atributos</h3>
-        <div class="metric-row"><span class="metric-label">Esquiva</span><span class="metric-value">${formatNumber(character.esquiva)}</span></div>
-        <div class="metric-row"><span class="metric-label">Velocidade</span><span class="metric-value">${formatNumber(character.velocidade)}</span></div>
-        <div class="metric-row"><span class="metric-label">Crítico</span><span class="metric-value">${formatNumber(character.critico)}</span></div>
-        <div class="metric-row"><span class="metric-label">Dano</span><span class="metric-value">${formatNumber(character.danoBaseMinimo)}–${formatNumber(character.danoBaseMaximo)}</span></div>
+      <div class="card-category ficha-efetiva">
+        <h3>Atributos (ficha efetiva)</h3>
+        ${metricComBase('Esquiva', character.esquiva, character.fichaBase?.esquiva)}
+        ${metricComBase('Velocidade', character.velocidade, character.fichaBase?.velocidade)}
+        ${metricComBase('Crítico', character.critico, character.fichaBase?.critico)}
+        ${metricComBase('Dano', `${formatNumber(character.danoBaseMinimo)}–${formatNumber(character.danoBaseMaximo)}`, `${formatNumber(character.fichaBase?.danoBaseMinimo)}–${formatNumber(character.fichaBase?.danoBaseMaximo)}`)}
+        ${metricComBase('Precisão', character.precisao, character.fichaBase?.precisao)}
+        ${metricComBase('Proteção', character.protecao, character.fichaBase?.protecao)}
         <div class="metric-row"><span class="metric-label">Passos à frente</span><span class="metric-value">${formatNumber(character.passosAFrente)}</span></div>
         <div class="metric-row"><span class="metric-label">Passos atrás</span><span class="metric-value">${formatNumber(character.passosAtras)}</span></div>
       </div>
-      <div class="card-category">
-        <h3>Resistências</h3>
-        <div class="metric-row"><span class="metric-label">Atordoamento</span><span class="metric-value">${formatNumber(resistencias.atordoamento)}</span></div>
-        <div class="metric-row"><span class="metric-label">Sangramento</span><span class="metric-value">${formatNumber(resistencias.sangramento)}</span></div>
-        <div class="metric-row"><span class="metric-label">Envenenamento</span><span class="metric-value">${formatNumber(resistencias.envenenamento)}</span></div>
-        <div class="metric-row"><span class="metric-label">Debuff</span><span class="metric-value">${formatNumber(resistencias.debuff)}</span></div>
-        <div class="metric-row"><span class="metric-label">Movimento</span><span class="metric-value">${formatNumber(resistencias.movimento)}</span></div>
-        <div class="metric-row"><span class="metric-label">Doença</span><span class="metric-value">${formatNumber(resistencias.doenca)}</span></div>
-        <div class="metric-row"><span class="metric-label">Golpe mortal</span><span class="metric-value">${formatNumber(resistencias.golpeMortal)}</span></div>
-        <div class="metric-row"><span class="metric-label">Armadilha</span><span class="metric-value">${formatNumber(resistencias.armadilha)}</span></div>
+      <div class="card-category ficha-efetiva">
+        <h3>Resistências (ficha efetiva)</h3>
+        ${metricComBase('Atordoamento', resistencias.atordoamento, character.fichaBase?.resistencias?.atordoamento)}
+        ${metricComBase('Sangramento', resistencias.sangramento, character.fichaBase?.resistencias?.sangramento)}
+        ${metricComBase('Envenenamento', resistencias.envenenamento, character.fichaBase?.resistencias?.envenenamento)}
+        ${metricComBase('Debuff', resistencias.debuff, character.fichaBase?.resistencias?.debuff)}
+        ${metricComBase('Movimento', resistencias.movimento, character.fichaBase?.resistencias?.movimento)}
+        ${metricComBase('Doença', resistencias.doenca, character.fichaBase?.resistencias?.doenca)}
+        ${metricComBase('Golpe mortal', resistencias.golpeMortal, character.fichaBase?.resistencias?.golpeMortal)}
+        ${metricComBase('Armadilha', resistencias.armadilha, character.fichaBase?.resistencias?.armadilha)}
       </div>
       <div class="card-skills"><h3>Habilidades de combate</h3>${skillLines(character.habilidades, 'Combate')}</div>
       <div class="card-skills"><h3>Habilidades de acampamento</h3>${skillLines(character.habilidades, 'Acampamento')}</div>
@@ -562,6 +566,109 @@ function renderSkills(skills) {
     elements.list.append(card);
     ligarSeletorDeCorpo(card, character.id);
     aplicarVersaoDoCorpo(character.id, 'emEspera');
+    ligarSeletoresDeTrinket(card, character);
+  }
+}
+
+function metricComBase(rotulo, efetivo, baseValor) {
+  return `
+    <div class="metric-row">
+      <span class="metric-label">${escapeHtml(rotulo)}</span>
+      <span class="metric-value metric-efetivo">${formatNumber(efetivo)}</span>
+    </div>
+    <div class="metric-row metric-base"><span class="metric-label">Base</span><span class="metric-value">${formatNumber(baseValor)}</span></div>
+  `;
+}
+
+function rotuloRaridade(valor) {
+  if (valor === null || valor === undefined || valor === '') return '';
+  return String(valor);
+}
+
+function renderTrinketSlots(character) {
+  return `
+    <div class="card-category trinket-slots">
+      <h3>Acessórios</h3>
+      ${renderTrinketSlot(character, 1, character.espacoTrinket1)}
+      ${renderTrinketSlot(character, 2, character.espacoTrinket2)}
+    </div>
+  `;
+}
+
+function renderTrinketSlot(character, espaco, slot) {
+  const ocupado = Boolean(slot?.acessorioId);
+  const estado = ocupado ? 'ocupado' : 'vazio';
+  const rotulo = ocupado
+    ? `${escapeHtml(slot.nomeExibicao || 'Acessório')} ${rotuloRaridade(slot.raridade)}`.trim()
+    : 'Vazio';
+  return `
+    <label class="trinket-slot trinket-slot-${estado}">
+      <span>Espaço ${espaco} — ${rotulo}</span>
+      <select data-trinket-espaco="${espaco}" data-personagem-id="${escapeHtml(character.id)}" data-classe="${escapeHtml(character.classe)}">
+        <option value="">Vazio</option>
+      </select>
+    </label>
+  `;
+}
+
+async function ligarSeletoresDeTrinket(card, character) {
+  const seletores = card.querySelectorAll('[data-trinket-espaco]');
+  for (const seletor of seletores) {
+    const espaco = Number(seletor.dataset.trinketEspaco);
+    const outro = espaco === 1 ? character.espacoTrinket2 : character.espacoTrinket1;
+    const atual = espaco === 1 ? character.espacoTrinket1 : character.espacoTrinket2;
+    seletor.disabled = true;
+    try {
+      const params = new URLSearchParams({ classe: String(character.classe) });
+      if (outro?.acessorioId) params.set('excluirId', outro.acessorioId);
+      const lista = await requestJson(`/acessorios?${params.toString()}`);
+      seletor.innerHTML = '<option value="">Vazio</option>';
+      if (!lista?.length) {
+        const vazio = document.createElement('option');
+        vazio.disabled = true;
+        vazio.textContent = 'Nenhum trinket disponível para esta classe.';
+        seletor.append(vazio);
+      } else {
+        for (const item of lista) {
+          const option = document.createElement('option');
+          option.value = item.id;
+          option.textContent = `${item.nomeExibicao} (${item.raridade ?? '—'})`;
+          seletor.append(option);
+        }
+      }
+      if (atual?.acessorioId) {
+        const existe = Array.from(seletor.options).some(o => o.value === atual.acessorioId);
+        if (!existe) {
+          const option = document.createElement('option');
+          option.value = atual.acessorioId;
+          option.textContent = atual.nomeExibicao || 'Acessório atual';
+          seletor.append(option);
+        }
+        seletor.value = atual.acessorioId;
+      }
+    } catch {
+      seletor.innerHTML = '<option value="">Não foi possível carregar trinkets</option>';
+    } finally {
+      seletor.disabled = false;
+    }
+
+    seletor.addEventListener('change', async () => {
+      if (state.saving) return;
+      const valor = seletor.value || null;
+      const controles = card.querySelectorAll('[data-trinket-espaco]');
+      controles.forEach(el => { el.disabled = true; });
+      try {
+        await requestJson(`/personagens/${character.id}/acessorios/${espaco}`, {
+          method: 'PUT',
+          body: JSON.stringify({ acessorioId: valor })
+        });
+        await loadCharacters('Acessório atualizado.');
+      } catch (error) {
+        setStatus(error.message);
+        seletor.value = atual?.acessorioId || '';
+        controles.forEach(el => { el.disabled = false; });
+      }
+    });
   }
 }
 

@@ -295,28 +295,110 @@ public sealed class PersonagemService : IPersonagemService
             personagem.EquiparArmadura(armaduraId);
         }
 
-        var acessorios = (command.AcessoriosIds ?? Array.Empty<Guid>()).Take(2).ToArray();
-        foreach (var acId in acessorios)
+        if (command.AcessoriosIds is not null)
         {
-            var acessorio = await itens.ObterPorIdAsync(acId, cancellationToken).ConfigureAwait(false) as DarkestDungeon.Domain.Itens.Acessorio;
-            if (acessorio is null)
+            var acessorios = command.AcessoriosIds.Take(2).ToArray();
+            foreach (var acId in acessorios)
             {
-                return ResultadoOperacao<PersonagemDetalheDto>.Invalido("Acessório não encontrado.", new ErroOperacao("acessoriosIds", $"Acessório '{acId}' não encontrado."));
+                var acessorio = await itens.ObterPorIdAsync(acId, cancellationToken).ConfigureAwait(false) as DarkestDungeon.Domain.Itens.Acessorio;
+                if (acessorio is null)
+                {
+                    return ResultadoOperacao<PersonagemDetalheDto>.Invalido("Acessório não encontrado.", new ErroOperacao("acessoriosIds", $"Acessório '{acId}' não encontrado."));
+                }
+                if (acessorio.ClasseExclusiva is { } exclusiva && exclusiva != personagem.Classe)
+                {
+                    return ResultadoOperacao<PersonagemDetalheDto>.Invalido(
+                        "Acessório é exclusivo de outra classe.",
+                        new ErroOperacao("acessoriosIds", $"Acessório '{acId}' é exclusivo de outra classe."));
+                }
             }
-            if (acessorio.ClasseExclusiva is { } exclusiva && exclusiva != personagem.Classe)
+
+            try
             {
-                return ResultadoOperacao<PersonagemDetalheDto>.Invalido(
-                    "Acessório é exclusivo de outra classe.",
-                    new ErroOperacao("acessoriosIds", $"Acessório '{acId}' é exclusivo de outra classe."));
+                personagem.EquiparAcessorios(
+                    acessorios.ElementAtOrDefault(0) is var a1 && a1 != Guid.Empty ? a1 : null,
+                    acessorios.ElementAtOrDefault(1) is var a2 && a2 != Guid.Empty ? a2 : null);
+            }
+            catch (ArgumentException ex)
+            {
+                return ResultadoOperacao<PersonagemDetalheDto>.Invalido(ex.Message, new ErroOperacao(ex.ParamName ?? "requisicao", ex.Message));
             }
         }
 
         try
         {
-            personagem.EquiparAcessorios(
-                acessorios.ElementAtOrDefault(0) is var a1 && a1 != Guid.Empty ? a1 : null,
-                acessorios.ElementAtOrDefault(1) is var a2 && a2 != Guid.Empty ? a2 : null);
+            await personagens.AtualizarAsync(personagem, cancellationToken).ConfigureAwait(false);
+            return ResultadoOperacao<PersonagemDetalheDto>.Ok(PersonagemMapper.ParaDto(
+                personagem,
+                await CarregarItensParaCardAsync(personagem, cancellationToken),
+                await CarregarHabilidadesAsync(cancellationToken),
+                await classes.ObterPorEnumAsync(personagem.Classe, cancellationToken).ConfigureAwait(false),
+                resolvedorDeMidias));
+        }
+        catch (ArgumentException ex)
+        {
+            return ResultadoOperacao<PersonagemDetalheDto>.Invalido(ex.Message, new ErroOperacao(ex.ParamName ?? "requisicao", ex.Message));
+        }
+    }
 
+    public async Task<ResultadoOperacao<PersonagemDetalheDto>> EquiparEspacoAsync(
+        EquiparAcessorioNoEspacoCommand command,
+        CancellationToken cancellationToken = default)
+    {
+        if (command.Espaco is not 1 and not 2)
+        {
+            return ResultadoOperacao<PersonagemDetalheDto>.Invalido(
+                "Espaço de acessório inválido.",
+                new ErroOperacao("espaco", "O espaço deve ser 1 ou 2."));
+        }
+
+        var personagem = await personagens.ObterPorIdAsync(command.PersonagemId, cancellationToken).ConfigureAwait(false);
+        if (personagem is null)
+        {
+            return ResultadoOperacao<PersonagemDetalheDto>.NaoEncontrado($"Personagem '{command.PersonagemId}' não encontrado.");
+        }
+
+        var slot1 = personagem.AcessorioEquipado1Id;
+        var slot2 = personagem.AcessorioEquipado2Id;
+
+        if (command.AcessorioId is { } acessorioId)
+        {
+            var acessorio = await itens.ObterPorIdAsync(acessorioId, cancellationToken).ConfigureAwait(false) as Acessorio;
+            if (acessorio is null)
+            {
+                return ResultadoOperacao<PersonagemDetalheDto>.Invalido(
+                    "Acessório não encontrado.",
+                    new ErroOperacao("acessorioId", $"Acessório '{acessorioId}' não encontrado."));
+            }
+
+            if (acessorio.ClasseExclusiva is { } exclusiva && exclusiva != personagem.Classe)
+            {
+                return ResultadoOperacao<PersonagemDetalheDto>.Invalido(
+                    "Acessório é exclusivo de outra classe.",
+                    new ErroOperacao("acessorioId", "Acessório é exclusivo de outra classe."));
+            }
+
+            if (command.Espaco == 1)
+            {
+                slot1 = acessorioId;
+            }
+            else
+            {
+                slot2 = acessorioId;
+            }
+        }
+        else if (command.Espaco == 1)
+        {
+            slot1 = null;
+        }
+        else
+        {
+            slot2 = null;
+        }
+
+        try
+        {
+            personagem.EquiparAcessorios(slot1, slot2);
             await personagens.AtualizarAsync(personagem, cancellationToken).ConfigureAwait(false);
             return ResultadoOperacao<PersonagemDetalheDto>.Ok(PersonagemMapper.ParaDto(
                 personagem,

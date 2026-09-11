@@ -34,6 +34,8 @@ public sealed record EquiparPersonagemRequest(
     Guid? ArmaduraId,
     IReadOnlyCollection<Guid>? AcessoriosIds);
 
+public sealed record EquiparAcessorioNoEspacoRequest(Guid? AcessorioId);
+
 public sealed record CriarInimigoRequest(
     string Nome,
     TipoDeInimigo Tipo,
@@ -68,6 +70,9 @@ internal static class PersonagemRequestMapper
 
     public static EquiparPersonagemCommand ParaCommand(this EquiparPersonagemRequest r, Guid personagemId) =>
         new(personagemId, r.ArmaId, r.ArmaduraId, r.AcessoriosIds);
+
+    public static EquiparAcessorioNoEspacoCommand ParaCommand(this EquiparAcessorioNoEspacoRequest r, Guid personagemId, int espaco) =>
+        new(personagemId, espaco, r.AcessorioId);
 
     public static CriarInimigoCommand ParaCommand(this CriarInimigoRequest r) => new(
         r.Nome ?? string.Empty, r.Tipo, r.HpMaximo, r.HpAtual, r.Velocidade, r.Critico,

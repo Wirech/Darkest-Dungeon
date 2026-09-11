@@ -34,6 +34,11 @@ public sealed record EquiparPersonagemCommand(
     Guid? ArmaduraId,
     IReadOnlyCollection<Guid>? AcessoriosIds);
 
+public sealed record EquiparAcessorioNoEspacoCommand(
+    Guid PersonagemId,
+    int Espaco,
+    Guid? AcessorioId);
+
 public sealed record CriarInimigoCommand(
     string Nome,
     TipoDeInimigo Tipo,

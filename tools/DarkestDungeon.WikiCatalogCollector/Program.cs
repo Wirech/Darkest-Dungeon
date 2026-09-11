@@ -1,4 +1,10 @@
-using DarkestDungeon.WikiCatalogCollector;
+namespace DarkestDungeon.WikiCatalogCollector;
 
-var codigo = await ColetorDeCatalogoWiki.ExecutarAsync(args).ConfigureAwait(false);
-return codigo;
+internal static class PontoDeEntradaDoColetor
+{
+    public static async Task<int> Main(string[] args)
+    {
+        return await ColetorDeCatalogoWiki.ExecutarAsync(args).ConfigureAwait(false);
+    }
+}
+

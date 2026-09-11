@@ -31,6 +31,14 @@ public sealed class PersonagensController : EntidadeControllerBase
     public async Task<ActionResult> Equipar(Guid id, [FromBody] EquiparPersonagemRequest request, CancellationToken cancellationToken) =>
         MapearResultado(await service.EquiparAsync(request.ParaCommand(id), cancellationToken), v => v);
 
+    [HttpPut("{id:guid}/acessorios/{espaco:int}")]
+    public async Task<ActionResult> EquiparEspaco(
+        Guid id,
+        int espaco,
+        [FromBody] EquiparAcessorioNoEspacoRequest request,
+        CancellationToken cancellationToken) =>
+        MapearResultado(await service.EquiparEspacoAsync(request.ParaCommand(id, espaco), cancellationToken), v => v);
+
     [HttpDelete("{id}")]
     public async Task<ActionResult> Excluir(string id, CancellationToken cancellationToken)
     {

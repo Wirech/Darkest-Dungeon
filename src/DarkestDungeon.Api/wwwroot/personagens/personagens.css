@@ -90,6 +90,16 @@ h2 { font-size: 1.8rem; line-height: 1; margin-bottom: 8px; font-weight: 400; }
 .card-metrics { display: grid; gap: 10px; margin-bottom: 20px; }
 .metric-row { border-bottom: 1px solid rgba(65, 59, 53, .7); padding-bottom: 7px; }
 .metric-value { color: var(--ink); font-weight: 700; }
+.ficha-efetiva { padding: 10px; border: 1px solid rgba(210, 154, 82, .35); background: rgba(210, 154, 82, .06); }
+.metric-efetivo { color: var(--accent-hot); }
+.metric-base { opacity: .78; font-size: .92em; }
+.metric-base .metric-value { font-weight: 400; color: var(--muted); }
+.trinket-slots { gap: 10px; }
+.trinket-slot { display: grid; gap: 6px; padding: 8px; border: 1px dashed var(--line); color: var(--muted); font: .78rem 'Trebuchet MS', sans-serif; }
+.trinket-slot-vazio { border-style: dashed; }
+.trinket-slot-ocupado { border-style: solid; border-color: var(--accent); color: var(--ink); }
+.trinket-slot-indisponivel, .trinket-slot select:disabled { opacity: .55; }
+.trinket-slot select { width: 100%; min-height: 36px; color: var(--ink); background: var(--panel-raised); border: 1px solid var(--line); border-radius: 4px; padding: 4px 8px; }
 .card-skills { flex: 1; margin-bottom: 22px; }
 .card-skills h3 { color: var(--muted); font: 700 .7rem 'Trebuchet MS', sans-serif; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 8px; }
 .skill-line { justify-content: flex-start; padding: 3px 0; flex-wrap: wrap; }

@@ -1,6 +1,7 @@
 using DarkestDungeon.Application.Classes;
 using DarkestDungeon.Application.Midias;
 using DarkestDungeon.Domain.Classes;
+using DarkestDungeon.Domain.Itens;
 using DarkestDungeon.Domain.Personagens;
 using DarkestDungeon.Domain.Seres;
 
@@ -25,6 +26,24 @@ public sealed record ResistenciasDePersonagemDto(
     decimal Doenca,
     decimal GolpeMortal,
     decimal Armadilha);
+
+public sealed record FichaDePersonagemDto(
+    int HpMaximo,
+    int HpAtual,
+    decimal Precisao,
+    decimal Protecao,
+    decimal Esquiva,
+    int Velocidade,
+    decimal Critico,
+    int DanoBaseMinimo,
+    int DanoBaseMaximo,
+    int ChanceDeVirtude,
+    ResistenciasDePersonagemDto Resistencias);
+
+public sealed record EspacoTrinketDto(
+    Guid? AcessorioId,
+    string? NomeExibicao,
+    RaridadeDeAcessorio? Raridade);
 
 public sealed record HabilidadeDePersonagemDto(
     Guid HabilidadeId,
@@ -62,7 +81,11 @@ public sealed record PersonagemResumoDto(
     bool ClasseReligiosa = false,
     string? ProvisaoInicial = null,
     string BonusAoCriticoDaClasse = "",
-    MidiasDoPersonagemDto? Midias = null);
+    MidiasDoPersonagemDto? Midias = null,
+    EspacoTrinketDto? EspacoTrinket1 = null,
+    EspacoTrinketDto? EspacoTrinket2 = null,
+    FichaDePersonagemDto? FichaBase = null,
+    FichaDePersonagemDto? FichaEfetiva = null);
 
 public sealed record PersonagemDetalheDto(
     Guid Id,
@@ -100,7 +123,11 @@ public sealed record PersonagemDetalheDto(
     bool ClasseReligiosa = false,
     string? ProvisaoInicial = null,
     string BonusAoCriticoDaClasse = "",
-    MidiasDoPersonagemDto? Midias = null);
+    MidiasDoPersonagemDto? Midias = null,
+    EspacoTrinketDto? EspacoTrinket1 = null,
+    EspacoTrinketDto? EspacoTrinket2 = null,
+    FichaDePersonagemDto? FichaBase = null,
+    FichaDePersonagemDto? FichaEfetiva = null);
 
 public sealed record InimigoDetalheDto(
     Guid Id,

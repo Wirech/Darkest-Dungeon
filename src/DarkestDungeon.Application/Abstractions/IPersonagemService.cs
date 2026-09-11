@@ -26,6 +26,7 @@ public interface IPersonagemService
     Task<ResultadoOperacao<PersonagemDetalheDto>> ObterAsync(Guid id, CancellationToken cancellationToken = default);
     Task<ResultadoOperacao<PersonagemDetalheDto>> CriarAsync(CriarPersonagemCommand command, CancellationToken cancellationToken = default);
     Task<ResultadoOperacao<PersonagemDetalheDto>> EquiparAsync(EquiparPersonagemCommand command, CancellationToken cancellationToken = default);
+    Task<ResultadoOperacao<PersonagemDetalheDto>> EquiparEspacoAsync(EquiparAcessorioNoEspacoCommand command, CancellationToken cancellationToken = default);
     Task<ResultadoOperacao<bool>> RemoverAsync(Guid id, CancellationToken cancellationToken = default);
 }
 

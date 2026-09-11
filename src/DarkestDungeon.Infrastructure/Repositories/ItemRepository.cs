@@ -36,4 +36,18 @@ public sealed class ItemRepository : IItemRepository
         contexto.Itens.Add(item);
         await contexto.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
     }
+
+    public async Task AtualizarAsync(Item item, CancellationToken cancellationToken = default)
+    {
+        contexto.Itens.Update(item);
+        await contexto.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+    }
+
+    public Task<Acessorio?> ObterAcessorioPorNomeOriginalAsync(string nomeOriginal, CancellationToken cancellationToken = default)
+    {
+        var chave = nomeOriginal.Trim();
+        return contexto.Itens
+            .OfType<Acessorio>()
+            .FirstOrDefaultAsync(a => a.NomeOriginal.ToLower() == chave.ToLower(), cancellationToken);
+    }
 }

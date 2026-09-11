@@ -1,6 +1,7 @@
 using DarkestDungeon.Application.Abstractions;
 using DarkestDungeon.Application.Itens.Commands;
 using DarkestDungeon.Application.Validation;
+using DarkestDungeon.Domain.Classes;
 using DarkestDungeon.Domain.Itens;
 
 namespace DarkestDungeon.Application.Itens;
@@ -113,5 +114,28 @@ public sealed class ItemService : IItemService
         {
             return ResultadoOperacao<ItemDetalheDto>.Invalido(ex.Message, new ErroOperacao(ex.ParamName ?? "requisicao", ex.Message));
         }
+    }
+
+    public async Task<ResultadoOperacao<IReadOnlyList<ItemDetalheDto>>> ListarAcessoriosAsync(
+        ClasseDeHeroi classe,
+        Guid? excluirId,
+        CancellationToken cancellationToken = default)
+    {
+        if (!Enum.IsDefined(classe))
+        {
+            return ResultadoOperacao<IReadOnlyList<ItemDetalheDto>>.Invalido(
+                "Classe inválida.",
+                new ErroOperacao("classe", "Classe inválida."));
+        }
+
+        var todos = await itens.ListarTodosAsync(cancellationToken).ConfigureAwait(false);
+        var lista = todos
+            .OfType<Acessorio>()
+            .Where(a => a.ClasseExclusiva is null || a.ClasseExclusiva == classe)
+            .Where(a => excluirId is null || a.Id != excluirId)
+            .Select(ItemMapper.ParaDto)
+            .ToArray();
+
+        return ResultadoOperacao<IReadOnlyList<ItemDetalheDto>>.Ok(lista);
     }
 }

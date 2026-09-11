@@ -1,0 +1,13 @@
+{
+  "nomeOriginal": "Ancestor's Candle",
+  "nomeExibicao": "Vela do Ancestral",
+  "descricao": "Amostra comum sem restrição de classe.",
+  "raridade": "Comum",
+  "classeExclusiva": null,
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Ancestor%27s_Candle",
+  "efeitos": [
+    { "nome": "SPD", "valor": 2, "unidade": "Pontos", "sinal": "Positivo" },
+    { "nome": "DODGE", "valor": 4, "unidade": "Pontos", "sinal": "Positivo" }
+  ],
+  "lacunas": []
+}

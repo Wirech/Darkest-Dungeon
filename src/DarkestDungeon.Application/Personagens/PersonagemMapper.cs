@@ -17,41 +17,40 @@ internal static class PersonagemMapper
         IReadOnlyDictionary<Guid, Item>? itens = null)
     {
         var midias = MontarMidias(personagem, classe, resolvedor, itens);
+        var (espaco1, espaco2, acessorios) = MapearEspacos(personagem, itens);
+        var fichaBase = FichaEfetivaDePersonagem.DaBase(personagem);
+        var fichaEfetiva = FichaEfetivaDePersonagem.Calcular(personagem, acessorios);
         return new PersonagemResumoDto(
             personagem.Id,
             personagem.Nome,
             personagem.Classe,
             classe?.NomeExibicao ?? personagem.Classe.ToString(),
-            personagem.HpAtual,
-            personagem.HpMaximo,
+            fichaEfetiva.HpAtual,
+            fichaEfetiva.HpMaximo,
             personagem.Stress,
             personagem.Nivel,
             MapearHabilidades(personagem, habilidades, resolvedor),
-            personagem.Precisao,
-            personagem.Protecao,
-            personagem.Esquiva,
-            personagem.Velocidade,
-            personagem.Critico,
-            personagem.DanoBaseMinimo,
-            personagem.DanoBaseMaximo,
+            fichaEfetiva.Precisao,
+            fichaEfetiva.Protecao,
+            fichaEfetiva.Esquiva,
+            fichaEfetiva.Velocidade,
+            fichaEfetiva.Critico,
+            fichaEfetiva.DanoBaseMinimo,
+            fichaEfetiva.DanoBaseMaximo,
             personagem.PassosAFrente,
             personagem.PassosAtras,
-            new ResistenciasDePersonagemDto(
-                personagem.Resistencias.Atordoamento,
-                personagem.Resistencias.Sangramento,
-                personagem.Resistencias.Envenenamento,
-                personagem.Resistencias.Debuff,
-                personagem.Resistencias.Movimento,
-                personagem.ResistenciasExtras.Doenca,
-                personagem.ResistenciasExtras.GolpeMortal,
-                personagem.ResistenciasExtras.Armadilha),
+            fichaEfetiva.Resistencias,
             personagem.NivelDaArma,
             personagem.NivelDaArmadura,
             personagem.Aparencia,
             classe?.Religiosa ?? false,
             classe?.ProvisaoInicial,
             classe?.BonusAoCriticoDaClasse ?? string.Empty,
-            midias);
+            midias,
+            espaco1,
+            espaco2,
+            fichaBase,
+            fichaEfetiva);
     }
 
     public static PersonagemDetalheDto ParaDto(
@@ -62,79 +61,49 @@ internal static class PersonagemMapper
         IResolvedorDeMidiasDoCard? resolvedor = null)
     {
         itens ??= new Dictionary<Guid, Item>();
-        var arma = LocalizarArma(personagem, itens);
-        var armadura = LocalizarArmadura(personagem, itens);
-        MidiaDeEquipamentoDePersonagemDto? midiaArma = null;
-        if (arma is not null)
-        {
-            var nivel = personagem.NivelDaArma is { } nivelArma
-                ? arma.Niveis.FirstOrDefault(n => n.Nivel == nivelArma)
-                : null;
-            if (nivel is not null)
-            {
-                midiaArma = new MidiaDeEquipamentoDePersonagemDto(
-                    nivel.Nivel,
-                    nivel.Midia.Status.ToString(),
-                    nivel.Midia.ArquivoInventarioId,
-                    nivel.Midia.ConjuntoSpineId,
-                    nivel.Midia.HashArquivo);
-            }
-        }
+        var arma = LocalizarArmaEquipada(personagem, itens);
+        var armadura = LocalizarArmaduraEquipada(personagem, itens);
+        MidiaDeEquipamentoDePersonagemDto? midiaArma = MapearMidiaDeArma(arma, personagem.NivelDaArma);
+        MidiaDeEquipamentoDePersonagemDto? midiaArmadura = MapearMidiaDeArmadura(armadura, personagem.NivelDaArmadura);
 
-        MidiaDeEquipamentoDePersonagemDto? midiaArmadura = null;
-        if (armadura is not null)
-        {
-            var nivel = personagem.NivelDaArmadura is { } nivelArmadura
-                ? armadura.Niveis.FirstOrDefault(n => n.Nivel == nivelArmadura)
-                : null;
-            if (nivel is not null)
-            {
-                midiaArmadura = new MidiaDeEquipamentoDePersonagemDto(
-                    nivel.Nivel,
-                    nivel.Midia.Status.ToString(),
-                    nivel.Midia.ArquivoInventarioId,
-                    nivel.Midia.ConjuntoSpineId,
-                    nivel.Midia.HashArquivo);
-            }
-        }
-
-        var acessoriosIds = new[] { personagem.AcessorioEquipado1Id, personagem.AcessorioEquipado2Id }
+        var (espaco1, espaco2, acessorios) = MapearEspacos(personagem, itens);
+        var acessoriosIds = new[] { espaco1.AcessorioId, espaco2.AcessorioId }
             .Where(id => id.HasValue)
             .Select(id => id!.Value)
             .ToArray();
-        var midiasAcessorios = acessoriosIds
-            .Where(itens.ContainsKey)
-            .Select(id => itens[id])
-            .OfType<Acessorio>()
+        var midiasAcessorios = acessorios
+            .Where(a => a is not null)
             .Select(a => new MidiaDeAcessorioDePersonagemDto(
-                a.Id,
+                a!.Id,
                 a.Midia.Status.ToString(),
                 a.Midia.ArquivoInventarioId,
                 a.Midia.HashArquivo))
             .ToArray();
+        var fichaBase = FichaEfetivaDePersonagem.DaBase(personagem);
+        var fichaEfetiva = FichaEfetivaDePersonagem.Calcular(personagem, acessorios);
 
         return new(
             personagem.Id,
             personagem.Nome,
             personagem.Classe,
-            personagem.HpMaximo,
-            personagem.HpAtual,
+            fichaEfetiva.HpMaximo,
+            fichaEfetiva.HpAtual,
             personagem.Stress,
-            personagem.ChanceDeVirtude,
+            fichaEfetiva.ChanceDeVirtude,
             personagem.Aflicao,
             personagem.Virtude,
             new ResistenciasBaseDto(
-                personagem.Resistencias.Atordoamento,
-                personagem.Resistencias.Sangramento,
-                personagem.Resistencias.Envenenamento,
-                personagem.Resistencias.Debuff,
-                personagem.Resistencias.Movimento,
-                personagem.ResistenciasExtras.Doenca,
-                personagem.ResistenciasExtras.GolpeMortal,
-                personagem.ResistenciasExtras.Armadilha),
-            personagem.ResistenciasExtras.Doenca,
-            personagem.ResistenciasExtras.GolpeMortal,
-            personagem.ResistenciasExtras.Armadilha,
+                fichaEfetiva.Resistencias.Atordoamento,
+                fichaEfetiva.Resistencias.Sangramento,
+                fichaEfetiva.Resistencias.Envenenamento,
+                fichaEfetiva.Resistencias.Debuff,
+                fichaEfetiva.Resistencias.Movimento,
+                fichaEfetiva.Resistencias.Doenca,
+                fichaEfetiva.Resistencias.GolpeMortal,
+                fichaEfetiva.Resistencias.Armadilha),
+            fichaEfetiva.Resistencias.Doenca,
+            fichaEfetiva.Resistencias.GolpeMortal,
+            fichaEfetiva.Resistencias.Armadilha,
             MapearHabilidades(personagem, habilidades, resolvedor),
             personagem.ArmaEquipadaId,
             personagem.ArmaduraEquipadaId,
@@ -145,19 +114,23 @@ internal static class PersonagemMapper
             personagem.Aparencia,
             personagem.NivelDaArma,
             personagem.NivelDaArmadura,
-            personagem.Precisao,
-            personagem.Protecao,
-            personagem.Esquiva,
-            personagem.Velocidade,
-            personagem.Critico,
-            personagem.DanoBaseMinimo,
-            personagem.DanoBaseMaximo,
+            fichaEfetiva.Precisao,
+            fichaEfetiva.Protecao,
+            fichaEfetiva.Esquiva,
+            fichaEfetiva.Velocidade,
+            fichaEfetiva.Critico,
+            fichaEfetiva.DanoBaseMinimo,
+            fichaEfetiva.DanoBaseMaximo,
             personagem.PassosAFrente,
             personagem.PassosAtras,
             classe?.Religiosa ?? false,
             classe?.ProvisaoInicial,
             classe?.BonusAoCriticoDaClasse ?? string.Empty,
-            MontarMidias(personagem, classe, resolvedor, itens));
+            MontarMidias(personagem, classe, resolvedor, itens),
+            espaco1,
+            espaco2,
+            fichaBase,
+            fichaEfetiva);
     }
 
     public static InimigoDetalheDto ParaDto(Inimigo inimigo) => new(
@@ -201,8 +174,8 @@ internal static class PersonagemMapper
             return null;
         }
 
-        var arma = LocalizarArma(personagem, itens);
-        var armadura = LocalizarArmadura(personagem, itens);
+        var arma = LocalizarArmaParaCard(personagem, itens);
+        var armadura = LocalizarArmaduraParaCard(personagem, itens);
         return new MidiasDoPersonagemDto(
             resolvedor.ResolverRetrato(personagem.Classe, personagem.Aparencia, classe),
             resolvedor.ResolverCorpoInteiro(personagem.Classe, personagem.Aparencia),
@@ -210,33 +183,104 @@ internal static class PersonagemMapper
             resolvedor.ResolverArmadura(personagem.Classe, personagem.NivelDaArmadura, armadura));
     }
 
-    private static Arma? LocalizarArma(Personagem personagem, IReadOnlyDictionary<Guid, Item>? itens)
+    private static (EspacoTrinketDto Espaco1, EspacoTrinketDto Espaco2, Acessorio?[] Acessorios) MapearEspacos(
+        Personagem personagem,
+        IReadOnlyDictionary<Guid, Item>? itens)
     {
-        if (itens is null)
+        var a1 = LocalizarAcessorio(personagem.AcessorioEquipado1Id, itens);
+        var a2 = LocalizarAcessorio(personagem.AcessorioEquipado2Id, itens);
+        return (ParaEspaco(a1), ParaEspaco(a2), [a1, a2]);
+    }
+
+    private static Acessorio? LocalizarAcessorio(Guid? id, IReadOnlyDictionary<Guid, Item>? itens)
+    {
+        if (id is not { } acessorioId || itens is null || !itens.TryGetValue(acessorioId, out var item))
         {
             return null;
         }
 
-        if (personagem.ArmaEquipadaId is { } armaId && itens.TryGetValue(armaId, out var item) && item is Arma arma)
-        {
-            return arma;
-        }
-
-        return itens.Values.OfType<Arma>().FirstOrDefault(a => a.ClasseElegivel == personagem.Classe);
+        return item as Acessorio;
     }
 
-    private static Armadura? LocalizarArmadura(Personagem personagem, IReadOnlyDictionary<Guid, Item>? itens)
+    private static EspacoTrinketDto ParaEspaco(Acessorio? acessorio) =>
+        acessorio is null
+            ? new EspacoTrinketDto(null, null, null)
+            : new EspacoTrinketDto(acessorio.Id, acessorio.NomeExibicao, acessorio.Raridade);
+
+    private static MidiaDeEquipamentoDePersonagemDto? MapearMidiaDeArma(Arma? arma, int? nivelDaArma)
     {
-        if (itens is null)
+        if (arma is null)
         {
             return null;
         }
 
-        if (personagem.ArmaduraEquipadaId is { } armaduraId && itens.TryGetValue(armaduraId, out var item) && item is Armadura armadura)
+        var nivel = EscolherNivel(arma.Niveis.Select(n => n.Nivel), nivelDaArma);
+        var tabela = arma.Niveis.FirstOrDefault(n => n.Nivel == nivel);
+        return tabela is null
+            ? null
+            : new MidiaDeEquipamentoDePersonagemDto(
+                tabela.Nivel,
+                tabela.Midia.Status.ToString(),
+                tabela.Midia.ArquivoInventarioId,
+                tabela.Midia.ConjuntoSpineId,
+                tabela.Midia.HashArquivo);
+    }
+
+    private static MidiaDeEquipamentoDePersonagemDto? MapearMidiaDeArmadura(Armadura? armadura, int? nivelDaArmadura)
+    {
+        if (armadura is null)
         {
-            return armadura;
+            return null;
         }
 
-        return itens.Values.OfType<Armadura>().FirstOrDefault(a => a.ClasseElegivel == personagem.Classe);
+        var nivel = EscolherNivel(armadura.Niveis.Select(n => n.Nivel), nivelDaArmadura);
+        var tabela = armadura.Niveis.FirstOrDefault(n => n.Nivel == nivel);
+        return tabela is null
+            ? null
+            : new MidiaDeEquipamentoDePersonagemDto(
+                tabela.Nivel,
+                tabela.Midia.Status.ToString(),
+                tabela.Midia.ArquivoInventarioId,
+                tabela.Midia.ConjuntoSpineId,
+                tabela.Midia.HashArquivo);
     }
+
+    private static int EscolherNivel(IEnumerable<int> niveis, int? preferido)
+    {
+        var catalogados = niveis.OrderBy(n => n).ToArray();
+        if (preferido is { } nivel && catalogados.Contains(nivel))
+        {
+            return nivel;
+        }
+
+        return catalogados.Contains(1) ? 1 : catalogados.FirstOrDefault();
+    }
+
+    private static Arma? LocalizarArmaEquipada(Personagem personagem, IReadOnlyDictionary<Guid, Item>? itens)
+    {
+        if (personagem.ArmaEquipadaId is not { } armaId || itens is null || !itens.TryGetValue(armaId, out var item))
+        {
+            return null;
+        }
+
+        return item as Arma;
+    }
+
+    private static Armadura? LocalizarArmaduraEquipada(Personagem personagem, IReadOnlyDictionary<Guid, Item>? itens)
+    {
+        if (personagem.ArmaduraEquipadaId is not { } armaduraId || itens is null || !itens.TryGetValue(armaduraId, out var item))
+        {
+            return null;
+        }
+
+        return item as Armadura;
+    }
+
+    private static Arma? LocalizarArmaParaCard(Personagem personagem, IReadOnlyDictionary<Guid, Item>? itens) =>
+        LocalizarArmaEquipada(personagem, itens)
+        ?? itens?.Values.OfType<Arma>().FirstOrDefault(a => a.ClasseElegivel == personagem.Classe);
+
+    private static Armadura? LocalizarArmaduraParaCard(Personagem personagem, IReadOnlyDictionary<Guid, Item>? itens) =>
+        LocalizarArmaduraEquipada(personagem, itens)
+        ?? itens?.Values.OfType<Armadura>().FirstOrDefault(a => a.ClasseElegivel == personagem.Classe);
 }

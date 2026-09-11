@@ -302,6 +302,10 @@ public sealed class DarkestDungeonDbContext : DbContext
         {
             entity.Property(a => a.Raridade).HasConversion<string>().HasMaxLength(30);
             entity.Property(a => a.ClasseExclusiva).HasConversion<string>().HasMaxLength(30);
+            entity.HasIndex(a => a.NomeOriginal)
+                .IsUnique()
+                .HasFilter("[Discriminador] = N'Acessorio'")
+                .HasDatabaseName("IX_Itens_Acessorio_NomeOriginal");
             entity.OwnsOne(a => a.Midia, MapearMidiaDeItem);
             entity.OwnsMany(a => a.Efeitos, owned =>
             {

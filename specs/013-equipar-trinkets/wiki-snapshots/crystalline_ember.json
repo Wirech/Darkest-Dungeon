@@ -1,0 +1,13 @@
+{
+  "nomeOriginal": "Crystalline Ember",
+  "nomeExibicao": "Brasa Cristalina",
+  "descricao": "Amostra DLC Color of Madness.",
+  "raridade": "Crystalline",
+  "classeExclusiva": null,
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Crystalline_Ember",
+  "efeitos": [
+    { "nome": "PROT", "valor": 10, "unidade": "Percentual", "sinal": "Positivo" },
+    { "nome": "MAX HP", "valor": 10, "unidade": "Percentual", "sinal": "Positivo" }
+  ],
+  "lacunas": []
+}
