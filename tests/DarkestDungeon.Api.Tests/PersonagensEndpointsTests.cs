@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
+using DarkestDungeon.Api.Contracts;
 using DarkestDungeon.Api.Contracts.Catalogo;
 using DarkestDungeon.Api.Tests.Fixtures;
 using DarkestDungeon.Application.Personagens;
@@ -74,6 +75,18 @@ public class PersonagensEndpointsTests : IClassFixture<ApiTestFactory>
             CriarBase(ClasseDeHeroi.Cruzado, new[] { habilidade!.Id }));
 
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    [Fact]
+    public async Task POST_personagem_sem_nome_deve_retornar_400_com_erro_de_campo()
+    {
+        var request = CriarBase() with { Nome = "" };
+
+        var response = await client.PostAsJsonAsync("/personagens", request);
+
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        var erro = await response.Content.ReadFromJsonAsync<ErroResponse>();
+        erro!.Mensagem.Should().NotBeNullOrWhiteSpace();
     }
 }
 

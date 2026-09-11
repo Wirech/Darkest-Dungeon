@@ -1,0 +1,78 @@
+{
+  "classeDeHeroiEnum": "Abominacao",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Abomination_(Darkest_Dungeon)?action=raw",
+  "forma": "humana",
+  "passosAFrente": 1,
+  "passosAtras": 2,
+  "religiosa": false,
+  "provisaoInicial": "",
+  "bonusAoCritico": "+20% DMG",
+  "arma": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "danoMinimo": 6,
+        "danoMaximo": 11,
+        "critico": 2.0,
+        "velocidade": 7
+      },
+      {
+        "nivel": 2,
+        "danoMinimo": 7,
+        "danoMaximo": 13,
+        "critico": 3.0,
+        "velocidade": 7
+      },
+      {
+        "nivel": 3,
+        "danoMinimo": 8,
+        "danoMaximo": 15,
+        "critico": 4.0,
+        "velocidade": 8
+      },
+      {
+        "nivel": 4,
+        "danoMinimo": 10,
+        "danoMaximo": 18,
+        "critico": 5.0,
+        "velocidade": 8
+      },
+      {
+        "nivel": 5,
+        "danoMinimo": 11,
+        "danoMaximo": 20,
+        "critico": 6.0,
+        "velocidade": 9
+      }
+    ]
+  },
+  "armadura": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "hpMaximo": 26,
+        "esquiva": 7.5
+      },
+      {
+        "nivel": 2,
+        "hpMaximo": 31,
+        "esquiva": 12.5
+      },
+      {
+        "nivel": 3,
+        "hpMaximo": 36,
+        "esquiva": 17.5
+      },
+      {
+        "nivel": 4,
+        "hpMaximo": 41,
+        "esquiva": 22.5
+      },
+      {
+        "nivel": 5,
+        "hpMaximo": 46,
+        "esquiva": 27.5
+      }
+    ]
+  }
+}

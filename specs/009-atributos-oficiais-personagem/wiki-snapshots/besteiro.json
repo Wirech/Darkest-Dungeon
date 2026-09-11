@@ -1,0 +1,78 @@
+{
+  "classeDeHeroiEnum": "Besteiro",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Arbalest_(Darkest_Dungeon)?action=raw",
+  "forma": "humana",
+  "passosAFrente": 0,
+  "passosAtras": 2,
+  "religiosa": false,
+  "provisaoInicial": "Bandage",
+  "bonusAoCritico": "+33% DMG vs Marked",
+  "arma": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "danoMinimo": 4,
+        "danoMaximo": 8,
+        "critico": 6.0,
+        "velocidade": 3
+      },
+      {
+        "nivel": 2,
+        "danoMinimo": 5,
+        "danoMaximo": 10,
+        "critico": 7.0,
+        "velocidade": 3
+      },
+      {
+        "nivel": 3,
+        "danoMinimo": 6,
+        "danoMaximo": 11,
+        "critico": 8.0,
+        "velocidade": 4
+      },
+      {
+        "nivel": 4,
+        "danoMinimo": 6,
+        "danoMaximo": 13,
+        "critico": 9.0,
+        "velocidade": 4
+      },
+      {
+        "nivel": 5,
+        "danoMinimo": 7,
+        "danoMaximo": 14,
+        "critico": 10.0,
+        "velocidade": 5
+      }
+    ]
+  },
+  "armadura": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "hpMaximo": 27,
+        "esquiva": 0
+      },
+      {
+        "nivel": 2,
+        "hpMaximo": 32,
+        "esquiva": 5
+      },
+      {
+        "nivel": 3,
+        "hpMaximo": 37,
+        "esquiva": 10
+      },
+      {
+        "nivel": 4,
+        "hpMaximo": 42,
+        "esquiva": 15
+      },
+      {
+        "nivel": 5,
+        "hpMaximo": 47,
+        "esquiva": 20
+      }
+    ]
+  }
+}

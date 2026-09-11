@@ -1,0 +1,78 @@
+﻿{
+    "classeDeHeroiEnum":  "Rompedor",
+    "fonteUrl":  "https://darkestdungeon.wiki.gg/wiki/Shieldbreaker_(Darkest_Dungeon)?action=raw",
+    "forma":  "humana",
+    "passosAFrente":  2,
+    "passosAtras":  2,
+    "religiosa":  false,
+    "provisaoInicial":  "None",
+    "bonusAoCritico":  "+15% PROT",
+    "arma":  {
+                 "niveis":  [
+                                {
+                                    "nivel":  1,
+                                    "danoMinimo":  5,
+                                    "danoMaximo":  10,
+                                    "critico":  6.0,
+                                    "velocidade":  5
+                                },
+                                {
+                                    "nivel":  2,
+                                    "danoMinimo":  6,
+                                    "danoMaximo":  12,
+                                    "critico":  7.0,
+                                    "velocidade":  6
+                                },
+                                {
+                                    "nivel":  3,
+                                    "danoMinimo":  7,
+                                    "danoMaximo":  14,
+                                    "critico":  8.0,
+                                    "velocidade":  8
+                                },
+                                {
+                                    "nivel":  4,
+                                    "danoMinimo":  8,
+                                    "danoMaximo":  16,
+                                    "critico":  9.0,
+                                    "velocidade":  8
+                                },
+                                {
+                                    "nivel":  5,
+                                    "danoMinimo":  9,
+                                    "danoMaximo":  18,
+                                    "critico":  10.0,
+                                    "velocidade":  9
+                                }
+                            ]
+             },
+    "armadura":  {
+                     "niveis":  [
+                                    {
+                                        "nivel":  1,
+                                        "hpMaximo":  20,
+                                        "esquiva":  8
+                                    },
+                                    {
+                                        "nivel":  2,
+                                        "hpMaximo":  24,
+                                        "esquiva":  13
+                                    },
+                                    {
+                                        "nivel":  3,
+                                        "hpMaximo":  28,
+                                        "esquiva":  18
+                                    },
+                                    {
+                                        "nivel":  4,
+                                        "hpMaximo":  32,
+                                        "esquiva":  23
+                                    },
+                                    {
+                                        "nivel":  5,
+                                        "hpMaximo":  36,
+                                        "esquiva":  28
+                                    }
+                                ]
+                 }
+}

@@ -21,4 +21,25 @@ public sealed class ContratoImportadorCliTests
         opcoes!.DiretorioDeOrigem.Should().Be(Path.GetFullPath(origem));
         opcoes.Simular.Should().BeTrue();
     }
+
+    [Fact]
+    public void TentarCriar_AceitaCamping()
+    {
+        var origem = Path.GetTempPath();
+        OpcoesDoColetor.TentarCriar(["--origem", origem, "--saida", "resultado", "--camping"], out var opcoes, out var erro).Should().BeTrue(erro);
+        opcoes!.ModoCamping.Should().BeTrue();
+        opcoes.ModoEquipamentos.Should().BeFalse();
+    }
+
+    [Fact]
+    public void TentarCriar_RejeitaCampingComCategoria()
+    {
+        OpcoesDoColetor.TentarCriar(
+            ["--origem", Path.GetTempPath(), "--saida", "resultado", "--camping", "--categoria", "arma"],
+            out var opcoes,
+            out var erro).Should().BeFalse();
+        opcoes.Should().BeNull();
+        erro.Should().Contain("--camping");
+        erro.Should().Contain("--categoria");
+    }
 }

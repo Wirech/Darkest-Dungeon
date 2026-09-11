@@ -26,6 +26,7 @@ public sealed class HabilidadeDePersonagem
         Treinada = treinada;
         Equipada = equipada;
         NumeroDoNivel = numeroDoNivel > 0 ? numeroDoNivel : (treinada ? 1 : 0);
+        Treinada = NumeroDoNivel >= 1;
     }
 
     public Guid HabilidadeId { get; private set; }

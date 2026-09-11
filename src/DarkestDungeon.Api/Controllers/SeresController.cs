@@ -15,22 +15,21 @@ public sealed class SeresController : EntidadeControllerBase
         this.service = service;
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("{id}")]
     [ProducesResponseType<SerResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType<ErroResponse>(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> ObterPorId(Guid id, CancellationToken cancellationToken)
-    {
-        var resultado = await service.ObterPorIdAsync(id, cancellationToken);
-        return MapearResultado(resultado, MapearResponse);
-    }
-
-    [HttpGet("{id}")]
     [ProducesResponseType<ErroResponse>(StatusCodes.Status400BadRequest)]
-    public ActionResult ObterPorIdInvalido(string id)
+    public async Task<ActionResult> ObterPorId(string id, CancellationToken cancellationToken)
     {
-        return BadRequest(new ErroResponse(
-            "Identificador inválido.",
-            new[] { new ErroCampoResponse("id", "Identificador inválido.") }));
+        if (!Guid.TryParse(id, out var idParseado))
+        {
+            return BadRequest(new ErroResponse(
+                "Identificador inválido.",
+                new[] { new ErroCampoResponse("id", "Identificador inválido.") }));
+        }
+
+        var resultado = await service.ObterPorIdAsync(idParseado, cancellationToken);
+        return MapearResultado(resultado, MapearResponse);
     }
 
     [HttpPost]

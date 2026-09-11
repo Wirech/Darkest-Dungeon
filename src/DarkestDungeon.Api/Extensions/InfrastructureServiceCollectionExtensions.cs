@@ -58,6 +58,17 @@ public static class InfrastructureServiceCollectionExtensions
         services.AddScoped<IPublicadorDeVinculosDeMidia, PublicadorDeVinculosDeMidia>();
         services.AddScoped<ICoberturaDeMidiasService, CoberturaDeMidiasService>();
 
+        if (configuration is not null)
+        {
+            services.Configure<OpcoesDeAcervoDoCard>(configuration.GetSection(OpcoesDeAcervoDoCard.Section));
+        }
+        else
+        {
+            services.Configure<OpcoesDeAcervoDoCard>(_ => { });
+        }
+
+        services.AddSingleton<IResolvedorDeMidiasDoCard, ResolvedorDeMidiasDoCard>();
+
         return services;
     }
 }

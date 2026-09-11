@@ -85,6 +85,10 @@ public sealed class DarkestDungeonDbContext : DbContext
                 table.HasCheckConstraint("CK_Personagens_Experiencia", "[Experiencia] >= 0");
             });
             entity.Property(p => p.Classe).HasConversion<string>().HasMaxLength(30);
+            entity.Property(p => p.NivelDaArma);
+            entity.Property(p => p.NivelDaArmadura);
+            entity.Property(p => p.PassosAFrente);
+            entity.Property(p => p.PassosAtras);
             entity.Property(p => p.Aflicao).HasMaxLength(60);
             entity.Property(p => p.Virtude).HasMaxLength(60);
 
@@ -151,6 +155,11 @@ public sealed class DarkestDungeonDbContext : DbContext
             entity.HasIndex(classe => classe.ClasseDeHeroi).IsUnique();
             entity.Property(classe => classe.NomeExibicao).IsRequired().HasMaxLength(60);
             entity.Property(classe => classe.NomeOriginal).IsRequired().HasMaxLength(60);
+            entity.Property(classe => classe.PassosAFrente).HasDefaultValue(0);
+            entity.Property(classe => classe.PassosAtras).HasDefaultValue(0);
+            entity.Property(classe => classe.Religiosa).HasDefaultValue(false);
+            entity.Property(classe => classe.ProvisaoInicial).IsRequired().HasMaxLength(200).HasDefaultValue(string.Empty);
+            entity.Property(classe => classe.BonusAoCriticoDaClasse).IsRequired().HasMaxLength(200).HasDefaultValue(string.Empty);
 
             entity.OwnsOne(classe => classe.ResistenciasBase, owned =>
             {

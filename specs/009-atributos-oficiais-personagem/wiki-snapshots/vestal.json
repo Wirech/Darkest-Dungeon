@@ -1,0 +1,78 @@
+{
+  "classeDeHeroiEnum": "Vestal",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Vestal_(Darkest_Dungeon)?action=raw",
+  "forma": "humana",
+  "passosAFrente": 1,
+  "passosAtras": 1,
+  "religiosa": true,
+  "provisaoInicial": "",
+  "bonusAoCritico": "+25% Healing Skills",
+  "arma": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "danoMinimo": 4,
+        "danoMaximo": 8,
+        "critico": 1.0,
+        "velocidade": 4
+      },
+      {
+        "nivel": 2,
+        "danoMinimo": 5,
+        "danoMaximo": 10,
+        "critico": 2.0,
+        "velocidade": 4
+      },
+      {
+        "nivel": 3,
+        "danoMinimo": 6,
+        "danoMaximo": 11,
+        "critico": 3.5,
+        "velocidade": 5
+      },
+      {
+        "nivel": 4,
+        "danoMinimo": 6,
+        "danoMaximo": 13,
+        "critico": 4.0,
+        "velocidade": 5
+      },
+      {
+        "nivel": 5,
+        "danoMinimo": 7,
+        "danoMaximo": 14,
+        "critico": 5.0,
+        "velocidade": 6
+      }
+    ]
+  },
+  "armadura": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "hpMaximo": 24,
+        "esquiva": 0
+      },
+      {
+        "nivel": 2,
+        "hpMaximo": 29,
+        "esquiva": 5
+      },
+      {
+        "nivel": 3,
+        "hpMaximo": 34,
+        "esquiva": 10
+      },
+      {
+        "nivel": 4,
+        "hpMaximo": 39,
+        "esquiva": 15
+      },
+      {
+        "nivel": 5,
+        "hpMaximo": 44,
+        "esquiva": 20
+      }
+    ]
+  }
+}

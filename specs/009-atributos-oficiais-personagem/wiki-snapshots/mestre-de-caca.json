@@ -1,0 +1,78 @@
+﻿{
+    "classeDeHeroiEnum":  "MestreDeCaca",
+    "fonteUrl":  "https://darkestdungeon.wiki.gg/wiki/Houndmaster_(Darkest_Dungeon)?action=raw",
+    "forma":  "humana",
+    "passosAFrente":  2,
+    "passosAtras":  2,
+    "religiosa":  false,
+    "provisaoInicial":  "Dog Treats",
+    "bonusAoCritico":  "+20% Bleed Skill Chance",
+    "arma":  {
+                 "niveis":  [
+                                {
+                                    "nivel":  1,
+                                    "danoMinimo":  4,
+                                    "danoMaximo":  7,
+                                    "critico":  4.0,
+                                    "velocidade":  5
+                                },
+                                {
+                                    "nivel":  2,
+                                    "danoMinimo":  5,
+                                    "danoMaximo":  8,
+                                    "critico":  5.0,
+                                    "velocidade":  5
+                                },
+                                {
+                                    "nivel":  3,
+                                    "danoMinimo":  6,
+                                    "danoMaximo":  10,
+                                    "critico":  6.0,
+                                    "velocidade":  6
+                                },
+                                {
+                                    "nivel":  4,
+                                    "danoMinimo":  6,
+                                    "danoMaximo":  11,
+                                    "critico":  7.0,
+                                    "velocidade":  6
+                                },
+                                {
+                                    "nivel":  5,
+                                    "danoMinimo":  7,
+                                    "danoMaximo":  13,
+                                    "critico":  8.0,
+                                    "velocidade":  7
+                                }
+                            ]
+             },
+    "armadura":  {
+                     "niveis":  [
+                                    {
+                                        "nivel":  1,
+                                        "hpMaximo":  21,
+                                        "esquiva":  10
+                                    },
+                                    {
+                                        "nivel":  2,
+                                        "hpMaximo":  25,
+                                        "esquiva":  15
+                                    },
+                                    {
+                                        "nivel":  3,
+                                        "hpMaximo":  29,
+                                        "esquiva":  20
+                                    },
+                                    {
+                                        "nivel":  4,
+                                        "hpMaximo":  33,
+                                        "esquiva":  25
+                                    },
+                                    {
+                                        "nivel":  5,
+                                        "hpMaximo":  37,
+                                        "esquiva":  30
+                                    }
+                                ]
+                 }
+}

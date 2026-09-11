@@ -19,4 +19,9 @@ public sealed record ClasseDetalheDto(
     ClasseDeHeroi Classe,
     string NomeExibicao,
     string NomeOriginal,
-    ResistenciasDto ResistenciasBase);
+    ResistenciasDto ResistenciasBase,
+    int PassosAFrente = 0,
+    int PassosAtras = 0,
+    bool Religiosa = false,
+    string ProvisaoInicial = "",
+    string BonusAoCriticoDaClasse = "");

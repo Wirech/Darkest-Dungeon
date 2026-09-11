@@ -15,13 +15,13 @@ public sealed class ClasseRepository : IClasseRepository
     }
 
     public async Task<IReadOnlyCollection<Classe>> ListarAsync(CancellationToken cancellationToken = default) =>
-        await contexto.Classes.AsNoTracking().OrderBy(c => c.ClasseDeHeroi).ToArrayAsync(cancellationToken).ConfigureAwait(false);
+        await contexto.Classes.AsNoTracking().Include(c => c.Assets).OrderBy(c => c.ClasseDeHeroi).ToArrayAsync(cancellationToken).ConfigureAwait(false);
 
     public Task<Classe?> ObterPorIdAsync(Guid id, CancellationToken cancellationToken = default) =>
-        contexto.Classes.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id, cancellationToken);
+        contexto.Classes.AsNoTracking().Include(c => c.Assets).FirstOrDefaultAsync(c => c.Id == id, cancellationToken);
 
     public Task<Classe?> ObterPorEnumAsync(ClasseDeHeroi classe, CancellationToken cancellationToken = default) =>
-        contexto.Classes.AsNoTracking().FirstOrDefaultAsync(c => c.ClasseDeHeroi == classe, cancellationToken);
+        contexto.Classes.AsNoTracking().Include(c => c.Assets).FirstOrDefaultAsync(c => c.ClasseDeHeroi == classe, cancellationToken);
 
     public Task<bool> ExisteAsync(Guid id, CancellationToken cancellationToken = default) =>
         contexto.Classes.AsNoTracking().AnyAsync(c => c.Id == id, cancellationToken);
