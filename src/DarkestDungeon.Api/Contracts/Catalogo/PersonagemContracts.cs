@@ -1,5 +1,6 @@
 using DarkestDungeon.Application.Personagens.Commands;
 using DarkestDungeon.Domain.Classes;
+using DarkestDungeon.Domain.Personagens;
 using DarkestDungeon.Domain.Seres;
 
 namespace DarkestDungeon.Api.Contracts.Catalogo;
@@ -23,12 +24,17 @@ public sealed record CriarPersonagemRequest(
     int Nivel,
     int Stress,
     int ChanceDeVirtude,
-    IReadOnlyCollection<Guid>? HabilidadesEquipadas);
+    IReadOnlyCollection<Guid>? HabilidadesEquipadas = null,
+    int? NivelDaArma = null,
+    int? NivelDaArmadura = null,
+    AparenciaDePersonagem Aparencia = AparenciaDePersonagem.A);
 
 public sealed record EquiparPersonagemRequest(
     Guid? ArmaId,
     Guid? ArmaduraId,
     IReadOnlyCollection<Guid>? AcessoriosIds);
+
+public sealed record EquiparAcessorioNoEspacoRequest(Guid? AcessorioId);
 
 public sealed record CriarInimigoRequest(
     string Nome,
@@ -59,10 +65,14 @@ internal static class PersonagemRequestMapper
     public static CriarPersonagemCommand ParaCommand(this CriarPersonagemRequest r) => new(
         r.Nome ?? string.Empty, r.Classe, r.HpMaximo, r.HpAtual, r.Velocidade, r.Critico,
         r.DanoBaseMinimo, r.DanoBaseMaximo, r.Movimento, r.BonusDeCritico, r.Tamanho, r.AcoesPorTurno,
-        r.Esquiva, r.Precisao, r.Protecao, r.Nivel, r.Stress, r.ChanceDeVirtude, r.HabilidadesEquipadas);
+        r.Esquiva, r.Precisao, r.Protecao, r.Nivel, r.Stress, r.ChanceDeVirtude,
+        r.HabilidadesEquipadas, r.NivelDaArma, r.NivelDaArmadura, r.Aparencia);
 
     public static EquiparPersonagemCommand ParaCommand(this EquiparPersonagemRequest r, Guid personagemId) =>
         new(personagemId, r.ArmaId, r.ArmaduraId, r.AcessoriosIds);
+
+    public static EquiparAcessorioNoEspacoCommand ParaCommand(this EquiparAcessorioNoEspacoRequest r, Guid personagemId, int espaco) =>
+        new(personagemId, espaco, r.AcessorioId);
 
     public static CriarInimigoCommand ParaCommand(this CriarInimigoRequest r) => new(
         r.Nome ?? string.Empty, r.Tipo, r.HpMaximo, r.HpAtual, r.Velocidade, r.Critico,

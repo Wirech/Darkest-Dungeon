@@ -1,0 +1,78 @@
+﻿{
+    "classeDeHeroiEnum":  "Leproso",
+    "fonteUrl":  "https://darkestdungeon.wiki.gg/wiki/Leper_(Darkest_Dungeon)?action=raw",
+    "forma":  "humana",
+    "passosAFrente":  1,
+    "passosAtras":  0,
+    "religiosa":  true,
+    "provisaoInicial":  "Medicinal Herbs",
+    "bonusAoCritico":  "+10 ACC",
+    "arma":  {
+                 "niveis":  [
+                                {
+                                    "nivel":  1,
+                                    "danoMinimo":  8,
+                                    "danoMaximo":  16,
+                                    "critico":  1.0,
+                                    "velocidade":  2
+                                },
+                                {
+                                    "nivel":  2,
+                                    "danoMinimo":  9,
+                                    "danoMaximo":  18,
+                                    "critico":  2.0,
+                                    "velocidade":  2
+                                },
+                                {
+                                    "nivel":  3,
+                                    "danoMinimo":  10,
+                                    "danoMaximo":  21,
+                                    "critico":  3.0,
+                                    "velocidade":  3
+                                },
+                                {
+                                    "nivel":  4,
+                                    "danoMinimo":  12,
+                                    "danoMaximo":  23,
+                                    "critico":  4.0,
+                                    "velocidade":  3
+                                },
+                                {
+                                    "nivel":  5,
+                                    "danoMinimo":  13,
+                                    "danoMaximo":  26,
+                                    "critico":  5.0,
+                                    "velocidade":  4
+                                }
+                            ]
+             },
+    "armadura":  {
+                     "niveis":  [
+                                    {
+                                        "nivel":  1,
+                                        "hpMaximo":  35,
+                                        "esquiva":  0
+                                    },
+                                    {
+                                        "nivel":  2,
+                                        "hpMaximo":  42,
+                                        "esquiva":  5
+                                    },
+                                    {
+                                        "nivel":  3,
+                                        "hpMaximo":  49,
+                                        "esquiva":  10
+                                    },
+                                    {
+                                        "nivel":  4,
+                                        "hpMaximo":  56,
+                                        "esquiva":  15
+                                    },
+                                    {
+                                        "nivel":  5,
+                                        "hpMaximo":  63,
+                                        "esquiva":  20
+                                    }
+                                ]
+                 }
+}

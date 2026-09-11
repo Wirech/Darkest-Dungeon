@@ -1,0 +1,78 @@
+{
+  "classeDeHeroiEnum": "Flagelante",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Flagellant_(Darkest_Dungeon)?action=raw",
+  "forma": "humana",
+  "passosAFrente": 3,
+  "passosAtras": 1,
+  "religiosa": true,
+  "provisaoInicial": "None",
+  "bonusAoCritico": "+20% Bleed Skill Chance",
+  "arma": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "danoMinimo": 3,
+        "danoMaximo": 6,
+        "critico": 2.0,
+        "velocidade": 6
+      },
+      {
+        "nivel": 2,
+        "danoMinimo": 4,
+        "danoMaximo": 7,
+        "critico": 3.0,
+        "velocidade": 6
+      },
+      {
+        "nivel": 3,
+        "danoMinimo": 4,
+        "danoMaximo": 8,
+        "critico": 4.0,
+        "velocidade": 8
+      },
+      {
+        "nivel": 4,
+        "danoMinimo": 5,
+        "danoMaximo": 10,
+        "critico": 5.0,
+        "velocidade": 8
+      },
+      {
+        "nivel": 5,
+        "danoMinimo": 5,
+        "danoMaximo": 11,
+        "critico": 6.0,
+        "velocidade": 9
+      }
+    ]
+  },
+  "armadura": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "hpMaximo": 22,
+        "esquiva": 0
+      },
+      {
+        "nivel": 2,
+        "hpMaximo": 26,
+        "esquiva": 5
+      },
+      {
+        "nivel": 3,
+        "hpMaximo": 30,
+        "esquiva": 10
+      },
+      {
+        "nivel": 4,
+        "hpMaximo": 34,
+        "esquiva": 15
+      },
+      {
+        "nivel": 5,
+        "hpMaximo": 38,
+        "esquiva": 20
+      }
+    ]
+  }
+}

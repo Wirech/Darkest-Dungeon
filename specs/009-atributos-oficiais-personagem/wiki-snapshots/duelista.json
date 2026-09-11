@@ -1,0 +1,78 @@
+{
+  "classeDeHeroiEnum": "Duelista",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Duelist_(Darkest_Dungeon)?action=raw",
+  "forma": "humana",
+  "passosAFrente": 3,
+  "passosAtras": 3,
+  "religiosa": false,
+  "provisaoInicial": "",
+  "bonusAoCritico": "+10 DODGE",
+  "arma": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "danoMinimo": 5,
+        "danoMaximo": 7,
+        "critico": 5.0,
+        "velocidade": 6
+      },
+      {
+        "nivel": 2,
+        "danoMinimo": 6,
+        "danoMaximo": 8,
+        "critico": 6.0,
+        "velocidade": 6
+      },
+      {
+        "nivel": 3,
+        "danoMinimo": 7,
+        "danoMaximo": 10,
+        "critico": 7.0,
+        "velocidade": 7
+      },
+      {
+        "nivel": 4,
+        "danoMinimo": 7,
+        "danoMaximo": 11,
+        "critico": 8.0,
+        "velocidade": 7
+      },
+      {
+        "nivel": 5,
+        "danoMinimo": 8,
+        "danoMaximo": 13,
+        "critico": 9.0,
+        "velocidade": 8
+      }
+    ]
+  },
+  "armadura": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "hpMaximo": 20,
+        "esquiva": 5
+      },
+      {
+        "nivel": 2,
+        "hpMaximo": 24,
+        "esquiva": 10
+      },
+      {
+        "nivel": 3,
+        "hpMaximo": 28,
+        "esquiva": 15
+      },
+      {
+        "nivel": 4,
+        "hpMaximo": 32,
+        "esquiva": 20
+      },
+      {
+        "nivel": 5,
+        "hpMaximo": 36,
+        "esquiva": 25
+      }
+    ]
+  }
+}

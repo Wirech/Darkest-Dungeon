@@ -9,7 +9,14 @@ if (!OpcoesDoColetor.TentarCriar(args, out var opcoes, out var erro))
 	return 1;
 }
 
-if (opcoes!.ModoEquipamentos)
+if (opcoes!.ModoCamping)
+{
+	var resultadoCamping = await new ImportadorDeCamping(opcoes).ExecutarAsync(CancellationToken.None);
+	Console.WriteLine($"{resultadoCamping.Arquivos.Count} arquivos de acampamento inventariados; {resultadoCamping.Lacunas.Count} lacunas.");
+	return 0;
+}
+
+if (opcoes.ModoEquipamentos)
 {
 	var resultadoEquipamentos = await new ImportadorDeEquipamentos(opcoes).ExecutarAsync(CancellationToken.None);
 	Console.WriteLine($"{resultadoEquipamentos.Arquivos.Count} arquivos inventariados; {resultadoEquipamentos.Lacunas.Count} lacunas.");

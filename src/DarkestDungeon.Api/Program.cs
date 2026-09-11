@@ -4,7 +4,9 @@ using DarkestDungeon.Api.Extensions;
 using DarkestDungeon.Application.Extensions;
 using DarkestDungeon.Infrastructure.Data;
 using DarkestDungeon.Infrastructure.Extensions;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +43,10 @@ builder.Services.AdicionarRepositoriosDoCatalogo();
 
 var app = builder.Build();
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+MapearAcervoEstatico(app);
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -67,6 +73,40 @@ using (var scope = app.Services.CreateScope())
     {
         context.Classes.AddRange(novas);
         context.SaveChanges();
+    }
+
+    var classesParaPerfil = context.Classes.ToList();
+    if (DarkestDungeon.Infrastructure.Data.Seeds.ClassesSeed.AplicarPerfilOficial(classesParaPerfil) > 0)
+    {
+        context.SaveChanges();
+    }
+
+    var idsItensExistentes = context.Itens.Select(i => i.Id).ToHashSet();
+    var novosEquipamentos = DarkestDungeon.Infrastructure.Data.Seeds.EquipamentosSeed.Materializar()
+        .Where(item => !idsItensExistentes.Contains(item.Id))
+        .ToArray();
+    if (novosEquipamentos.Length > 0)
+    {
+        context.Itens.AddRange(novosEquipamentos);
+        context.SaveChanges();
+        Console.WriteLine($"[Feature 009] Equipamentos oficiais: {novosEquipamentos.Length} itens semeados.");
+    }
+
+    try
+    {
+        var itensParaTrinkets = context.Itens.ToList();
+        var upsertTrinkets = DarkestDungeon.Infrastructure.Data.Seeds.AcessoriosOficiaisSeed.Aplicar(
+            itensParaTrinkets,
+            acessorio => context.Itens.Add(acessorio));
+        if (upsertTrinkets > 0)
+        {
+            context.SaveChanges();
+            Console.WriteLine($"[Feature 013] Acessórios oficiais: {upsertTrinkets} snapshots aplicados.");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"[Feature 013] Upsert de trinkets ignorado (snapshots parciais): {ex.Message}");
     }
 
     var idsClassePorEnum = context.Classes.ToDictionary(c => c.ClasseDeHeroi, c => c.Id);
@@ -136,6 +176,60 @@ if (DarkestDungeon.Api.Auditoria.AuditoriaJobRunner.DeveExecutar(args))
 
 app.Run();
 return 0;
+
+static void MapearAcervoEstatico(WebApplication app)
+{
+    MapearRaizEstatica(app, app.Configuration["Acervo:Herois"] ?? "assets/herois", "/acervo/herois");
+    MapearRaizEstatica(app, app.Configuration["Acervo:EquipamentosItens"] ?? "assets/equipamentos-itens", "/acervo/equipamentos-itens");
+}
+
+static void MapearRaizEstatica(WebApplication app, string configurado, string requestPath)
+{
+    var raiz = ResolverRaizDoAcervo(app.Environment.ContentRootPath, configurado);
+    if (!Directory.Exists(raiz))
+    {
+        return;
+    }
+
+    var tipos = new FileExtensionContentTypeProvider();
+    tipos.Mappings[".atlas"] = "text/plain";
+    tipos.Mappings[".skel"] = "application/octet-stream";
+
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(raiz),
+        RequestPath = requestPath,
+        ContentTypeProvider = tipos,
+    });
+}
+
+static string ResolverRaizDoAcervo(string contentRoot, string configurado)
+{
+    if (Path.IsPathRooted(configurado) && Directory.Exists(configurado))
+    {
+        return configurado;
+    }
+
+    var atual = contentRoot;
+    for (var nivel = 0; nivel < 8; nivel++)
+    {
+        var candidato = Path.GetFullPath(Path.Combine(atual, configurado));
+        if (Directory.Exists(candidato))
+        {
+            return candidato;
+        }
+
+        var pai = Directory.GetParent(atual);
+        if (pai is null)
+        {
+            break;
+        }
+
+        atual = pai.FullName;
+    }
+
+    return Path.GetFullPath(Path.Combine(contentRoot, configurado));
+}
 
 public partial class Program
 {

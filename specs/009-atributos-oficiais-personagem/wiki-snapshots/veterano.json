@@ -1,0 +1,78 @@
+{
+  "classeDeHeroiEnum": "Veterano",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Man-at-Arms_(Darkest_Dungeon)?action=raw",
+  "forma": "humana",
+  "passosAFrente": 2,
+  "passosAtras": 2,
+  "religiosa": false,
+  "provisaoInicial": "",
+  "bonusAoCritico": "-33% Stress",
+  "arma": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "danoMinimo": 5,
+        "danoMaximo": 9,
+        "critico": 2.0,
+        "velocidade": 3
+      },
+      {
+        "nivel": 2,
+        "danoMinimo": 6,
+        "danoMaximo": 10,
+        "critico": 3.0,
+        "velocidade": 3
+      },
+      {
+        "nivel": 3,
+        "danoMinimo": 7,
+        "danoMaximo": 12,
+        "critico": 4.0,
+        "velocidade": 4
+      },
+      {
+        "nivel": 4,
+        "danoMinimo": 7,
+        "danoMaximo": 13,
+        "critico": 5.0,
+        "velocidade": 4
+      },
+      {
+        "nivel": 5,
+        "danoMinimo": 8,
+        "danoMaximo": 14,
+        "critico": 6.0,
+        "velocidade": 5
+      }
+    ]
+  },
+  "armadura": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "hpMaximo": 31,
+        "esquiva": 5
+      },
+      {
+        "nivel": 2,
+        "hpMaximo": 37,
+        "esquiva": 10
+      },
+      {
+        "nivel": 3,
+        "hpMaximo": 43,
+        "esquiva": 15
+      },
+      {
+        "nivel": 4,
+        "hpMaximo": 49,
+        "esquiva": 20
+      },
+      {
+        "nivel": 5,
+        "hpMaximo": 55,
+        "esquiva": 25
+      }
+    ]
+  }
+}

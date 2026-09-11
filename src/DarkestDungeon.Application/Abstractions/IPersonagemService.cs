@@ -7,9 +7,11 @@ namespace DarkestDungeon.Application.Abstractions;
 
 public interface IPersonagemRepository
 {
+    Task<IReadOnlyCollection<Personagem>> ListarAsync(CancellationToken cancellationToken = default);
     Task<Personagem?> ObterPorIdAsync(Guid id, CancellationToken cancellationToken = default);
     Task AdicionarAsync(Personagem personagem, CancellationToken cancellationToken = default);
     Task AtualizarAsync(Personagem personagem, CancellationToken cancellationToken = default);
+    Task<bool> RemoverAsync(Guid id, CancellationToken cancellationToken = default);
 }
 
 public interface IInimigoRepository
@@ -20,9 +22,12 @@ public interface IInimigoRepository
 
 public interface IPersonagemService
 {
+    Task<ResultadoOperacao<IReadOnlyCollection<PersonagemResumoDto>>> ListarAsync(CancellationToken cancellationToken = default);
     Task<ResultadoOperacao<PersonagemDetalheDto>> ObterAsync(Guid id, CancellationToken cancellationToken = default);
     Task<ResultadoOperacao<PersonagemDetalheDto>> CriarAsync(CriarPersonagemCommand command, CancellationToken cancellationToken = default);
     Task<ResultadoOperacao<PersonagemDetalheDto>> EquiparAsync(EquiparPersonagemCommand command, CancellationToken cancellationToken = default);
+    Task<ResultadoOperacao<PersonagemDetalheDto>> EquiparEspacoAsync(EquiparAcessorioNoEspacoCommand command, CancellationToken cancellationToken = default);
+    Task<ResultadoOperacao<bool>> RemoverAsync(Guid id, CancellationToken cancellationToken = default);
 }
 
 public interface IInimigoService

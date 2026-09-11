@@ -20,7 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\DarkestDungeon.Application\DarkestDungeon.Application.csproj" />
     <ProjectReference Include="..\..\src\DarkestDungeon.Domain\DarkestDungeon.Domain.csproj" />
+    <ProjectReference Include="..\..\src\DarkestDungeon.Infrastructure\DarkestDungeon.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,78 @@
+{
+  "classeDeHeroiEnum": "Cruzado",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Crusader_(Darkest_Dungeon)?action=raw",
+  "forma": "humana",
+  "passosAFrente": 1,
+  "passosAtras": 1,
+  "religiosa": true,
+  "provisaoInicial": "Holy Water",
+  "bonusAoCritico": "+15% PROT",
+  "arma": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "danoMinimo": 6,
+        "danoMaximo": 12,
+        "critico": 3.0,
+        "velocidade": 1
+      },
+      {
+        "nivel": 2,
+        "danoMinimo": 7,
+        "danoMaximo": 14,
+        "critico": 4.0,
+        "velocidade": 1
+      },
+      {
+        "nivel": 3,
+        "danoMinimo": 8,
+        "danoMaximo": 16,
+        "critico": 5.0,
+        "velocidade": 2
+      },
+      {
+        "nivel": 4,
+        "danoMinimo": 9,
+        "danoMaximo": 17,
+        "critico": 6.0,
+        "velocidade": 2
+      },
+      {
+        "nivel": 5,
+        "danoMinimo": 10,
+        "danoMaximo": 19,
+        "critico": 7.0,
+        "velocidade": 3
+      }
+    ]
+  },
+  "armadura": {
+    "niveis": [
+      {
+        "nivel": 1,
+        "hpMaximo": 33,
+        "esquiva": 5
+      },
+      {
+        "nivel": 2,
+        "hpMaximo": 40,
+        "esquiva": 10
+      },
+      {
+        "nivel": 3,
+        "hpMaximo": 47,
+        "esquiva": 15
+      },
+      {
+        "nivel": 4,
+        "hpMaximo": 54,
+        "esquiva": 20
+      },
+      {
+        "nivel": 5,
+        "hpMaximo": 61,
+        "esquiva": 25
+      }
+    ]
+  }
+}

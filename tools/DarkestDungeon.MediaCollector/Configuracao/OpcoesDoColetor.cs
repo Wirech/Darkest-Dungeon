@@ -10,9 +10,12 @@ public sealed record OpcoesDoColetor(
     bool GerarManifesto,
     IReadOnlyList<string> Categorias,
     string? CaminhoDoMapeamento,
-    string? CaminhoDoInventarioHerois)
+    string? CaminhoDoInventarioHerois,
+    bool Camping)
 {
     public bool ModoEquipamentos => Categorias.Count > 0;
+
+    public bool ModoCamping => Camping;
 
     public static bool TentarCriar(string[] argumentos, out OpcoesDoColetor? opcoes, out string? erro)
     {
@@ -26,6 +29,7 @@ public sealed record OpcoesDoColetor(
         var simular = false;
         var continuar = false;
         var gerarManifesto = false;
+        var camping = false;
         var aliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
             ["arma"] = "Arma",
@@ -61,6 +65,7 @@ public sealed record OpcoesDoColetor(
                 case "--simular": simular = true; break;
                 case "--continuar": continuar = true; break;
                 case "--gerar-manifesto": gerarManifesto = true; break;
+                case "--camping": camping = true; break;
                 case "--categoria":
                     if (!aliases.TryGetValue(valor!.Trim(), out var canonica))
                     {
@@ -90,6 +95,13 @@ public sealed record OpcoesDoColetor(
             return false;
         }
 
+        if (camping && categorias.Count > 0)
+        {
+            opcoes = null;
+            erro = "A opção --camping não combina com --categoria.";
+            return false;
+        }
+
         opcoes = new(
             Path.GetFullPath(origem),
             Path.GetFullPath(saida),
@@ -100,7 +112,8 @@ public sealed record OpcoesDoColetor(
             gerarManifesto,
             categorias,
             mapeamento is null ? null : Path.GetFullPath(mapeamento),
-            inventarioHerois is null ? null : Path.GetFullPath(inventarioHerois));
+            inventarioHerois is null ? null : Path.GetFullPath(inventarioHerois),
+            camping);
         erro = null;
         return true;
     }

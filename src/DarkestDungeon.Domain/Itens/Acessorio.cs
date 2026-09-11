@@ -43,4 +43,29 @@ public sealed class Acessorio : Item
         ArgumentNullException.ThrowIfNull(midia);
         Midia = midia;
     }
+
+    /// Atualiza metadados e efeitos oficiais sem alterar Id, ConjuntoId ou Midia.
+    public void AtualizarCatalogoOficial(
+        string nomeExibicao,
+        string nomeOriginal,
+        string descricao,
+        RaridadeDeAcessorio? raridade,
+        ClasseDeHeroi? classeExclusiva,
+        IEnumerable<EfeitoDeAcessorio>? efeitos)
+    {
+        AtualizarTextosDoCatalogo(nomeExibicao, nomeOriginal, descricao);
+        if (raridade.HasValue)
+        {
+            Raridade = raridade.Value;
+        }
+
+        ClasseExclusiva = classeExclusiva;
+        if (efeitos is null)
+        {
+            return;
+        }
+
+        this.efeitos.Clear();
+        this.efeitos.AddRange(efeitos);
+    }
 }

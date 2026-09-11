@@ -1,0 +1,13 @@
+{
+  "nomeOriginal": "Book of Holy",
+  "nomeExibicao": "Livro Sagrado",
+  "descricao": "Amostra exclusiva da Vestal.",
+  "raridade": "Incomum",
+  "classeExclusiva": "Vestal",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Book_of_Holy",
+  "efeitos": [
+    { "nome": "MAX HP", "valor": 10, "unidade": "Percentual", "sinal": "Positivo" },
+    { "nome": "Virtue Chance", "valor": 10, "unidade": "Percentual", "sinal": "Positivo" }
+  ],
+  "lacunas": []
+}

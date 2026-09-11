@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{07C2787E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkestDungeon.MediaCollector", "tools\DarkestDungeon.MediaCollector\DarkestDungeon.MediaCollector.csproj", "{C99150D3-3F18-4C7E-8F16-4C6A5229CE77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkestDungeon.WikiCatalogCollector", "tools\DarkestDungeon.WikiCatalogCollector\DarkestDungeon.WikiCatalogCollector.csproj", "{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +133,18 @@ Global
 		{C99150D3-3F18-4C7E-8F16-4C6A5229CE77}.Release|x64.Build.0 = Release|Any CPU
 		{C99150D3-3F18-4C7E-8F16-4C6A5229CE77}.Release|x86.ActiveCfg = Release|Any CPU
 		{C99150D3-3F18-4C7E-8F16-4C6A5229CE77}.Release|x86.Build.0 = Release|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Debug|x64.Build.0 = Debug|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Debug|x86.Build.0 = Debug|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Release|x64.ActiveCfg = Release|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Release|x64.Build.0 = Release|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Release|x86.ActiveCfg = Release|Any CPU
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -144,5 +158,6 @@ Global
 		{3F39EB79-B345-4D78-8AE3-B09E554DDFF9} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{9ADAE423-300C-40F9-9C4B-6F7ABF1C4BE8} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
 		{C99150D3-3F18-4C7E-8F16-4C6A5229CE77} = {07C2787E-EAC7-C090-1BA3-A61EC2A24D84}
+		{9173C5F0-D75A-42A4-ACF0-EF46BBCBF1E1} = {07C2787E-EAC7-C090-1BA3-A61EC2A24D84}
 	EndGlobalSection
 EndGlobal

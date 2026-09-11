@@ -14,6 +14,14 @@ public sealed class PersonagemRepository : IPersonagemRepository
         this.contexto = contexto;
     }
 
+    public async Task<IReadOnlyCollection<Personagem>> ListarAsync(CancellationToken cancellationToken = default) =>
+        await contexto.Seres
+            .OfType<Personagem>()
+            .AsNoTracking()
+            .OrderBy(p => p.Nome)
+            .ToArrayAsync(cancellationToken)
+            .ConfigureAwait(false);
+
     public Task<Personagem?> ObterPorIdAsync(Guid id, CancellationToken cancellationToken = default) =>
         contexto.Seres.OfType<Personagem>().AsNoTracking().FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
 
@@ -27,6 +35,22 @@ public sealed class PersonagemRepository : IPersonagemRepository
     {
         contexto.Seres.Update(personagem);
         await contexto.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+    }
+
+    public async Task<bool> RemoverAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        var personagem = await contexto.Seres
+            .OfType<Personagem>()
+            .FirstOrDefaultAsync(p => p.Id == id, cancellationToken)
+            .ConfigureAwait(false);
+        if (personagem is null)
+        {
+            return false;
+        }
+
+        contexto.Seres.Remove(personagem);
+        await contexto.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+        return true;
     }
 }
 

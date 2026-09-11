@@ -69,6 +69,13 @@ namespace DarkestDungeon.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("BonusAoCriticoDaClasse")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasDefaultValue("");
+
                     b.Property<string>("ClasseDeHeroi")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -83,6 +90,28 @@ namespace DarkestDungeon.Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
+
+                    b.Property<int>("PassosAFrente")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<int>("PassosAtras")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<string>("ProvisaoInicial")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)")
+                        .HasDefaultValue("");
+
+                    b.Property<bool>("Religiosa")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.HasKey("Id");
 
@@ -402,6 +431,11 @@ namespace DarkestDungeon.Infrastructure.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.HasIndex("NomeOriginal")
+                        .IsUnique()
+                        .HasDatabaseName("IX_Itens_Acessorio_NomeOriginal")
+                        .HasFilter("[Discriminador] = N'Acessorio'");
+
                     b.HasDiscriminator().HasValue("Acessorio");
                 });
 
@@ -522,6 +556,18 @@ namespace DarkestDungeon.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("InventarioSlots");
+
+                    b.Property<int?>("NivelDaArma")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NivelDaArmadura")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PassosAFrente")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PassosAtras")
+                        .HasColumnType("int");
 
                     b.Property<bool>("RecuperouAtaqueCardiaco")
                         .HasColumnType("bit");

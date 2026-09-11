@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personagens | Darkest Dungeon</title>
+  <link rel="stylesheet" href="/personagens/personagens.css">
+  <script src="/personagens/vendor/spine-2.1/spine.js"></script>
+  <script src="/personagens/vendor/spine-2.1/spine-skeleton-binary.js"></script>
+  <script src="/personagens/personagens.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Catálogo de heróis</p>
+        <h1>Personagens</h1>
+        <p class="page-intro">Consulte e mantenha os heróis disponíveis para suas expedições.</p>
+      </div>
+      <div class="header-actions">
+        <button class="button button-secondary" id="seed-heroes" type="button">Cadastrar um de cada herói</button>
+        <button class="button button-primary" id="open-create" type="button">+ Criar personagem</button>
+      </div>
+    </header>
+
+    <section class="status-bar" aria-live="polite">
+      <span id="status-message"></span>
+      <button class="button button-quiet" id="retry-list" type="button" hidden>Tentar novamente</button>
+    </section>
+
+    <section id="loading-state" class="state-panel" aria-live="polite" hidden>
+      <span class="loader" aria-hidden="true"></span>
+      <p>Carregando personagens...</p>
+    </section>
+
+    <section id="error-state" class="state-panel state-error" aria-live="assertive" hidden>
+      <strong>Não foi possível carregar os personagens.</strong>
+      <p id="error-message">Verifique a conexão e tente novamente.</p>
+      <button class="button button-secondary" id="retry-error" type="button">Tentar novamente</button>
+    </section>
+
+    <section id="empty-state" class="state-panel" hidden>
+      <span class="state-mark" aria-hidden="true">+</span>
+      <h2>Nenhum personagem cadastrado</h2>
+      <p>Crie o primeiro herói para começar a montar seu catálogo.</p>
+      <button class="button button-primary" id="open-create-empty" type="button">Criar primeiro personagem</button>
+    </section>
+
+    <section id="characters-section" aria-labelledby="characters-title" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Acervo atual</p>
+          <h2 id="characters-title">Heróis cadastrados</h2>
+        </div>
+        <span class="count-badge" id="character-count">0</span>
+      </div>
+      <div class="character-grid" id="character-list"></div>
+    </section>
+
+    <dialog id="character-dialog" class="character-dialog" aria-labelledby="dialog-title">
+      <form id="character-form" method="dialog" novalidate>
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">Novo registro</p>
+            <h2 id="dialog-title">Criar personagem</h2>
+          </div>
+          <button class="icon-button" id="close-dialog" type="button" aria-label="Fechar formulário">×</button>
+        </div>
+
+        <div id="form-error" class="form-alert" role="alert" hidden></div>
+
+        <fieldset>
+          <legend>Identidade</legend>
+          <div class="form-grid form-grid-two">
+            <label class="field field-wide">
+              <span>Nome <b aria-hidden="true">*</b></span>
+              <input id="nome" name="nome" type="text" maxlength="120" required autocomplete="off">
+              <small class="field-error" data-error-for="nome"></small>
+            </label>
+            <label class="field">
+              <span>Classe <b aria-hidden="true">*</b></span>
+              <select id="classe" name="classe" required>
+                <option value="">Selecione uma classe</option>
+              </select>
+              <small class="field-error" data-error-for="classe"></small>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Progressão</legend>
+          <div class="form-grid form-grid-four">
+            <label class="field"><span>Nível do herói</span><input name="nivel" type="number" min="0" max="6" value="0" required></label>
+            <label class="field"><span>Nível da arma</span><input name="nivelDaArma" type="number" min="1" max="5" value="1" required></label>
+            <label class="field"><span>Nível da armadura</span><input name="nivelDaArmadura" type="number" min="1" max="5" value="1" required></label>
+            <label class="field"><span>Aparência</span><select name="aparencia" required><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></label>
+          </div>
+        </fieldset>
+
+        <div class="dialog-actions">
+          <button class="button button-secondary" id="cancel-dialog" type="button">Cancelar</button>
+          <button class="button button-primary" id="save-character" type="submit">Salvar personagem</button>
+        </div>
+      </form>
+    </dialog>
+  </main>
+</body>
+</html>

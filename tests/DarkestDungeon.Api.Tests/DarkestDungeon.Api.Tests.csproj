@@ -28,6 +28,7 @@
     <ProjectReference Include="..\..\src\DarkestDungeon.Domain\DarkestDungeon.Domain.csproj" />
     <ProjectReference Include="..\..\src\DarkestDungeon.Infrastructure\DarkestDungeon.Infrastructure.csproj" />
     <ProjectReference Include="..\..\tools\DarkestDungeon.MediaCollector\DarkestDungeon.MediaCollector.csproj" />
+    <ProjectReference Include="..\..\tools\DarkestDungeon.WikiCatalogCollector\DarkestDungeon.WikiCatalogCollector.csproj" />
   </ItemGroup>
 
   <ItemGroup>

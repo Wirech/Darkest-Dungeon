@@ -1,0 +1,13 @@
+{
+  "nomeOriginal": "Bloodied Fetish",
+  "nomeExibicao": "Fetiche Ensanguentado",
+  "descricao": "Amostra DLC Crimson Court.",
+  "raridade": "CrimsonCourt",
+  "classeExclusiva": "Ocultista",
+  "fonteUrl": "https://darkestdungeon.wiki.gg/wiki/Bloodied_Fetish",
+  "efeitos": [
+    { "nome": "DMG", "valor": 15, "unidade": "Percentual", "sinal": "Positivo" },
+    { "nome": "Stun", "valor": 20, "unidade": "Percentual", "sinal": "Negativo" }
+  ],
+  "lacunas": []
+}

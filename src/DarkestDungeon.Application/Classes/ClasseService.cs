@@ -48,7 +48,12 @@ public sealed class ClasseService : IClasseService
             classe.ClasseDeHeroi,
             classe.NomeExibicao,
             classe.NomeOriginal,
-            resistencias));
+            resistencias,
+            classe.PassosAFrente,
+            classe.PassosAtras,
+            classe.Religiosa,
+            classe.ProvisaoInicial,
+            classe.BonusAoCriticoDaClasse));
     }
 
     public async Task<ResultadoOperacao<IReadOnlyCollection<HabilidadeResumoDto>>> ObterHabilidadesAsync(Guid classeId, CancellationToken cancellationToken = default)

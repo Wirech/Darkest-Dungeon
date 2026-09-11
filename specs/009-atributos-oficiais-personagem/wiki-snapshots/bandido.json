@@ -1,0 +1,78 @@
+﻿{
+    "classeDeHeroiEnum":  "Bandido",
+    "fonteUrl":  "https://darkestdungeon.wiki.gg/wiki/Highwayman_(Darkest_Dungeon)?action=raw",
+    "forma":  "humana",
+    "passosAFrente":  2,
+    "passosAtras":  2,
+    "religiosa":  false,
+    "provisaoInicial":  "",
+    "bonusAoCritico":  "+2 SPD",
+    "arma":  {
+                 "niveis":  [
+                                {
+                                    "nivel":  1,
+                                    "danoMinimo":  5,
+                                    "danoMaximo":  10,
+                                    "critico":  5.0,
+                                    "velocidade":  5
+                                },
+                                {
+                                    "nivel":  2,
+                                    "danoMinimo":  6,
+                                    "danoMaximo":  12,
+                                    "critico":  6.0,
+                                    "velocidade":  5
+                                },
+                                {
+                                    "nivel":  3,
+                                    "danoMinimo":  7,
+                                    "danoMaximo":  13,
+                                    "critico":  7.0,
+                                    "velocidade":  6
+                                },
+                                {
+                                    "nivel":  4,
+                                    "danoMinimo":  8,
+                                    "danoMaximo":  15,
+                                    "critico":  8.0,
+                                    "velocidade":  6
+                                },
+                                {
+                                    "nivel":  5,
+                                    "danoMinimo":  9,
+                                    "danoMaximo":  16,
+                                    "critico":  9.0,
+                                    "velocidade":  7
+                                }
+                            ]
+             },
+    "armadura":  {
+                     "niveis":  [
+                                    {
+                                        "nivel":  1,
+                                        "hpMaximo":  23,
+                                        "esquiva":  10
+                                    },
+                                    {
+                                        "nivel":  2,
+                                        "hpMaximo":  28,
+                                        "esquiva":  15
+                                    },
+                                    {
+                                        "nivel":  3,
+                                        "hpMaximo":  33,
+                                        "esquiva":  20
+                                    },
+                                    {
+                                        "nivel":  4,
+                                        "hpMaximo":  38,
+                                        "esquiva":  25
+                                    },
+                                    {
+                                        "nivel":  5,
+                                        "hpMaximo":  43,
+                                        "esquiva":  30
+                                    }
+                                ]
+                 }
+}

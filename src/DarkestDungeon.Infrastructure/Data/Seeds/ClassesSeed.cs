@@ -60,16 +60,61 @@ public static class ClassesSeed
 
     public static IReadOnlyList<Classe> Materializar()
     {
+        var snapshots = LeitorDeSnapshotsOficiais.Carregar();
         var lista = new List<Classe>();
         foreach (var valor in Enum.GetValues<ClasseDeHeroi>())
         {
             var nomeOriginal = ObterNomeOriginal(valor);
             var nomeExibicao = NomesExibicao[valor];
             var resistencias = ResistenciasBase[valor];
-            lista.Add(new Classe(valor, nomeExibicao, nomeOriginal, resistencias, GerarIdDeterministico(valor)));
+            snapshots.TryGetValue(valor, out var snapshot);
+            lista.Add(new Classe(
+                valor,
+                nomeExibicao,
+                nomeOriginal,
+                resistencias,
+                GerarIdDeterministico(valor),
+                snapshot?.PassosAFrente ?? 0,
+                snapshot?.PassosAtras ?? 0,
+                snapshot?.Religiosa ?? false,
+                snapshot?.ProvisaoInicial ?? string.Empty,
+                snapshot?.BonusAoCritico ?? string.Empty));
         }
 
         return lista;
+    }
+
+    public static int AplicarPerfilOficial(IEnumerable<Classe> classes)
+    {
+        ArgumentNullException.ThrowIfNull(classes);
+        var snapshots = LeitorDeSnapshotsOficiais.Carregar();
+        var atualizadas = 0;
+        foreach (var classe in classes)
+        {
+            if (!snapshots.TryGetValue(classe.ClasseDeHeroi, out var snapshot))
+            {
+                continue;
+            }
+
+            if (classe.PassosAFrente == snapshot.PassosAFrente
+                && classe.PassosAtras == snapshot.PassosAtras
+                && classe.Religiosa == snapshot.Religiosa
+                && classe.ProvisaoInicial == snapshot.ProvisaoInicial
+                && classe.BonusAoCriticoDaClasse == snapshot.BonusAoCritico)
+            {
+                continue;
+            }
+
+            classe.DefinirPerfilOficial(
+                snapshot.PassosAFrente,
+                snapshot.PassosAtras,
+                snapshot.Religiosa,
+                snapshot.ProvisaoInicial,
+                snapshot.BonusAoCritico);
+            atualizadas++;
+        }
+
+        return atualizadas;
     }
 
     private static string ObterNomeOriginal(ClasseDeHeroi valor)

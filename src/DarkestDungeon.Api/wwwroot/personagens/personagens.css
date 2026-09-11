@@ -1,0 +1,156 @@
+:root {
+  color-scheme: dark;
+  --ink: #f4efe4;
+  --muted: #a69d90;
+  --paper: #171615;
+  --panel: #211f1d;
+  --panel-raised: #2a2724;
+  --line: #413b35;
+  --accent: #d29a52;
+  --accent-hot: #efbd70;
+  --danger: #d27468;
+  --success: #8db889;
+  --shadow: 0 18px 50px rgba(0, 0, 0, .32);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(145, 87, 47, .18), transparent 30rem),
+    linear-gradient(135deg, #171615 0%, #211d1b 50%, #121212 100%);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.5;
+}
+
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: wait; opacity: .55; }
+
+.app-shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 52px 0 80px; }
+.page-header, .section-heading, .dialog-header, .dialog-actions, .status-bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.page-header { border-bottom: 1px solid var(--line); padding-bottom: 34px; }
+.eyebrow { color: var(--accent-hot); font: 700 .72rem/1.2 'Trebuchet MS', sans-serif; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 8px; }
+h1, h2, p { margin-top: 0; }
+h1 { font-size: clamp(2.6rem, 7vw, 5.8rem); line-height: .95; letter-spacing: -.04em; margin-bottom: 18px; font-weight: 400; }
+h2 { font-size: 1.8rem; line-height: 1; margin-bottom: 8px; font-weight: 400; }
+.page-intro { max-width: 34rem; color: var(--muted); font-size: 1.08rem; margin-bottom: 0; }
+
+.button { border: 1px solid transparent; border-radius: 4px; min-height: 44px; padding: 10px 18px; transition: background .2s, border-color .2s, transform .2s; }
+.button:hover { transform: translateY(-1px); }
+.button-primary { color: #221a10; background: var(--accent); border-color: var(--accent-hot); font-weight: 700; }
+.button-primary:hover { background: var(--accent-hot); }
+.button-secondary { color: var(--ink); background: transparent; border-color: var(--line); }
+.button-secondary:hover { border-color: var(--accent); background: rgba(210, 154, 82, .08); }
+.button-quiet { color: var(--accent-hot); background: transparent; padding-inline: 0; min-height: auto; }
+.icon-button { border: 0; color: var(--muted); background: transparent; font-size: 2rem; line-height: 1; padding: 4px 8px; }
+.icon-button:hover { color: var(--ink); }
+
+.status-bar { min-height: 56px; color: var(--muted); font: .88rem 'Trebuchet MS', sans-serif; }
+.state-panel { margin-top: 32px; padding: 64px 28px; border: 1px dashed var(--line); text-align: center; color: var(--muted); }
+.state-panel h2 { color: var(--ink); }
+.state-panel p { max-width: 32rem; margin: 0 auto 22px; }
+.state-error { border-color: rgba(210, 116, 104, .55); color: #e4aaa2; }
+.state-error strong { display: block; color: var(--ink); font-size: 1.1rem; margin-bottom: 6px; }
+.state-mark { display: grid; place-items: center; width: 48px; height: 48px; margin: 0 auto 20px; border: 1px solid var(--accent); border-radius: 50%; color: var(--accent-hot); font-size: 1.6rem; }
+.loader { display: block; width: 28px; height: 28px; margin: 0 auto 16px; border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#characters-section { margin-top: 34px; }
+.section-heading { align-items: end; margin-bottom: 22px; }
+.count-badge { display: grid; place-items: center; min-width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--accent-hot); font: 700 .85rem 'Trebuchet MS', sans-serif; }
+.character-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.character-card { display: flex; flex-direction: column; min-height: 250px; padding: 22px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(42, 39, 36, .96), rgba(29, 27, 25, .96)); box-shadow: var(--shadow); }
+.card-media { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 16px; }
+.media-slot { margin: 0; min-height: 88px; padding: 8px; border: 1px solid rgba(65, 59, 53, .9); background: rgba(12, 11, 10, .55); overflow: hidden; }
+.media-slot figcaption { color: var(--muted); font: 700 .68rem 'Trebuchet MS', sans-serif; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+.media-slot-image { display: block; width: 100%; max-height: 120px; object-fit: contain; image-rendering: pixelated; }
+.media-slot-corpo { display: flex; flex-direction: column; grid-column: 1 / -1; min-height: 268px; }
+.media-slot-stage { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; height: 240px; }
+.media-slot-canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; pointer-events: none; }
+.corpo-versao { display: block; margin-top: 8px; }
+.corpo-versao select { width: 100%; min-height: 32px; color: var(--ink); background: var(--panel-raised); border: 1px solid var(--line); border-radius: 4px; padding: 4px 8px; }
+.corpo-versao select:disabled, .corpo-versao option:disabled { color: var(--muted); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.media-missing { display: grid; place-items: center; min-height: 64px; color: var(--muted); font: .78rem 'Trebuchet MS', sans-serif; }
+.card-meta { color: var(--muted); font: .78rem 'Trebuchet MS', sans-serif; margin: -12px 0 16px; }
+.card-category { display: grid; gap: 8px; margin-bottom: 16px; }
+.card-category h3, .card-skills h3 { color: var(--muted); font: 700 .7rem 'Trebuchet MS', sans-serif; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 4px; }
+.skill-level { margin-left: auto; color: var(--accent-hot); font-style: normal; }
+.character-card:hover { border-color: #685742; }
+.card-top, .card-actions, .metric-row, .skill-line { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.card-top { align-items: start; margin-bottom: 22px; }
+.card-name { font-size: 1.45rem; margin-bottom: 3px; }
+.card-class, .metric-label, .skill-line { color: var(--muted); font: .78rem 'Trebuchet MS', sans-serif; }
+.card-class { color: var(--accent-hot); }
+.card-metrics { display: grid; gap: 10px; margin-bottom: 20px; }
+.metric-row { border-bottom: 1px solid rgba(65, 59, 53, .7); padding-bottom: 7px; }
+.metric-value { color: var(--ink); font-weight: 700; }
+.ficha-efetiva { padding: 10px; border: 1px solid rgba(210, 154, 82, .35); background: rgba(210, 154, 82, .06); }
+.metric-efetivo { color: var(--accent-hot); }
+.metric-base { opacity: .78; font-size: .92em; }
+.metric-base .metric-value { font-weight: 400; color: var(--muted); }
+.trinket-slots { gap: 10px; }
+.trinket-slot { display: grid; gap: 6px; padding: 8px; border: 1px dashed var(--line); color: var(--muted); font: .78rem 'Trebuchet MS', sans-serif; }
+.trinket-slot-vazio { border-style: dashed; }
+.trinket-slot-ocupado { border-style: solid; border-color: var(--accent); color: var(--ink); }
+.trinket-slot-indisponivel, .trinket-slot select:disabled { opacity: .55; }
+.trinket-slot select { width: 100%; min-height: 36px; color: var(--ink); background: var(--panel-raised); border: 1px solid var(--line); border-radius: 4px; padding: 4px 8px; }
+.card-skills { flex: 1; margin-bottom: 22px; }
+.card-skills h3 { color: var(--muted); font: 700 .7rem 'Trebuchet MS', sans-serif; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 8px; }
+.skill-line { justify-content: flex-start; padding: 3px 0; flex-wrap: wrap; }
+.skill-line .media-slot { min-height: 48px; padding: 4px; width: 48px; flex: 0 0 48px; }
+.skill-line .media-slot figcaption { display: none; }
+.skill-line .media-slot-image, .skill-line .media-missing { min-height: 40px; max-height: 40px; }
+.skill-name { flex: 1; min-width: 0; }
+.skill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.card-actions { justify-content: flex-end; margin-top: auto; }
+.delete-button { color: var(--danger); background: transparent; border: 0; padding: 4px 0; font: .8rem 'Trebuchet MS', sans-serif; }
+.delete-button:hover { color: #f0a29a; }
+
+.character-dialog { width: min(840px, calc(100% - 28px)); max-height: calc(100vh - 28px); padding: 0; border: 1px solid var(--line); color: var(--ink); background: var(--panel); box-shadow: 0 30px 90px rgba(0, 0, 0, .65); }
+.character-dialog::backdrop { background: rgba(8, 8, 8, .78); backdrop-filter: blur(3px); }
+.character-dialog form { overflow: auto; max-height: calc(100vh - 28px); padding: 28px; }
+.dialog-header { margin-bottom: 22px; }
+fieldset { min-width: 0; margin: 0 0 22px; padding: 18px; border: 1px solid var(--line); }
+legend { padding: 0 8px; color: var(--accent-hot); font-size: 1.05rem; }
+.form-grid { display: grid; gap: 14px; }
+.form-grid-two { grid-template-columns: 1.4fr 1fr; }
+.form-grid-four { grid-template-columns: repeat(4, 1fr); }
+.field { display: grid; gap: 5px; min-width: 0; color: var(--muted); font: .78rem 'Trebuchet MS', sans-serif; }
+.field-wide { grid-column: span 1; }
+.field b { color: var(--accent-hot); }
+.field input, .field select { width: 100%; min-height: 40px; border: 1px solid var(--line); border-radius: 3px; padding: 8px 10px; color: var(--ink); background: #151413; outline: none; }
+.field input:focus, .field select:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(210, 154, 82, .16); }
+.field-error { min-height: 16px; color: var(--danger); }
+.form-alert { margin-bottom: 18px; padding: 11px 14px; border: 1px solid rgba(210, 116, 104, .55); color: #efb2aa; background: rgba(210, 116, 104, .09); }
+.fieldset-help, .inline-status { color: var(--muted); font: .82rem 'Trebuchet MS', sans-serif; }
+.skills-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.skill-option { display: flex; align-items: center; gap: 9px; min-height: 38px; padding: 8px 10px; border: 1px solid var(--line); color: var(--ink); font: .86rem 'Trebuchet MS', sans-serif; }
+.skill-option:has(input:checked) { border-color: var(--accent); background: rgba(210, 154, 82, .1); }
+.skill-option input { accent-color: var(--accent); }
+.dialog-actions { justify-content: flex-end; padding-top: 4px; }
+
+@media (max-width: 720px) {
+  .app-shell { width: min(100% - 24px, 600px); padding-top: 28px; }
+  .page-header { align-items: flex-start; flex-direction: column; gap: 22px; }
+  .page-header .button { width: 100%; }
+  .form-grid-two, .form-grid-four, .skills-list { grid-template-columns: 1fr 1fr; }
+  .form-grid-two .field-wide { grid-column: span 2; }
+  .character-dialog form { padding: 18px; }
+}
+
+@media (max-width: 460px) {
+  h1 { font-size: 3.2rem; }
+  .form-grid-two, .form-grid-four, .skills-list { grid-template-columns: 1fr; }
+  .form-grid-two .field-wide { grid-column: auto; }
+  .dialog-actions { align-items: stretch; flex-direction: column-reverse; }
+  .dialog-actions .button { width: 100%; }
+  .card-media { grid-template-columns: 1fr 1fr; }
+  .character-card { padding: 16px; }
+  .delete-button { min-height: 44px; }
+}

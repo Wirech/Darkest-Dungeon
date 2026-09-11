@@ -50,7 +50,12 @@ public sealed class Personagem : Ser
         ResistenciasExtrasDePersonagem resistenciasExtras,
         int stress,
         int chanceDeVirtude,
-        Guid? id = null)
+        int? nivelDaArma = null,
+        int? nivelDaArmadura = null,
+        AparenciaDePersonagem aparencia = AparenciaDePersonagem.A,
+        Guid? id = null,
+        int? passosAFrente = null,
+        int? passosAtras = null)
         : base(nome, "Personagem", hpMaximo, hpAtual, velocidade, critico, danoBaseMinimo, danoBaseMaximo, movimento, bonusDeCritico, tamanho, acoesPorTurno, esquiva, precisao, protecao, nivel, resistencias, id)
     {
         if (stress is < 0 or > 200)
@@ -67,8 +72,10 @@ public sealed class Personagem : Ser
         ResistenciasExtras = resistenciasExtras ?? throw new ArgumentNullException(nameof(resistenciasExtras));
         Stress = stress;
         ChanceDeVirtude = chanceDeVirtude;
+        DefinirNiveisDeEquipamento(nivelDaArma, nivelDaArmadura);
+        DefinirPassosDeDeslocamento(passosAFrente, passosAtras);
         Inventario = new Inventario();
-        Aparencia = AparenciaDePersonagem.A;
+        DefinirAparencia(aparencia);
         Experiencia = 0;
     }
 
@@ -83,6 +90,14 @@ public sealed class Personagem : Ser
     public bool RecuperouAtaqueCardiaco { get; private set; }
     public Guid? ArmaEquipadaId { get; private set; }
     public Guid? ArmaduraEquipadaId { get; private set; }
+    public int? NivelDaArma { get; private set; }
+    public int? NivelDaArmadura { get; private set; }
+
+    /// Snapshot do deslocamento oficial à frente. Distinto de `Ser.Movimento`.
+    public int? PassosAFrente { get; private set; }
+
+    /// Snapshot do deslocamento oficial para trás. Distinto de `Ser.Movimento`.
+    public int? PassosAtras { get; private set; }
     public Guid? AcessorioEquipado1Id { get; private set; }
     public Guid? AcessorioEquipado2Id { get; private set; }
     public IReadOnlyList<HabilidadeDePersonagem> Habilidades => habilidades;
@@ -140,6 +155,38 @@ public sealed class Personagem : Ser
 
     public void EquiparArma(Guid? armaId) => ArmaEquipadaId = armaId;
     public void EquiparArmadura(Guid? armaduraId) => ArmaduraEquipadaId = armaduraId;
+
+    public void DefinirNiveisDeEquipamento(int? nivelDaArma, int? nivelDaArmadura)
+    {
+        if (nivelDaArma is < 1 or > 5)
+        {
+            throw new ArgumentOutOfRangeException(nameof(nivelDaArma), "Nível da arma deve estar entre 1 e 5.");
+        }
+
+        if (nivelDaArmadura is < 1 or > 5)
+        {
+            throw new ArgumentOutOfRangeException(nameof(nivelDaArmadura), "Nível da armadura deve estar entre 1 e 5.");
+        }
+
+        NivelDaArma = nivelDaArma;
+        NivelDaArmadura = nivelDaArmadura;
+    }
+
+    public void DefinirPassosDeDeslocamento(int? passosAFrente, int? passosAtras)
+    {
+        if (passosAFrente is < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(passosAFrente), "Passos à frente devem ser >= 0.");
+        }
+
+        if (passosAtras is < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(passosAtras), "Passos atrás devem ser >= 0.");
+        }
+
+        PassosAFrente = passosAFrente;
+        PassosAtras = passosAtras;
+    }
 
     public void EquiparAcessorios(Guid? acessorio1Id, Guid? acessorio2Id)
     {

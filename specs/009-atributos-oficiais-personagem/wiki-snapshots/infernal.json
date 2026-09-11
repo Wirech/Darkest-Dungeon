@@ -1,0 +1,78 @@
+﻿{
+    "classeDeHeroiEnum":  "Infernal",
+    "fonteUrl":  "https://darkestdungeon.wiki.gg/wiki/Hellion_(Darkest_Dungeon)?action=raw",
+    "forma":  "humana",
+    "passosAFrente":  1,
+    "passosAtras":  0,
+    "religiosa":  false,
+    "provisaoInicial":  "",
+    "bonusAoCritico":  "+33% DMG vs Bleeding",
+    "arma":  {
+                 "niveis":  [
+                                {
+                                    "nivel":  1,
+                                    "danoMinimo":  6,
+                                    "danoMaximo":  12,
+                                    "critico":  5.0,
+                                    "velocidade":  4
+                                },
+                                {
+                                    "nivel":  2,
+                                    "danoMinimo":  7,
+                                    "danoMaximo":  14,
+                                    "critico":  6.0,
+                                    "velocidade":  4
+                                },
+                                {
+                                    "nivel":  3,
+                                    "danoMinimo":  8,
+                                    "danoMaximo":  16,
+                                    "critico":  7.0,
+                                    "velocidade":  5
+                                },
+                                {
+                                    "nivel":  4,
+                                    "danoMinimo":  9,
+                                    "danoMaximo":  17,
+                                    "critico":  8.0,
+                                    "velocidade":  5
+                                },
+                                {
+                                    "nivel":  5,
+                                    "danoMinimo":  10,
+                                    "danoMaximo":  19,
+                                    "critico":  9.0,
+                                    "velocidade":  6
+                                }
+                            ]
+             },
+    "armadura":  {
+                     "niveis":  [
+                                    {
+                                        "nivel":  1,
+                                        "hpMaximo":  26,
+                                        "esquiva":  10
+                                    },
+                                    {
+                                        "nivel":  2,
+                                        "hpMaximo":  31,
+                                        "esquiva":  15
+                                    },
+                                    {
+                                        "nivel":  3,
+                                        "hpMaximo":  36,
+                                        "esquiva":  20
+                                    },
+                                    {
+                                        "nivel":  4,
+                                        "hpMaximo":  41,
+                                        "esquiva":  25
+                                    },
+                                    {
+                                        "nivel":  5,
+                                        "hpMaximo":  46,
+                                        "esquiva":  30
+                                    }
+                                ]
+                 }
+}

@@ -1,0 +1,6 @@
+{
+  "id": "010-imagens-card-personagem",
+  "status": "specified",
+  "descricao": "Exibir no card do personagem o retrato da aparência A–D, as imagens de arma e armadura no nível atual e os ícones das habilidades listadas.",
+  "spec": "specs/010-imagens-card-personagem/spec.md"
+}

@@ -1,5 +1,7 @@
+using DarkestDungeon.Api.Contracts;
 using DarkestDungeon.Api.Contracts.Catalogo;
 using DarkestDungeon.Application.Abstractions;
+using DarkestDungeon.Domain.Classes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DarkestDungeon.Api.Controllers.Catalogo;
@@ -57,6 +59,19 @@ public sealed class AcessoriosController : EntidadeControllerBase
     public AcessoriosController(IItemService service)
     {
         this.service = service;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult> Listar([FromQuery] ClasseDeHeroi? classe, [FromQuery] Guid? excluirId, CancellationToken cancellationToken)
+    {
+        if (classe is null || !Enum.IsDefined(classe.Value))
+        {
+            return BadRequest(new ErroResponse(
+                "Classe inválida.",
+                new[] { new ErroCampoResponse("classe", "Informe uma classe válida.") }));
+        }
+
+        return MapearResultado(await service.ListarAcessoriosAsync(classe.Value, excluirId, cancellationToken), v => v);
     }
 
     [HttpPost]

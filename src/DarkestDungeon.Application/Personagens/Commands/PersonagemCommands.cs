@@ -1,4 +1,5 @@
 using DarkestDungeon.Domain.Classes;
+using DarkestDungeon.Domain.Personagens;
 using DarkestDungeon.Domain.Seres;
 
 namespace DarkestDungeon.Application.Personagens.Commands;
@@ -22,13 +23,21 @@ public sealed record CriarPersonagemCommand(
     int Nivel,
     int Stress,
     int ChanceDeVirtude,
-    IReadOnlyCollection<Guid>? HabilidadesEquipadas);
+    IReadOnlyCollection<Guid>? HabilidadesEquipadas,
+    int? NivelDaArma = null,
+    int? NivelDaArmadura = null,
+    AparenciaDePersonagem Aparencia = AparenciaDePersonagem.A);
 
 public sealed record EquiparPersonagemCommand(
     Guid PersonagemId,
     Guid? ArmaId,
     Guid? ArmaduraId,
     IReadOnlyCollection<Guid>? AcessoriosIds);
+
+public sealed record EquiparAcessorioNoEspacoCommand(
+    Guid PersonagemId,
+    int Espaco,
+    Guid? AcessorioId);
 
 public sealed record CriarInimigoCommand(
     string Nome,
